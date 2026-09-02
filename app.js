@@ -54,9 +54,9 @@
   // 차례 카드의 설명 줄은 대표님 지시로 뺐습니다 (2026-09-02). 되살리려면 buildToc 의 td 줄을 다시 넣으세요.
   var CHSUM = {
     '부기를 만든 이유':    '한 쪽에 모르는 낱말 서너 개면 아이는 멈춥니다. PISA 14.7%, 어휘 98% 임계값, 마태 효과, 상승 나선.',
-    '부기 학생 기능 소개': '낱말 뜻풀이, 모국어로 읽기, 원문과 재구성, 등장인물과의 대화, 12개 영역 진단, 소품과 서고, 우리 반 작품.',
-    '부기 교사 기능 소개': '온책읽기 8차시를 골라 담고, 여섯 자리 숫자로 아이들을 들이고, 상담에 쓸 기록을 받습니다.',
-    '부기 관리 기능 소개': '학교와 학급 현황에서 아이 한 명까지. 담임이 쓴 관찰노트는 이 화면에 오지 않습니다.',
+    '부기 학생 기능 소개': '낱말 뜻풀이, 원문과 재구성, 부기와의 대화, 아바타와 소품, 서고와 배지, 우리 반 작품.',
+    '부기 교사 기능 소개': '온책읽기 8차시를 골라 담고, 학급 코드로 아이들을 들이고, 상담에 쓸 기록을 받습니다.',
+    '부기 관리 기능 소개': '학교와 학급 현황에서 아이 한 명까지. 관리자는 조회만 하고 담당 학교 밖은 보지 못합니다.',
     '사용 후기와 신청':    '써 보신 뒤 사진과 후기를 남겨 주세요. 신청은 QR로 받습니다.'
   };
 
@@ -71,8 +71,9 @@
     // 지어낸 요약이 아니라 BOOK 배열의 제목이라 쪽을 고치면 차례도 따라옵니다.
     $('hub').innerHTML = order.map(function (ch) {
       var c = seen[ch], range = c.from === c.to ? c.from + '쪽' : c.from + '–' + c.to + '쪽';
-      var titles = BOOK.filter(function (b, i) { return i && b.ch === ch; })
-                       .map(function (b) { return esc(b.t); }).join('<i>·</i>');
+      // 쪽번호를 앞세운 작은 차례 항목으로 (2026-09-02: 점으로 이어 붙인 낱말 나열이 «의미 없는 열거»로 보인다는 지적)
+      var titles = BOOK.map(function (b, i) { return i && b.ch === ch
+                       ? '<span class="ti' + (/준비 중/.test(b.t) ? ' soon' : '') + '"><i>' + i + '</i>' + esc(b.t) + '</span>' : ''; }).join('');
       return '<button class="tocch2" type="button" data-go="' + c.first + '"'
            + ' style="--c:' + (CHCOLOR[ch] || 'var(--brand)') + '">'
            + '<span class="tt">' + esc(ch) + '</span>'
@@ -84,7 +85,8 @@
 
   // 시험 사용 신청 메뉴는 대표님 지시로 잠시 뺌 (2026-08-24) — 다시 넣을 때:
   // + '<a href="#/apply" data-nav="/apply" style="color:var(--brand);font-weight:700">시험 사용 신청</a>'
-  $('topnav').innerHTML = '<a href="#/" data-nav="/">차례</a>';
+  $('topnav').innerHTML = '<a href="#/" data-nav="/">차례</a><button type="button" id="printBtn">인쇄</button>';
+  $('printBtn').addEventListener('click', function () { window.print(); });
 
   /* ── 라우터 ──────────────────────────────── */
   function go(r){ if (location.hash !== '#'+r) location.hash = r; else route(); }
@@ -107,10 +109,10 @@
     { r:'/spiral',    t:'책 읽기의 상승 나선 효과',                  ch:'부기를 만든 이유' },
     { r:'/read',      t:'아이마다 다른 화면',         ch:'부기 학생 기능 소개' },
     { r:'/word',      t:'낱말 뜻은 그 자리에서',      ch:'부기 학생 기능 소개' },
-    { r:'/vi',        t:'다양한 언어를 지원합니다.',           ch:'부기 학생 기능 소개' },
+    { r:'/vi',        t:'다양한 언어로 읽기 (준비 중)',  ch:'부기 학생 기능 소개' },
     { r:'/level',     t:'원문, 재구성, 교훈',         ch:'부기 학생 기능 소개' },
-    { r:'/chat',      t:'등장인물과의 대화',       ch:'부기 학생 기능 소개' },
-    { r:'/diagnose',  t:'문해력 수준을 점검합니다.',        ch:'부기 학생 기능 소개' },
+    { r:'/chat',      t:'부기와의 대화',              ch:'부기 학생 기능 소개' },
+    { r:'/diagnose',  t:'문해력 수준 점검 (준비 중)',   ch:'부기 학생 기능 소개' },
     { r:'/fun',       t:'양치기 소년의 지팡이',       ch:'부기 학생 기능 소개' },
     { r:'/props',     t:'책마다 다른 소품',           ch:'부기 학생 기능 소개' },
     { r:'/shelf',     t:'나만의 서고 만들기',  ch:'부기 학생 기능 소개' },
@@ -118,7 +120,7 @@
     { r:'/next',      t:'안데르센에게 묻기',          ch:'부기 학생 기능 소개' },
     { r:'/teacher',   t:'온책읽기 8차시',             ch:'부기 교사 기능 소개' },
     { r:'/material',  t:'차시 PPT와 과정안',          ch:'부기 교사 기능 소개' },
-    { r:'/code',      t:'여섯 자리 입장 코드',        ch:'부기 교사 기능 소개' },
+    { r:'/code',      t:'학급 코드로 들어가기',        ch:'부기 교사 기능 소개' },
     { r:'/class',     t:'학생 독서현황 살펴보기',    ch:'부기 교사 기능 소개' },
     { r:'/admin',     t:'한눈에 보는 독서 현황',       ch:'부기 관리 기능 소개' },
     { r:'/apply',     t:'사용 후기 제출',             ch:'사용 후기와 신청' }
@@ -167,7 +169,7 @@
     paper.innerHTML = '';
     host = document.createElement('div'); host.id = 'bk-flip';
     paper.appendChild(host);
-    var box = pageBox();
+    var box = pageBox(); lastBox = box;
     LEAVES.forEach(function (el) { el.style.width = box.pageW + 'px'; el.style.height = box.pageH + 'px'; host.appendChild(el); });
     pf = new St.PageFlip(host, {
       width: box.pageW, height: box.pageH, size: 'fixed',
@@ -195,6 +197,79 @@
      그 값으로 다음 자리를 셈하면 '이전'을 눌렀는데 앞으로 가는 일이 생깁니다.
      그래서 지금 가려는 낱쪽 번호를 따로 들고 다닙니다. */
   var want = 0;
+  var lastBox = null;
+
+  /* ── 인쇄: A4 가로 한 장에 펼침면 하나, 화면과 똑같이 ──────────
+     StPageFlip 은 펼쳐진 두 쪽만 보이게 하므로 그대로 인쇄하면 한 펼침면만 나온다.
+     인쇄 직전에 낱쪽을 **복제**해(원본은 넘김 판에 그대로 — 판의 그리기 루프가 원본 인라인 스타일을 되씌운다)
+     두 장씩 .prsheet 로 묶고, 화면 쪽 크기(lastBox) 그대로 A4 여백 안(281×194mm)에 들어가게 통째로 줄인다.
+     인쇄 매체에서는 vw 글자 크기·max-height 미디어쿼리가 화면과 달리 풀리므로, 화면에서 계산된 값
+     (글자 크기·행간·여백·간격·격자·그림 높이)을 복제본에 인라인으로 고정해 화면과 같은 모습으로 찍는다.
+     펼침면(대략 2.2:1)이 A4 가로(1.45:1)보다 납작해 위아래 띠가 남는 것은 화면과 같게 두는 대가다. (2026-09-02) */
+  var PIN = ['font-size','line-height','letter-spacing','padding-top','padding-right','padding-bottom','padding-left',
+             'margin-top','margin-right','margin-bottom','margin-left','row-gap','column-gap','grid-template-columns'];
+  function pinStyles(src, dst) {
+    var a = [src].concat([].slice.call(src.querySelectorAll('*'))), b = [dst].concat([].slice.call(dst.querySelectorAll('*')));
+    for (var i = 0; i < a.length && i < b.length; i++) {
+      var cs = getComputedStyle(a[i]), st = b[i].style;
+      for (var k = 0; k < PIN.length; k++) { var v = cs.getPropertyValue(PIN[k]); if (v) st.setProperty(PIN[k], v); }
+      // 그림은 높이만 고정(폭까지 박으면 fitSpots 가 높이를 바꿀 때 비율이 깨진다)
+      if (a[i].tagName === 'IMG') { st.setProperty('height', cs.height); st.setProperty('max-height', cs.maxHeight); }
+    }
+  }
+  function toPrint() {
+    if (document.body.classList.contains('printing')) return;
+    // 쪽 폭은 화면 그대로(글줄 바꿈·글자 크기가 화면과 같게), 높이는 큰 모니터에서 보이는 최대 비율(폭×1.32 — pageBox 의 상한).
+    // 그 펼침면 비율(1.52:1)이 A4 가로 여백(1.45:1)과 거의 같아 종이가 찬다. 맥북처럼 낮은 창에서 찍어도 결과가 같다.
+    var box = lastBox || pageBox(), W = box.pageW, H = Math.round(W * 1.32);
+    var PX = 96 / 25.4, z = Math.min((281 * PX) / (W * 2), (194 * PX) / H) * 0.995;
+    var out = document.createElement('div'); out.id = 'bk-print';
+    for (var i = 0; i < LEAVES.length; i += 2) {
+      var sh = document.createElement('div'); sh.className = 'prsheet';
+      var inn = document.createElement('div'); inn.className = 'prin'; inn.style.zoom = z; sh.appendChild(inn);
+      [LEAVES[i], LEAVES[i + 1]].forEach(function (el) {
+        if (!el) return;
+        var c = el.cloneNode(true);
+        // 넘김 판이 보이는 쪽에 주는 상태(display:block)와 같게 — 화면과 같은 보정 함수가 그대로 맞는다
+        c.style.cssText = 'display:block;position:relative;width:' + W + 'px;height:' + H + 'px';
+        pinStyles(el, c);
+        inn.appendChild(c);
+      });
+      out.appendChild(sh);
+    }
+    // 복제본을 화면 밖에 잠깐 펼쳐 놓고, 화면과 같은 채움 보정(가운데 내림·삽화 높이·데모 축소·차례 벌림)을 인쇄 높이로 다시 잰다.
+    // fit* 는 document 의 모든 .bkpage 를 훑으므로 복제본도 함께 맞춰진다(원본은 같은 값이 다시 계산될 뿐).
+    out.style.cssText = 'display:block;position:absolute;left:-99999px;top:0;width:' + (W * 2) + 'px';
+    document.body.appendChild(out);
+    try { fitLive(); fitSpots(); fitFill(); } catch (e) {}   // build() 와 같은 순서 — fitFill 이 먼저 오면 데모 상자가 커진 뒤 여백이 남아 넘친다
+    var tc = out.querySelector('.bkpage.toc-list'), hub = tc && tc.querySelector('#hub');
+    if (hub) {
+      // 차례는 남는 높이만큼 통째로 키운다(글자·번호·여백이 함께 커짐, 최대 1.4배). 넘치면 조인 뒤 줄인다.
+      // (2026-09-02 사용자: «카드는 늘었는데 글자 크기는 그대로네» → 여백 대신 배율)
+      hub.style.height = 'auto'; hub.style.zoom = ''; hub.classList.remove('tight');
+      // 화면에서 고정한 격자 열 너비(px)는 확대하면 쪽 밖으로 삐져나간다 → 차례 안에서는 풀어 CSS(1fr auto·auto-fill)대로 다시 흐르게
+      hub.style.gridTemplateColumns = ''; hub.querySelectorAll('[style]').forEach(function (e) { e.style.gridTemplateColumns = ''; });
+      // ⚠️ 치수는 getBoundingClientRect(화면 px — 시트 zoom·차례 zoom 이 섞임)가 아니라 offset/client(요소 자기 css px)로 잰다.
+      //    room·need 는 쪽 좌표의 css px, 차례에 zoom z 를 걸면 차례 안 css px = 쪽 css px / z 이므로 높이는 room/z 를 넣는다.
+      var padB = parseFloat(getComputedStyle(tc).paddingBottom) || 0;
+      var room = tc.clientHeight - padB - hub.offsetTop, need = hub.offsetHeight;
+      if (need > room) { hub.classList.add('tight'); need = hub.offsetHeight; room = tc.clientHeight - padB - hub.offsetTop; }
+      var z = Math.max(0.55, Math.min(1.4, room / need));
+      for (var t = 0; t < 12; t++) {
+        hub.style.zoom = z; hub.style.height = (room / z) + 'px';
+        if (hub.scrollHeight <= hub.clientHeight + 1 || z <= 0.55) break;   // 확대로 줄 수가 늘어 넘치면 조금씩 줄인다
+        z -= 0.03;
+      }
+    }
+    out.style.cssText = '';   // 다시 감춤 — 인쇄 매체에서만 보인다(#bk-print 규칙)
+    document.body.classList.add('printing');
+  }
+  function fromPrint() {
+    var out = $('bk-print'); if (out) out.remove();
+    document.body.classList.remove('printing');
+  }
+  addEventListener('beforeprint', toPrint);
+  addEventListener('afterprint', fromPrint);
   function leafNow() { return want; }
   /* 앞뒤로 한 칸 옮기기.
      flipNext()/flipPrev() 는 turnToPage 로 옮긴 뒤에 방향이 어긋나는 일이 있어(2026-09-02 확인)
@@ -371,12 +446,16 @@
   function fitToc() {
     var p = document.querySelector('.bkpage.toc-list'), hub = $('hub');
     if (!p || !hub) return;
-    if (narrow()) { hub.style.height = 'auto'; return; }
+    hub.style.height = 'auto'; hub.style.zoom = ''; hub.classList.remove('tight');
+    if (narrow()) return;
     var hidden = getComputedStyle(p).display === 'none', prev = p.style.display;
     if (hidden) p.style.display = 'block';
-    hub.style.height = 'auto';
     var room = p.clientHeight - hub.offsetTop - parseFloat(getComputedStyle(p).paddingBottom || 0);
-    if (room > hub.scrollHeight) hub.style.height = room + 'px';
+    // 창이 낮아 다섯 장이 다 안 들어가면: ① 카드를 한 단계 조이고(.tight) ② 그래도 넘치면 통째로 줄인다.
+    // 어느 높이에서도 «사용 후기와 신청»까지 다 보여야 한다 (2026-09-02 사용자 지적).
+    if (hub.scrollHeight > room) hub.classList.add('tight');
+    if (hub.scrollHeight > room) hub.style.zoom = Math.max(0.55, room / hub.scrollHeight);
+    else if (room > hub.scrollHeight) hub.style.height = room + 'px';
     if (hidden) p.style.display = prev;
   }
   addEventListener('resize', fitToc);
@@ -501,53 +580,68 @@
     b.classList.add('on'); paint2(b.dataset.mode); }); });
   paint2('orig');
 
-  /* ── 인물과 대화 ─────────────────────────── */
-  var ME = '<img src="assets/char-base2.webp" alt="">';
-  function av(label, color){ return '<span style="width:100%;height:100%;display:grid;place-items:center;background:'+color+'">'+label+'</span>'; }
+  /* ── 부기와 대화 ─────────────────────────────
+     실제 부기와 같은 얼개입니다. 부기가 지도안의 발문을 순서대로 건네고, 아이가 답하면
+     한 번만 되묻고 다음 발문으로 넘어갑니다. 여기서는 아이의 답을 칩으로 고릅니다. */
+  var ME = '<img src="assets/char-new-face.webp" alt="">';
+  var BK = '<img src="assets/char-new-face.webp" alt="">';
   var CHATS = {
-    tokki: { hd:'토끼와 거북이에게 물어보기',
-      open:[[av('토','#cf7150'),'안녕! 나는 토끼야. 궁금한 걸 물어봐.'],[av('거','#82a35e'),'나는 거북이야. 천천히 대답할게.']],
-      qa:[['토끼야, 너는 그렇게 빨라?',av('토','#cf7150'),'나는 타고난 달리기의 천재거든! (윙크)'],
-          ['거북아, 너는 안 힘들어?',av('거','#82a35e'),'조금 힘들지만, 포기하지 않고 걷다 보면 목적지에 도착할 수 있어!'],
-          ['토끼야, 낮잠 잘 때 무슨 생각 했어?',av('토','#cf7150'),'금방 일어나서 뛰면 된다고 생각했어… 그게 실수였지.'],
-          ['거북아, 지고 있을 때 마음이 어땠어?',av('거','#82a35e'),'앞이 안 보여도 내 걸음만 세었어. 그게 내가 할 수 있는 전부였거든.']] },
-    karen: { hd:'빨간 구두: 카렌과 대화하기',
-      open:[[av('카','#b4657f'),'안녕? 내 이야기를 다 아는구나? 응, 가난해서 신발 한 켤레도 없었어… 할머니가 데려가 주셨을 때 정말 기뻤지.']],
-      qa:[['카렌! 나는 너의 이야기를 읽고 있어. 할머니를 만나서 다행이야.',av('카','#b4657f'),'그치? 깨끗한 옷도 주시고… 그리고… 그 빨간 구두!'],
-          ['그 빨간 구두, 신었을 때 어떤 기분이었어?',av('카','#b4657f'),'발이 땅에 안 닿는 것 같았어. 모두가 나를 봐 주는 것 같았거든.'],
-          ['할머니가 편찮으셨을 때는 어땠어?',av('카','#b4657f'),'…부끄럽지만, 구두 생각이 먼저 났어. 그게 아직도 미안해.'],
-          ['지금 그때로 돌아간다면?',av('카','#b4657f'),'구두는 여전히 예쁠 거야. 다만 할머니 손을 먼저 잡을 것 같아.']] }
+    tokki: { hd:'<b>부기와 이야기 나누기</b><span>「토끼와 거북이」 2차시 · 인물 만나기 · 발문 3개</span>',
+      steps:[
+        { q:'토끼는 어떤 친구인 것 같아? 그렇게 생각한 까닭도 말해 줘.',
+          a:[['잘난 척을 많이 해. "내가 제일 빨라!" 하고 자랑했잖아.','맞아, 자랑하는 말에서 그런 마음이 보이지. 그럼 자랑을 들은 거북이는 기분이 어땠을까?'],
+             ['빠른 친구야. 진짜로 빠르니까.','빠른 건 사실이야. 그런데 빠른 걸 어떻게 말했는지도 떠올려 볼래?']] },
+        { q:'거북이는 어떤 친구야? 어디서 알 수 있었어?',
+          a:[['포기하지 않는 친구야. 느려도 계속 걸었으니까.','끝까지 걸은 걸 놓치지 않았네. 거북이가 시합하자고 한 까닭은 뭘까?'],
+             ['용감해. 토끼한테 먼저 시합하자고 했어.','먼저 말한 게 용감했다고 봤구나. 그때 거북이는 이길 수 있다고 생각했을까?']] },
+        { q:'너라면 토끼와 거북이 중 누구랑 친구가 되고 싶어?',
+          a:[['거북이. 약속을 지키고 끝까지 하니까.','그런 친구가 곁에 있으면 든든하지. 오늘 이야기는 여기까지야. 잘 이야기했어!'],
+             ['토끼. 같이 놀면 재미있을 것 같아.','재미있는 친구도 소중하지. 오늘 이야기는 여기까지야. 잘 이야기했어!']] } ] },
+    karen: { hd:'<b>부기와 이야기 나누기</b><span>「토끼와 거북이」 4차시 · 마음 헤아리기 · 발문 2개</span>',
+      steps:[
+        { q:'토끼가 나무 그늘에서 잠들 때, 마음속으로 무슨 생각을 했을까?',
+          a:[['"거북이는 한참 뒤에 있으니까 잠깐 자도 돼."','그렇게 믿었겠지. 그 믿음이 어떤 결과로 이어졌어?'],
+             ['"오늘은 정말 쉽게 이기겠다."','쉽게 이길 거라고 생각했구나. 그 생각이 토끼를 어떻게 만들었을까?']] },
+        { q:'결승선에 먼저 닿은 거북이는 어떤 마음이었을까?',
+          a:[['기뻤을 거야. 그리고 조금 놀랐을 것 같아.','기쁘고 놀란 마음, 둘 다 있었을 것 같아. 오늘 이야기는 여기까지야. 잘 이야기했어!'],
+             ['뿌듯했을 거야. 포기하지 않았으니까.','포기하지 않은 자기가 자랑스러웠겠지. 오늘 이야기는 여기까지야. 잘 이야기했어!']] } ] }
   };
-  var curChat = 'tokki', used = [];
+  var curChat = 'tokki', stepI = 0;
   function addMsg(who, face, text) {
     var d = document.createElement('div'); d.className = 'msg' + (who==='me' ? ' me' : '');
     d.innerHTML = '<span class="fa">'+face+'</span><span class="bb">'+esc(text)+'</span>';
     $('msgs').appendChild(d);
+    $('msgs').scrollTop = $('msgs').scrollHeight;
   }
   function renderAsks() {
-    var c = CHATS[curChat];
-    $('asks').innerHTML = c.qa.map(function (q,i) {
-      return '<button class="ask" type="button" data-q="'+i+'"'+(used.indexOf(i)>=0?' disabled':'')+'>'+esc(q[0])+'</button>'; }).join('');
+    var c = CHATS[curChat], st = c.steps[stepI];
+    if (!st) { $('asks').innerHTML = '<p class="askdone">대화가 끝났습니다. 이 대화는 아이의 서고에 「토끼와 거북이」 기록으로 남습니다.</p>'; return; }
+    $('asks').innerHTML = '<p class="askhint">내 답을 골라 보세요</p>' + st.a.map(function (q,i) {
+      return '<button class="ask" type="button" data-q="'+i+'">'+esc(q[0])+'</button>'; }).join('');
     $('asks').querySelectorAll('[data-q]').forEach(function (b) {
       b.addEventListener('click', function () {
-        var i = +b.dataset.q; if (used.indexOf(i) >= 0) return;
-        used.push(i); addMsg('me', ME, c.qa[i][0]); renderAsks();
-        setTimeout(function(){ addMsg('ch', c.qa[i][1], c.qa[i][2]); $('msgs').scrollTop = $('msgs').scrollHeight; }, 420);
+        var pair = st.a[+b.dataset.q];
+        addMsg('me', ME, pair[0]); $('asks').innerHTML = '';
+        setTimeout(function(){ addMsg('ch', BK, pair[1]); stepI++;
+          var nx = c.steps[stepI];
+          if (nx) setTimeout(function(){ addMsg('ch', BK, nx.q); renderAsks(); }, 700); else renderAsks();
+        }, 420);
       });
     });
   }
   function loadChat(k) {
-    curChat = k; used = [];
+    curChat = k; stepI = 0;
     var c = CHATS[k];
     $('chatHd').innerHTML = c.hd;
     $('msgs').innerHTML = '';
-    c.open.forEach(function (o){ addMsg('ch', o[0], o[1]); });
+    addMsg('ch', BK, c.steps[0].q);
     renderAsks();
   }
   document.querySelectorAll('[data-ch]').forEach(function (b){ b.addEventListener('click', function () {
     document.querySelectorAll('[data-ch]').forEach(function(x){ x.classList.remove('on'); });
     b.classList.add('on'); loadChat(b.dataset.ch); }); });
   loadChat('tokki');
+
 
   /* ── 진단 5단계 ──────────────────────────── */
   var LV = [
@@ -640,28 +734,29 @@
   }
   renderModes(); renderSessions();
 
-  /* ── 6자리 코드 ──────────────────────────── */
+  /* ── 학급 코드 ────────────────────────────────
+     실제 흐름: 학급 코드(영문·숫자 여섯 자) → 명단에서 내 이름 → 짧은 비밀번호 → 우리 반. */
   var ins = [].slice.call(document.querySelectorAll('#digits input'));
   var codeBox = document.querySelector('.codebox');
   function codeReset() {
     ins.forEach(function (x){ x.value = ''; });
     codeBox.classList.remove('done'); $('codeIn').hidden = true;
-    $('codeReader').hidden = true; $('codeCard').hidden = false;
-    $('codeMsg').textContent = '숫자 여섯 개를 눌러 보세요';
+    $('codePick').hidden = false; $('codePw').hidden = true; $('codeCard').hidden = true;
+    $('codeReader').hidden = true; $('pwIn').value = '';
+    $('codeMsg').textContent = '영문·숫자 여섯 자를 넣어 보세요 (아무 글자나 됩니다)';
     ins[0].focus();
   }
   function codeCheck() {
     var v = ins.map(function(x){ return x.value; }).join('');
-    if (v.length === 6) {                     // 여섯 자리를 다 넣으면 학생 화면이 열립니다
+    if (v.length === 6) {                     // 여섯 자를 다 넣으면 명단이 열립니다
       codeBox.classList.add('done'); $('codeIn').hidden = false; fitLive();
     } else {
-      $('codeMsg').textContent = v.length===0 ? '숫자 여섯 개를 눌러 보세요' : v.length + ' / 6';
+      $('codeMsg').textContent = v.length===0 ? '영문·숫자 여섯 자를 넣어 보세요 (아무 글자나 됩니다)' : v.length + ' / 6';
     }
   }
   ins.forEach(function (el, i) {
     el.addEventListener('input', function () {
-      // 한 칸에 여러 자를 붙여 넣으면 뒤 칸으로 흘려 넣습니다
-      var d = el.value.replace(/\D/g,'');
+      var d = el.value.replace(/[^0-9a-zA-Z]/g,'').toLowerCase();
       el.value = d.slice(0,1);
       for (var k = 1; k < d.length && i+k < ins.length; k++) ins[i+k].value = d[k];
       var last = Math.min(i + Math.max(d.length,1), ins.length-1);
@@ -671,21 +766,26 @@
     el.addEventListener('focus', function (){ el.select(); });
     el.addEventListener('keydown', function (e){ if (e.key==='Backspace' && !el.value && i>0) ins[i-1].focus(); });
   });
+  document.querySelectorAll('#codePick .pick').forEach(function (b) {
+    b.addEventListener('click', function () {
+      $('pwWho').textContent = b.dataset.name; $('cardWho').textContent = b.dataset.name;
+      $('codePick').hidden = true; $('codePw').hidden = false; $('pwIn').focus(); fitLive();
+    });
+  });
+  function pwGo() {
+    if ($('pwIn').value.length < 1) { $('pwIn').focus(); return; }
+    $('codePw').hidden = true; $('codeCard').hidden = false; fitLive();
+  }
+  $('pwGo').addEventListener('click', pwGo);
+  $('pwIn').addEventListener('keydown', function (e){ if (e.key==='Enter') pwGo(); });
   $('codeAgain').addEventListener('click', codeReset);
-  // '읽으러 가기'는 쪽을 옮기지 않고 이 쪽 안에서 읽기 화면을 엽니다 (2026-09-02)
+  // '읽으러 가기'는 쪽을 옮기지 않고 이 쪽 안에서 읽기 화면을 엽니다
   $('codeRead').addEventListener('click', function () {
     $('codeCard').hidden = true; $('codeReader').hidden = false; fitLive();
   });
   $('codeBack').addEventListener('click', function () {
     $('codeReader').hidden = true; $('codeCard').hidden = false; fitLive();
   });
-
-  /* ── 이름 정하기 ─────────────────────────── */
-  var ni = $('nameIn');
-  function setName(){ var v = ni.value.trim();
-    $('nameMsg').textContent = v ? '반가워요, '+v+'! 이제 첫 책을 고르러 가요.' : '이름을 지어 주면 부기가 기억해요.'; }
-  $('nameBtn').addEventListener('click', setName);
-  ni.addEventListener('keydown', function (e){ if (e.key==='Enter') setName(); });
 
   /* ── 전시장 ──────────────────────────────── */
   var TYPEICO = { '그림':'image', '독후감':'pen', '생각':'bulb' };
@@ -705,21 +805,18 @@
   }
   renderGal();
 
-  /* ── 학생 목록 닉네임 토글 ───────────────── */
-  var STU = [['책읽는토끼','이○희','#5b8def',12,1840,9,7],['느림보거북','이○연','#e8518f',15,2010,12,8],
-    ['별빛도서관','박○호','#f0a92e',5,680,3,4],['초록나무','최○윤','#3fae63',11,1720,7,7],
-    ['달려라햄스터','정○우','#8a6bd1',16,2150,14,8],['구름빵','강○린','#3aa6d8',9,1280,5,6],
-    ['호기심상자','윤○준','#f47a8b',7,920,4,5],['조용한바람','한○아','#2f9e8f',13,1880,8,7]];
-  var useNick = true;
+  /* ── 학생별 독서 요약 (교사 화면은 학생 이름으로 보입니다) ── */
+  var STU = [['김하늘','#5b8def',12,1840,9,7],['이서준','#e8518f',15,2010,12,8],
+    ['박다은','#f0a92e',5,680,3,4],['최윤우','#3fae63',11,1720,7,7],
+    ['정하린','#8a6bd1',16,2150,14,8],['강지호','#3aa6d8',9,1280,5,6],
+    ['윤서아','#f47a8b',7,920,4,5],['한도윤','#2f9e8f',13,1880,8,7]];
   function renderStu() {
-    $('stuList').innerHTML = STU.slice(0, 3).map(function (s){ var n = useNick ? s[0] : s[1];
-      return '<div class="stu"><span class="av" style="background:'+s[2]+'">'+n.charAt(0)+'</span>'
-        +'<span><b>'+esc(n)+'</b><span>완독 '+s[3]+'권 · 독서 스코어 '+s[4].toLocaleString()+' · 연속 '+s[5]+'일</span></span>'
-        +'<span class="lv2">Lv.'+s[6]+'</span></div>'; }).join('')
+    $('stuList').innerHTML = STU.slice(0, 3).map(function (s){ var n = s[0];
+      return '<div class="stu"><span class="av" style="background:'+s[1]+'">'+n.charAt(0)+'</span>'
+        +'<span><b>'+esc(n)+'</b><span>완독 '+s[2]+'권 · 독서 스코어 '+s[3].toLocaleString()+' · 연속 '+s[4]+'일</span></span>'
+        +'<span class="lv2">Lv.'+s[5]+'</span></div>'; }).join('')
       + '<p class="more-n">…이하 ' + (STU.length - 3) + '명이 더 있습니다.</p>';
   }
-  $('nickOn').addEventListener('click', function(){ useNick=true; this.classList.add('on'); $('nickOff').classList.remove('on'); renderStu(); });
-  $('nickOff').addEventListener('click', function(){ useNick=false; this.classList.add('on'); $('nickOn').classList.remove('on'); renderStu(); });
   renderStu();
 
   /* ── 기관 관리자 드릴다운 ────────────────── */
@@ -782,7 +879,7 @@
       av2.innerHTML = '<h3 style="font-size:22px;margin:0 0 4px">'+esc(c3[0])+'</h3>'
         +'<p style="font-size:13.5px;color:var(--ink-faint);margin:0 0 18px">'+esc(s3.name)+' · 담임 '+esc(c3[1])+' · 학생 '+c3[2]+'명 · 완독 '+c3[3]+'권</p>'
         + (kids ? '<h3 style="font-size:18px;margin:0 0 4px">학급 아이들</h3><p style="font-size:13.5px;color:var(--ink-faint);margin:0 0 16px">아이를 누르면 개인 이력이 열립니다</p><div class="kids">'
-            + kids.map(function (k) { return '<div class="kid"><div class="ph"><img src="assets/char-base2.webp" alt="">'
+            + kids.map(function (k) { return '<div class="kid"><div class="ph"><img src="assets/char-new-face.webp" alt="">'
               +'<span class="cap" style="background:'+k[5]+'"></span></div>'
               +'<b>'+esc(k[0])+'</b><div class="lvp"><em>Lv.'+k[1]+'</em>'+k[2]+'P</div><div class="dn2">완독 '+k[3]+'권</div>'
               +'<div class="dt">최근 완독 '+k[4]+'</div></div>'; }).join('') + '</div>'

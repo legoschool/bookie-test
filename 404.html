@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>없는 쪽입니다 · 부기</title>
+<link rel="icon" href="assets/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="theme-color" content="#1d3a2a">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --paper:#f7f4ec; --ink:#1f2b20; --ink2:#4d574c; --deep:#1d3a2a; --brand:#2f7d4f; --line:#e6e1d4;
+    --serif:'Noto Serif KR',serif;
+    --sans:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--paper); color:var(--ink2);
+    font-family:var(--sans); line-height:1.8; word-break:keep-all;
+    display:flex; align-items:center; justify-content:center;
+    padding:clamp(20px,6vw,64px);
+  }
+  main{max-width:34rem; width:100%; text-align:center}
+  img.mark{width:clamp(76px,18vw,104px); height:auto; border-radius:50%; margin:0 0 clamp(16px,4vw,24px)}
+  h1{
+    font-family:var(--serif); color:var(--ink); font-weight:700;
+    font-size:clamp(1.5rem,5.4vw,2.05rem); letter-spacing:-.02em;
+    margin:0 0 clamp(10px,2.5vw,14px); text-wrap:balance;
+  }
+  p{margin:0 auto clamp(24px,6vw,34px); font-size:clamp(.95rem,3.4vw,1.03rem); max-width:26rem}
+  a.home{
+    display:inline-block; text-decoration:none; font-weight:700;
+    font-size:clamp(.95rem,3.4vw,1rem);
+    color:var(--paper); background:var(--brand);
+    padding:.8em 1.9em; border-radius:999px;
+    transition:background .15s ease;
+  }
+  a.home:hover,a.home:focus-visible{background:var(--deep)}
+  a.home:focus-visible{outline:3px solid var(--brand); outline-offset:3px}
+  .sub{margin:clamp(20px,5vw,28px) 0 0; font-size:.86rem; color:#8a9084}
+  .sub a{color:#8a9084}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <img class="mark" src="assets/char-new-face.webp" alt="">
+  <h1>찾으시는 쪽이 없습니다</h1>
+  <p>주소가 바뀌었거나, 잘못 눌리신 것 같아요.<br>차례로 돌아가시면 스물네 쪽을 처음부터 보실 수 있습니다.</p>
+  <a class="home" href="./">차례로 가기</a>
+  <p class="sub">부기를 써 보시려면 <a href="https://bookie.io.kr">bookie.io.kr</a></p>
+</main>
+</body>
+</html>

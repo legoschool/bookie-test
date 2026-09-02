@@ -29,13 +29,13 @@ a{color:var(--brand)}
 .hd{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(247,244,236,.94);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
-.hd-in{display:flex;align-items:center;gap:12px;height:52px;max-width:1180px;margin:0 auto;padding:0 24px}
+.hd-in{display:flex;align-items:center;gap:12px;height:52px;max-width:1492px;margin:0 auto;padding:0 16px} /* 책 폭(최대 1460 + 종이 여백 16×2)과 같은 폭 — 로고·차례가 책 양 끝에 맞선다 (2026-09-02) */
 .hd img{width:30px;height:30px;object-fit:cover;object-position:22% 30%;border-radius:50%;background:var(--paper-deep)}
 .hd .nm{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink)}
 .hd nav{margin-left:auto;display:flex;gap:16px;font-size:13.5px}
-.hd nav a{color:var(--ink-soft);text-decoration:none;white-space:nowrap}
-.hd nav a:hover{color:var(--brand)}
-@media(max-width:1000px){.hd nav{display:none}}
+.hd nav a,.hd nav button{color:var(--ink-soft);text-decoration:none;white-space:nowrap;background:none;border:0;padding:0;font:inherit;cursor:pointer}
+.hd nav a:hover,.hd nav button:hover{color:var(--brand)}
+@media screen and (max-width:1000px){.hd nav{display:none}}
 
 .hero{position:relative;background:var(--wall);color:var(--wall-ink);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;opacity:.13;
@@ -53,7 +53,7 @@ a{color:var(--brand)}
 .ghost{color:var(--wall-ink);text-decoration:none;font-size:15px;border-bottom:1px solid rgba(246,242,228,.45);padding-bottom:3px}
 .hero-art{position:absolute;right:-20px;bottom:0;width:min(42%,430px);pointer-events:none}
 .hero-art img{width:100%;height:auto;display:block;mix-blend-mode:luminosity;opacity:.55}
-@media(max-width:900px){.hero-art{display:none}}
+@media screen and (max-width:900px){.hero-art{display:none}}
 .hstats{position:relative;border-top:1px solid rgba(246,242,228,.16);background:rgba(0,0,0,.14)}
 .hstats-in{display:flex;flex-wrap:wrap;gap:34px;padding:20px 0}
 .hs b{font-family:var(--serif);font-size:24px;color:var(--wall-ink);display:block;line-height:1.3}
@@ -91,7 +91,7 @@ h2{font-size:clamp(24px,3.4vw,36px);line-height:1.35;margin:0 0 18px}
 .pill.on{background:var(--brand-deep);border-color:var(--brand-deep);color:#fff}
 .demo-body{padding:30px;background:var(--card)}
 .readwrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start}
-@media(max-width:760px){.readwrap{grid-template-columns:1fr}}
+@media screen and (max-width:760px){.readwrap{grid-template-columns:1fr}}
 .readwrap .pic{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
 .rdr{font-family:var(--serif);font-size:19px;line-height:2.15;color:var(--ink);transition:font-size .18s var(--ease)}
 .rdr p{margin:0 0 6px;text-indent:.5em}
@@ -188,7 +188,7 @@ h2{font-size:clamp(24px,3.4vw,36px);line-height:1.35;margin:0 0 18px}
 .mat:hover{border-color:var(--brand);color:var(--brand)}
 .mat.send{border-color:var(--brand);color:var(--brand)}
 .mat.on{background:var(--brand-deep);border-color:var(--brand-deep);color:#fff}
-@media(max-width:640px){.acts,.mats{margin-left:0}}
+@media screen and (max-width:640px){.acts,.mats{margin-left:0}}
 .guide{background:var(--surface-soft);border:1px solid var(--line);border-radius:14px;padding:22px;margin-top:14px}
 .guide h4{font-family:var(--serif);font-size:17px;color:var(--ink);margin:0 0 4px}
 .guide .gm{font-size:12.5px;font-weight:700;color:var(--c-orange);background:var(--amber-bg);border-radius:var(--r-pill);padding:3px 11px;display:inline-block;margin-bottom:10px}
@@ -199,7 +199,7 @@ h2{font-size:clamp(24px,3.4vw,36px);line-height:1.35;margin:0 0 18px}
 .qbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .qbox .ql{font-size:12px;font-weight:700;color:var(--brand);margin-bottom:5px}
 .qbox ul{margin:0;padding-left:16px;font-size:14px}
-@media(max-width:640px){.grow{grid-template-columns:1fr;gap:6px}}
+@media screen and (max-width:640px){.grow{grid-template-columns:1fr;gap:6px}}
 
 /* 코드 */
 .code{background:var(--wall);color:var(--wall-ink);padding:76px 0}
@@ -391,7 +391,7 @@ footer p{margin:0 0 6px}
 .cvshot{align-self:flex-start;max-width:100%}
 .cvshot img{display:block;width:auto;max-width:100%;height:min(352px,42vh);object-fit:contain;object-position:center}
 .cvnote{font-size:12px;letter-spacing:.04em;color:#9dc3a6;margin:0}
-@media(max-height:700px){
+@media screen and (max-height:700px){
   .cvshot img{height:min(210px,32vh)}
   .cvmark img{width:44px;height:44px}
 }
@@ -441,12 +441,12 @@ footer p{margin:0 0 6px}
 .cycle{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:cy}
 .cycle li{counter-increment:cy;position:relative;padding:0 0 26px 46px}
 .cycle li:last-child{padding-bottom:0}
-.cycle li::before{content:counter(cy);position:absolute;left:0;top:-2px;width:30px;height:30px;
+.cycle li::before{content:counter(cy);position:absolute;left:0;top:0;width:30px;height:30px;
   border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;
   font-family:var(--serif);font-style:normal;font-weight:700;font-size:16px}
 .cycle li:not(:last-child)::after{content:"";position:absolute;left:14px;top:32px;bottom:6px;
   width:1px;background:var(--brand-soft)}
-.cycle b{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);margin-bottom:3px}
+.cycle b{display:block;font-family:var(--serif);font-size:17px;line-height:30px;color:var(--ink);margin-bottom:3px} /* 제목 줄 높이 = 번호 원 지름 → 원과 글자의 세로 중심이 맞는다 (2026-09-02) */
 .cycle span{font-size:14px;color:var(--ink-soft);line-height:1.7}
 
 /* 출처 — 쪽 아래에 붙습니다 */
@@ -492,7 +492,7 @@ footer p{margin:0 0 6px}
 .fr2 img{width:100%;height:auto;max-height:min(46vh,460px);object-fit:contain;object-position:top;
   display:block;border-radius:10px;border:1px solid var(--line);background:var(--surface-soft)}
 .fr2 figcaption{font-size:13px;color:var(--ink-faint);margin-top:10px;line-height:1.7}
-@media(max-width:700px){.fr2{grid-template-columns:1fr}}
+@media screen and (max-width:700px){.fr2{grid-template-columns:1fr}}
 
 /* 어두운 쪽 */
 .bkpage.dark .ch{color:#9dc3a6}
@@ -528,8 +528,13 @@ footer p{margin:0 0 6px}
 .tocch2 .tn{align-self:center;font-family:var(--serif);font-weight:700;white-space:nowrap;
   font-size:clamp(14px,1.05vw,18px);color:var(--c,var(--brand));
   background:var(--paper);border-radius:var(--r-pill);padding:5px 13px}
-.tocch2 .tl{grid-column:1/-1;font-size:clamp(12.5px,.9vw,14.5px);line-height:1.7;color:var(--ink-faint)}
-.tocch2 .tl i{font-style:normal;color:var(--line);margin:0 7px}
+/* 장 안의 쪽 제목 — 쪽번호를 앞세운 작은 차례. 점선 위에 2~3단으로 (2026-09-02) */
+.tocch2 .tl{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:3px 16px;
+  margin-top:2px;padding-top:9px;border-top:1px dashed var(--line);font-size:clamp(12.5px,.85vw,14px);line-height:1.5;color:var(--ink-soft)}
+.tocch2 .ti{display:flex;align-items:baseline;gap:7px;min-width:0}
+.tocch2 .ti i{flex:0 0 auto;font-style:normal;font-family:var(--serif);font-weight:700;font-size:.95em;min-width:1.6em;text-align:right;color:var(--c,var(--brand))}
+.tocch2 .ti.soon{color:var(--ink-faint)}
+.tocch2 .ti.soon i{opacity:.55}
 .tocch2:hover{transform:translateY(-2px);box-shadow:0 16px 30px -20px rgba(61,44,29,.55)}
 .tocch2:hover .tt{color:var(--brand)}
 
@@ -668,7 +673,7 @@ footer p{margin:0 0 6px}
 .bkpage.live.dark{background:var(--wall)}
 .page.dark 
 /* 좁은 화면에서는 펼치지 않고 위아래로 */
-@media(max-width:900px){
+@media screen and (max-width:900px){
         .bkpage{padding:20px 22px;justify-content:flex-start}
   .art{padding:18px 20px}
   .art img{max-height:40vh}
@@ -692,13 +697,13 @@ footer p{margin:0 0 6px}
 .tochead{margin-bottom:20px}
 .tochead h1{font-size:clamp(23px,3vw,32px);margin-bottom:12px}
 .tochead .lead{font-size:15px;line-height:1.8;max-width:52em;margin-bottom:10px}
-@media(max-height:900px){
+@media screen and (max-height:900px){
   .tochead .lead{display:none}
   .tochead{margin-bottom:16px}
 }
 
 /* 학교 노트북처럼 세로가 짧은 화면 */
-@media(max-height:760px){
+@media screen and (max-height:760px){
     .bkpage h2{font-size:clamp(19px,2.4vw,25px);margin-bottom:10px}
   .say{font-size:14.5px;line-height:1.75;margin-bottom:14px}
   .ch{margin-bottom:7px}
@@ -733,7 +738,7 @@ footer p{margin:0 0 6px}
   .tochead .kick{margin-bottom:8px}
 }
 /* 세로가 아주 짧은 화면(1366x660 같은) — 한 단계 더 */
-@media(max-height:700px){
+@media screen and (max-height:700px){
   .bkpage{padding:20px 24px}
   .bkpage h2{font-size:clamp(17px,2.1vw,22px);margin-bottom:9px}
   .bkpage .say{font-size:13.5px;line-height:1.72;margin-bottom:11px}
@@ -761,7 +766,7 @@ footer p{margin:0 0 6px}
   background:rgba(247,244,236,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
 /* ↑ padding:0 필수 — 위의 구식 footer{padding:32px 0} 규칙이 내용 높이를 0으로 만들어
    넘김 줄이 화면 아래로 흘러넘쳤던 버그의 원인 */
-.rl{height:100%;max-width:1180px;margin:0 auto;padding:0 24px;
+.rl{height:100%;max-width:1492px;margin:0 auto;padding:0 16px; /* 상단 .hd-in 과 같은 폭 — 이전·다음이 책 양 끝에 */
   display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
 .rl button{background:none;border:0;font-family:var(--sans);font-size:14.5px;color:var(--brand);
   cursor:pointer;padding:0;text-align:left;line-height:1.45;min-width:0;max-width:100%}
@@ -773,7 +778,7 @@ footer p{margin:0 0 6px}
 .rl b{display:block;font-size:11.5px;color:var(--ink-faint);font-weight:400}
 .rl .folio{font-family:var(--serif);font-size:13.5px;color:var(--ink-faint);letter-spacing:.1em;white-space:nowrap}
 .rl .folio em{font-style:normal;color:var(--brand);font-weight:700}
-@media(max-width:640px){
+@media screen and (max-width:640px){
   .rl button span{display:none}
   .rl{padding:0 16px}
 }
@@ -830,7 +835,7 @@ footer p{margin:0 0 6px}
 .feature b{display:block;font-family:var(--serif);font-size:23px;color:var(--wall-ink);margin-bottom:8px;line-height:1.4}
 .feature span{display:block;font-size:15px;color:#cfd9c9;line-height:1.75;max-width:40em}
 .feature .arw2{position:relative;font-size:22px;color:var(--gold);flex:none}
-@media(max-width:640px){.feature{flex-direction:column;align-items:flex-start;gap:18px;padding:28px 24px}.feature .arw2{display:none}}
+@media screen and (max-width:640px){.feature{flex-direction:column;align-items:flex-start;gap:18px;padding:28px 24px}.feature .arw2{display:none}}
 
 .hubgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px}
 .hub{padding:24px 22px}
@@ -1003,9 +1008,9 @@ footer p{margin:0 0 6px}
 /* 설명 줄을 뺀 차례식 목록 — 네 단계만 큼직하게 (2026-09-02, 18쪽) */
 .cycle.bare li{padding:0 0 44px 62px}
 .cycle.bare li:last-child{padding-bottom:0}
-.cycle.bare li::before{width:40px;height:40px;font-size:18px;top:-6px}
+.cycle.bare li::before{width:40px;height:40px;font-size:18px;top:0}
 .cycle.bare li:not(:last-child)::after{left:19px;top:42px}
-.cycle.bare b{font-size:23px;margin:0}
+.cycle.bare b{font-size:23px;line-height:40px;margin:0}
 
 
 /* ── 3쪽 · 백 칸 격자와 교실 그림 (2026-09-02) ──
@@ -1065,7 +1070,7 @@ footer p{margin:0 0 6px}
 
 
 /* 화면이 낮으면(노트북 등) 3·5쪽 그림과 큰 숫자를 함께 줄여 쪽을 넘지 않게 (2026-09-02) */
-@media(max-height:960px){
+@media screen and (max-height:960px){
   .numrow{gap:18px}
   .dotbox{width:clamp(150px,16vw,215px)}
   .bignum b{font-size:clamp(40px,4.2vw,58px)}
@@ -1078,7 +1083,7 @@ footer p{margin:0 0 6px}
   .steps3>div{padding:10px 14px}
 }
 
-@media(max-height:700px){
+@media screen and (max-height:700px){
   .dotbox{width:clamp(118px,13vw,162px)}
   .dotbox span{font-size:11.5px}
   .room{max-height:20vh}
@@ -1104,15 +1109,21 @@ footer p{margin:0 0 6px}
 .cread .cr-body u{text-decoration:none;border-bottom:2px dotted var(--c-orange);color:var(--brand-deep);font-weight:700}
 .cread .cr-hint{margin:0 0 14px;font-size:12px;color:var(--ink-faint);text-indent:0}
 
+/* 차례가 쪽에 안 들어갈 때 fitToc() 가 붙이는 조임 단계 — 이걸로도 넘치면 #hub 에 zoom 을 건다 (2026-09-02) */
+#hub.tight{gap:6px}
+#hub.tight .tocch2{padding:9px 14px 8px;border-radius:11px;border-left-width:5px}
+#hub.tight .tocch2 .tt{font-size:clamp(17px,1.2vw,21px)}
+#hub.tight .tocch2 .tn{font-size:clamp(12.5px,.9vw,14px);padding:3px 10px}
+#hub.tight .tocch2 .tl{grid-template-columns:repeat(auto-fill,minmax(13em,1fr));gap:2px 14px;padding-top:7px;margin-top:0;font-size:12px;line-height:1.45}
 /* 화면이 낮으면 차례 카드도 함께 줄입니다 (2026-09-02) */
-@media(max-height:880px){
+@media screen and (max-height:880px){
   #hub{gap:8px}
   .tocch2{padding:12px 17px 11px}
   .tocch2 .tt{font-size:clamp(19px,1.4vw,24px)}
   .tocch2 .tn{font-size:clamp(13px,.95vw,15.5px);padding:4px 11px}
   .tocch2 .tl{font-size:clamp(12px,.82vw,13.5px);line-height:1.62}
 }
-@media(max-height:700px){
+@media screen and (max-height:700px){
   #hub{gap:6px}
   .tocch2{padding:9px 14px 8px;border-radius:11px;border-left-width:5px}
   .tocch2 .tt{font-size:clamp(17px,1.25vw,21px)}
@@ -1126,14 +1137,14 @@ footer p{margin:0 0 6px}
    쪽 안에서 세로로 스크롤되게 두었습니다. 억지로 다 욱여넣으면 글씨가 못 읽게 작아집니다.
    ══════════════════════════════════════════════ */
 /* 두 쪽으로 두기에는 폭이 빠듯한 화면(태블릿 가로 등)에서 차례 카드를 조금 더 줄입니다 */
-@media(max-width:1100px){
+@media screen and (max-width:1100px){
   #hub{gap:7px}
   .tocch2{padding:11px 15px 10px}
   .tocch2 .tt{font-size:clamp(18px,1.9vw,23px)}
   .tocch2 .tl{line-height:1.55}
 }
 
-@media (max-width:900px), (max-aspect-ratio:115/100){
+@media screen and (max-width:900px), screen and (max-aspect-ratio:115/100){
   .bookpaper{top:52px;bottom:58px;padding:8px 8px}
   .bkpage{padding:22px 20px;justify-content:flex-start;
     overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
@@ -1189,4 +1200,42 @@ footer p{margin:0 0 6px}
   /* 넘김 줄 */
   .rl{padding:0 14px}
   .rl button span{display:none}
+}
+
+/* ── 학급 코드 데모: 명단·비밀번호 단계 (2026-09-02, 실제 입장 흐름에 맞춤) ── */
+.pickhint{font-size:13px;color:var(--ink-faint);margin:-6px 0 12px;text-align:center}
+.picklist{display:grid;gap:8px}
+.pick{display:flex;justify-content:space-between;align-items:center;width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 16px;font-family:var(--sans);font-size:15px;font-weight:700;color:var(--ink);cursor:pointer}
+.pick span{font-size:12.5px;color:var(--brand);font-weight:700}
+.pick:hover{border-color:var(--brand)}
+.pwrow{display:flex;gap:8px}
+.pwrow input{flex:1 1 auto;min-width:0;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:15px;font-family:var(--sans)}
+.pwrow input:focus{outline:none;border-color:var(--brand)}
+.pwrow button{border:0;border-radius:var(--r-pill);padding:11px 18px;background:var(--brand-deep);color:#fff;font-family:var(--sans);font-weight:700;cursor:pointer;white-space:nowrap}
+.cin > .l{font-size:14px;color:var(--brand);margin:0 0 6px;text-align:center;font-weight:700}
+/* ── 부기 대화 데모 ── */
+.chat-hd b{display:block;font-family:var(--serif);font-size:16px;color:var(--brand-deep)}
+.chat-hd span{display:block;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.askhint{font-size:12.5px;color:var(--ink-faint);margin:0 0 8px;width:100%}
+.askdone{font-size:13px;color:var(--brand);margin:6px 0 0;width:100%;line-height:1.6}
+
+/* ══════════════════════════════════════════════
+   인쇄 — A4 가로 한 장에 펼침면 하나, 화면과 똑같이 (2026-09-02)
+   ⚠️ 위의 반응형 @media 는 전부 `screen and` 로 묶여 있다 — 크롬 인쇄 렌더러는 (max-width:900px)·(max-aspect-ratio:115/100)를
+   참으로 판정해 폰용 블록(#hub·.spot 의 height:auto!important 등)이 인쇄본을 덮어썼다(프로브 PDF로 확인).
+   app.js 의 toPrint() 가 화면 폭×1.32 높이(큰 모니터 비율=A4 가로와 거의 같음) 복제본을 #bk-print > .prsheet > .prin 에 두 장씩 묶고
+   .prin 의 zoom 으로 A4 여백 안에 맞춘다. 시트는 종이 높이(194mm)로 두고 세로 가운데.
+   ══════════════════════════════════════════════ */
+#bk-print{display:none}
+@page{size:A4 landscape;margin:8mm}
+@media print{
+  html,body{background:#fff!important;height:auto!important;overflow:visible!important}
+  .hd,#rail,.tip,.bookpaper{display:none!important}
+  body.printing #bk-print{display:block!important}
+  .prsheet{height:194mm;display:flex;align-items:center;justify-content:center;break-after:page;page-break-after:always;break-inside:avoid;page-break-inside:avoid}
+  .prsheet:last-child{break-after:auto;page-break-after:auto}
+  .prin{display:flex}
+  .prin .bkpage{flex:0 0 auto;overflow:hidden;box-shadow:none}
+  #bk-print *{box-shadow:none!important;text-shadow:none!important;filter:none!important;backdrop-filter:none!important}   /* 그림자는 PDF 에서 회색 상자로 굳어 «이상한 테두리»가 된다 */
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
