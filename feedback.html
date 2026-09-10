@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--
+  부기 사용 후기 — 독립 페이지 (2026-09-10)
+
+  소개웹 24쪽 왼쪽에 얹혀 있던 후기 폼만 따로 떼어 낸 자리입니다.
+  선생님께 링크 하나만 보내면 되도록, 책 넘김·차례 없이 폼만 둡니다.
+
+  ⚠️ 접수 경로와 보내는 데이터 모양은 소개웹과 똑같이 맞춰 두었습니다.
+     FEEDBACK_ENDPOINT · 필드 이름(org·name·note·grades·agreePromo·photos)을 바꾸면
+     시트 열과 어긋납니다. 고치실 때는 index.html 쪽도 함께 보세요.
+-->
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부기 사용 후기 보내기</title>
+<meta name="description" content="부기를 써 보신 선생님의 후기를 받는 자리입니다. 잘된 점보다 불편했던 점, 부족한 점이 더 쓸모가 있습니다.">
+<link rel="icon" href="assets/icon-32.png" sizes="32x32">
+<link rel="icon" href="assets/icon-180.png" sizes="180x180">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<meta name="theme-color" content="#1d3a2a">
+
+<!-- 카카오톡·메신저·SNS 공유 카드 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="부기">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="부기 사용 후기 보내기">
+<meta property="og:description" content="부기를 써 보신 선생님의 후기를 받는 자리입니다. 잘된 점보다 불편했던 점, 부족한 점이 더 쓸모가 있습니다.">
+<meta property="og:url" content="https://legoschool.github.io/bookie-test/feedback.html">
+<meta property="og:image" content="https://legoschool.github.io/bookie-test/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="부기 — 우리반 아이들을 위한 맞춤형 독서 솔루션">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* ── 부기 디자인 토큰 (_style.css 와 같은 값) ────────────── */
+:root{
+  --paper:#f7f4ec; --card:#fffdf9; --sunk:#efeadd;
+  --ink:#1f2b20; --ink2:#4d574c; --ink-faint:#8a9084;
+  --line:#e6e1d4; --brand:#2f7d4f; --deep:#1d3a2a; --soft:#dfe8d8;
+  --orange:#b45309; --amber:#fdf3e7; --bad:#b4231d;
+  --serif:'Noto Serif KR',serif;
+  --sans:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,'Malgun Gothic',sans-serif;
+  --wrap:44rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink2);
+  font-family:var(--sans); font-size:16px; line-height:1.8;
+  word-break:keep-all; overflow-wrap:break-word;
+}
+
+/* ── 머리 ──────────────────────────────────────── */
+.hd{
+  background:var(--deep); color:var(--paper);
+  padding:clamp(22px,6vw,40px) clamp(18px,5vw,32px);
+}
+.hd-in{max-width:var(--wrap); margin:0 auto}
+.mark{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; margin-bottom:clamp(14px,4vw,22px)}
+.mark img{width:38px; height:38px; border-radius:50%; flex:0 0 auto}
+.mark b{font-family:var(--serif); font-size:1.15rem; font-weight:700; letter-spacing:-.01em}
+.hd h1{
+  font-family:var(--serif); font-weight:700; color:#fff;
+  font-size:clamp(1.45rem,5.6vw,2rem); line-height:1.4; letter-spacing:-.02em;
+  margin:0 0 clamp(8px,2.5vw,12px); text-wrap:balance;
+}
+.hd p{margin:0; color:#cfe0d3; font-size:clamp(.93rem,3.5vw,1rem); max-width:34rem}
+.hd strong{color:#eab308; font-weight:700}
+
+/* ── 본문 ──────────────────────────────────────── */
+main{max-width:var(--wrap); margin:0 auto; padding:clamp(20px,5vw,40px) clamp(18px,5vw,32px) clamp(48px,10vw,80px)}
+
+.form{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:clamp(18px,5vw,32px)}
+.fld{margin:0 0 clamp(18px,4vw,24px)}
+.fld:last-child{margin-bottom:0}
+label{display:block; font-weight:700; color:var(--ink); font-size:.95rem; margin:0 0 8px}
+.req{color:var(--orange); margin-left:3px}
+.opt{font-weight:400; color:var(--ink-faint); margin-left:4px}
+
+input[type=text],textarea{
+  width:100%; font:inherit; font-size:1rem; color:var(--ink);
+  background:var(--sunk); border:1.5px solid transparent; border-radius:10px;
+  padding:.72em .9em; transition:border-color .15s, background .15s;
+}
+input[type=text]::placeholder,textarea::placeholder{color:var(--ink-faint)}
+input[type=text]:focus,textarea:focus{outline:none; background:#fff; border-color:var(--brand)}
+textarea{resize:vertical; min-height:7.5em; line-height:1.75}
+
+.err{display:none; color:var(--bad); font-size:.86rem; margin-top:6px}
+.fld.bad input,.fld.bad textarea{border-color:var(--bad); background:#fdf5f4}
+.fld.bad .err{display:block}
+
+/* 학년 고르기 */
+.grades{display:flex; flex-wrap:wrap; gap:8px}
+.gchk{position:relative; margin:0; font-weight:400}
+.gchk input{position:absolute; opacity:0; width:0; height:0}
+.gchk span{
+  display:inline-block; cursor:pointer; user-select:none;
+  border:1.5px solid var(--line); background:var(--card); color:var(--ink2);
+  border-radius:999px; padding:.5em 1.05em; font-size:.92rem;
+  transition:background .15s, border-color .15s, color .15s;
+}
+.gchk input:checked+span{background:var(--soft); border-color:var(--brand); color:var(--deep); font-weight:700}
+.gchk input:focus-visible+span{outline:3px solid var(--brand); outline-offset:2px}
+
+/* 사진 */
+.shots{display:flex; flex-wrap:wrap; align-items:center; gap:10px}
+#f-shots{position:absolute; opacity:0; width:0; height:0}
+.pick{
+  display:inline-block; margin:0; cursor:pointer;
+  border:1.5px solid var(--brand); color:var(--brand); background:var(--card);
+  border-radius:999px; padding:.55em 1.3em; font-size:.94rem; font-weight:700;
+  transition:background .15s, color .15s;
+}
+.pick:hover{background:var(--soft)}
+#f-shots:focus-visible+.pick{outline:3px solid var(--brand); outline-offset:2px}
+.hintx{font-size:.84rem; color:var(--ink-faint); flex:1 1 15rem; line-height:1.6}
+.thumbs{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+.thumb{position:relative; display:inline-block; line-height:0}
+.thumb img{width:76px; height:76px; object-fit:cover; border-radius:8px; border:1px solid var(--line)}
+.thumb button{
+  position:absolute; top:-6px; right:-6px; width:22px; height:22px; padding:0;
+  border:none; border-radius:50%; background:var(--deep); color:#fff;
+  font-size:14px; line-height:22px; cursor:pointer;
+}
+.thumb button:hover{background:var(--bad)}
+
+/* 동의 */
+.agree{margin:clamp(22px,5vw,30px) 0 0; padding:clamp(16px,4vw,20px); background:var(--amber); border-radius:12px}
+.agree h4{font-family:var(--serif); color:var(--ink); font-size:1rem; margin:0 0 12px}
+.arow{display:flex; gap:11px; align-items:flex-start}
+.arow input{margin:.35em 0 0; width:18px; height:18px; accent-color:var(--brand); flex:0 0 auto}
+.arow .t{display:block; font-weight:700; color:var(--ink); font-size:.94rem; margin:0 0 5px; cursor:pointer}
+.arow .d{font-size:.86rem; color:var(--ink2); line-height:1.7}
+
+/* 보내기 */
+.submit{margin:clamp(22px,5vw,30px) 0 0}
+#fbBtn{
+  width:100%; font:inherit; font-size:1.02rem; font-weight:700; cursor:pointer;
+  color:var(--paper); background:var(--brand); border:none; border-radius:999px;
+  padding:.95em 1.5em; transition:background .15s;
+}
+#fbBtn:hover:not(:disabled){background:var(--deep)}
+#fbBtn:focus-visible{outline:3px solid var(--deep); outline-offset:3px}
+#fbBtn:disabled{background:var(--ink-faint); cursor:progress}
+
+.formmsg{display:none; margin:14px 0 0; font-size:.92rem; line-height:1.7; padding:.75em 1em; border-radius:10px}
+.formmsg.on{display:block}
+.formmsg.ok{background:var(--soft); color:var(--deep)}
+.formmsg.no{background:#fdf5f4; color:var(--bad)}
+.formmsg code{font-family:ui-monospace,monospace; font-size:.9em}
+
+/* 완료 */
+.done{background:var(--card); border:1px solid var(--brand); border-radius:16px; padding:clamp(22px,6vw,36px)}
+.done h3{font-family:var(--serif); color:var(--ink); font-size:clamp(1.2rem,4.6vw,1.5rem); margin:0 0 12px}
+.done p{margin:0 0 12px}
+.done p:last-child{margin-bottom:0}
+
+/* 꼬리 */
+.foot{max-width:var(--wrap); margin:0 auto; padding:0 clamp(18px,5vw,32px) clamp(32px,8vw,56px); font-size:.87rem; color:var(--ink-faint)}
+.foot a{color:var(--brand)}
+.foot p{margin:0 0 6px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-in">
+    <a class="mark" href="./"><img src="assets/char-new-face.webp" alt=""><b>부기</b></a>
+    <h1>부기를 써 보신 선생님께</h1>
+    <p>잘된 점보다 <strong>불편했던 점, 부족한 점</strong>이 저희에게는 더 쓸모가 있습니다. 수업 사진도 몇 장이든 함께 올리실 수 있습니다.</p>
+  </div>
+</header>
+
+<main>
+  <form class="form" id="fbForm" novalidate>
+    <div class="fld">
+      <label for="f-org">소속 (학교·기관)<span class="req">*</span></label>
+      <input id="f-org" name="org" type="text" placeholder="예) 은하수초등학교" autocomplete="organization" required>
+      <span class="err">소속을 적어 주세요.</span>
+    </div>
+
+    <div class="fld">
+      <label for="f-name">성명<span class="req">*</span></label>
+      <input id="f-name" name="name" type="text" placeholder="예) 김하늘" autocomplete="name" required>
+      <span class="err">성명을 적어 주세요.</span>
+    </div>
+
+    <div class="fld">
+      <label>함께 읽은 학년 <span class="opt">(선택)</span></label>
+      <div class="grades" id="f-grades"></div>
+    </div>
+
+    <div class="fld">
+      <label for="f-note">사용 후기<span class="req">*</span></label>
+      <textarea id="f-note" name="note" rows="5" placeholder="어떤 수업에 쓰셨는지, 아이들이 어떻게 반응했는지, 불편했던 점은 무엇인지 편하게 적어 주세요."></textarea>
+      <span class="err">후기를 적어 주세요.</span>
+    </div>
+
+    <div class="fld">
+      <label for="f-shots">수업 사진 <span class="opt">(선택 · 장수 제한 없음)</span></label>
+      <div class="shots">
+        <input id="f-shots" type="file" accept="image/*" multiple>
+        <label class="pick" for="f-shots">사진 고르기</label>
+        <span class="hintx">아이 얼굴·이름표·명렬표가 나오지 않은 사진만 올려 주세요.</span>
+      </div>
+      <div class="thumbs" id="f-thumbs"></div>
+    </div>
+
+    <div class="agree">
+      <h4>동의 항목</h4>
+      <div class="arow">
+        <input type="checkbox" id="a-promo">
+        <div>
+          <label for="a-promo" class="t">후기와 사진을 부기 소개 자료에 쓰는 것에 동의합니다<span class="opt">선택</span></label>
+          <div class="d">쓸 때는 사람이 나온 곳을 모자이크하고, 학교 이름과 성명은 익명으로 바꿉니다.
+            동의하지 않으셔도 접수됩니다. 그때는 제품을 고치는 데만 씁니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit">
+      <button type="submit" id="fbBtn">후기 보내기</button>
+    </div>
+    <div class="formmsg" id="fbMsg"></div>
+  </form>
+
+  <div class="done" id="fbDone" style="display:none">
+    <h3>후기를 받았습니다</h3>
+    <p id="doneWho"></p>
+    <p>보내 주신 내용은 <strong>다음 판을 고치는 데</strong> 쓰겠습니다. 확인하다 여쭐 것이 생기면 학교로 연락드리겠습니다.</p>
+  </div>
+</main>
+
+<div class="foot">
+  <p>부기가 궁금하시면 <a href="./">소개 자료</a>를, 아직 안 써 보셨다면 <a href="https://forms.gle/sUdhtbvTSPtfGWwG7" target="_blank" rel="noopener">시범 사용 신청</a>을 봐 주세요.</p>
+  <p>보내기가 계속 안 되면 <a href="mailto:msecm@msecm.co.kr">msecm@msecm.co.kr</a> 로 보내 주셔도 됩니다.</p>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+  /* 접수는 Apps Script 웹앱이 받아 구글 시트에 한 줄 쓰고,
+     사진은 드라이브에 넣은 뒤 그 주소를 시트에 적습니다.
+     ⚠️ 소개웹(app.js)의 FEEDBACK_ENDPOINT 와 같은 주소여야 합니다. */
+  var FEEDBACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzNDTm-K70EwhrRIN-Ci6f5I5WnQ4WUiwNB1fnX1f7opm5v1fFGSwBIiQHoSiookGEj/exec';
+
+  /* 사진 장수에는 제한을 두지 않습니다. 대신 총량이 커지면 되돌려 보내지 않고
+     더 작게 다시 굽습니다. 거절 대신 화질을 낮추는 쪽입니다. */
+  var SHOT_STEPS = [
+    { edge: 1600, qual: 0.82 },
+    { edge: 1280, qual: 0.75 },
+    { edge: 1024, qual: 0.70 },
+    { edge:  800, qual: 0.62 }
+  ];
+  var SHOT_BUDGET = 7 * 1024 * 1024;
+
+  var form = $('fbForm');
+  var GRADES = ['1학년','2학년','3학년','4학년','5학년','6학년','전학년'];
+  $('f-grades').innerHTML = GRADES.map(function (g) {
+    return '<label class="gchk"><input type="checkbox" value="'+g+'"><span>'+g+'</span></label>';
+  }).join('');
+
+  function fldOf(el){ return el.closest('.fld'); }
+  function bad(el, on){ var f = fldOf(el); if (f) f.classList.toggle('bad', !!on); }
+  form.querySelectorAll('input,textarea').forEach(function (el) {
+    el.addEventListener('input',  function(){ bad(el, false); });
+    el.addEventListener('change', function(){ bad(el, false); });
+  });
+
+  function msg(kind, text) {
+    var m = $('fbMsg');
+    m.className = 'formmsg on ' + kind;
+    m.innerHTML = text;
+  }
+
+  /* ── 사진 고르기 ─────────────────────────────
+     원본을 그대로 보내면 한 장에 5MB가 넘어 Apps Script가 받다 끊깁니다.
+     캔버스로 줄여서 보냅니다. */
+  var shots = [];
+  var shotStep = 0;
+
+  function drawThumbs() {
+    $('f-thumbs').innerHTML = shots.map(function (s, i) {
+      return '<span class="thumb"><img src="' + s.url + '" alt="">'
+           + '<button type="button" data-x="' + i + '" aria-label="' + esc(s.name) + ' 빼기">×</button></span>';
+    }).join('');
+    $('f-thumbs').querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        shots.splice(+b.dataset.x, 1); drawThumbs();
+      });
+    });
+  }
+
+  function shrink(file, step) {
+    var S = SHOT_STEPS[step];
+    return new Promise(function (done, fail) {
+      var img = new Image(), url = URL.createObjectURL(file);
+      img.onload = function () {
+        var k = Math.min(1, S.edge / Math.max(img.width, img.height));
+        var c = document.createElement('canvas');
+        c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        var dataUrl = c.toDataURL('image/jpeg', S.qual);
+        done({ file: file, name: file.name, mime: 'image/jpeg',
+               data: dataUrl.slice(dataUrl.indexOf(',') + 1),
+               url: dataUrl });
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); fail(new Error(file.name)); };
+      img.src = url;
+    });
+  }
+
+  function bytes(){ return shots.reduce(function (n, s) { return n + s.data.length * 0.75; }, 0); }
+  function mb(n){ return (n / 1024 / 1024).toFixed(1); }
+
+  function refit() {
+    if (bytes() <= SHOT_BUDGET || shotStep >= SHOT_STEPS.length - 1) return Promise.resolve();
+    shotStep++;
+    return Promise.all(shots.map(function (s) { return shrink(s.file, shotStep); }))
+      .then(function (list) { shots = list; return refit(); });
+  }
+
+  $('f-shots').addEventListener('change', function (e) {
+    var files = [].slice.call(e.target.files || []);
+    e.target.value = '';
+    if (!files.length) return;
+    msg('ok', '사진 ' + files.length + '장을 담는 중입니다.');
+    Promise.all(files.map(function (f) { return shrink(f, shotStep); })).then(function (list) {
+      shots = shots.concat(list);
+      var before = shotStep;
+      return refit().then(function () {
+        drawThumbs();
+        if (shotStep > before) {
+          msg('ok', '사진 ' + shots.length + '장을 담았습니다. 양이 많아 화질을 조금 낮췄습니다. (' + mb(bytes()) + 'MB)');
+        } else {
+          msg('ok', '사진 ' + shots.length + '장을 담았습니다. (' + mb(bytes()) + 'MB)');
+        }
+      });
+    }).catch(function () {
+      msg('no', '사진을 읽지 못했습니다. 다른 파일로 해 보시겠어요?');
+    });
+  });
+
+  /* ── 보내기 ─────────────────────────────────── */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = {
+      org:    $('f-org').value.trim(),
+      name:   $('f-name').value.trim(),
+      note:   $('f-note').value.trim(),
+      grades: [].slice.call($('f-grades').querySelectorAll('input:checked')).map(function(c){ return c.value; }),
+      agreePromo: $('a-promo').checked,
+      photos: shots.map(function (s) { return { name: s.name, mime: s.mime, data: s.data }; })
+    };
+
+    var first = null;
+    function need(el, ok){ if (!ok) { bad(el, true); if (!first) first = el; } return ok; }
+    need($('f-org'),  v.org.length  > 0);
+    need($('f-name'), v.name.length > 0);
+    need($('f-note'), v.note.length > 0);
+    if (first) { first.focus(); msg('no', '표시된 항목을 확인해 주세요.'); return; }
+
+    var btn = $('fbBtn');
+    function wake(text) { btn.disabled = false; btn.textContent = '후기 보내기'; if (text) msg('no', text); }
+    btn.disabled = true; btn.textContent = '보내는 중…';
+    msg('ok', v.photos.length ? '후기와 사진을 보내고 있습니다. 사진이 있으면 조금 걸립니다.' : '후기를 보내고 있습니다.');
+
+    fetch(FEEDBACK_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },   // preflight 회피
+      body: JSON.stringify(v)
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (res && res.ok) {
+        form.style.display = 'none';
+        $('doneWho').textContent = v.name + ' 선생님(' + v.org + ')께서 보내 주신 후기를 받았습니다.'
+          + (v.photos.length ? ' 사진 ' + v.photos.length + '장도 함께 받았습니다.' : '');
+        $('fbDone').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        wake((res && res.error) || '접수에 실패했습니다. 잠시 뒤 다시 시도해 주세요.');
+      }
+    })
+    .catch(function () {
+      wake('연결에 실패했습니다. 인터넷 상태를 확인하시고 다시 시도해 주세요. 계속 안 되면 msecm@msecm.co.kr 로 보내 주세요.');
+    });
+  });
+})();
+</script>
+</body>
+</html>
