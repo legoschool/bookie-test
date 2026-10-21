@@ -317,25 +317,10 @@ button.reset:hover,button.reset:focus-visible{background:var(--sage-soft);outlin
 .share b{display:block;font-size:17px;color:var(--forest);font-variant-numeric:tabular-nums}
 .bar{height:8px;border-radius:4px;background:var(--sage-soft);margin-top:6px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--sage)}
-/* 절감안 */
-.save{margin-top:24px;border:2px solid var(--forest);border-radius:12px;padding:16px 18px;background:var(--paper)}
-.save h3{margin:0 0 4px;font-size:20px}
-.save>p{margin:0 0 12px}
-.save-list{display:grid;gap:8px}
-.save-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--sheet);cursor:pointer}
-.save-item input{width:18px;height:18px;accent-color:var(--forest);margin:0}
-.save-item b{display:block;color:var(--forest);font-size:16px}
-.save-item small{display:block;color:var(--muted);font-size:13.5px;line-height:1.5}
-.save-item .amt{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;color:var(--forest)}
-.save-item .amt i{display:block;font-style:normal;font-weight:500;font-size:12px;color:var(--muted);white-space:normal;max-width:260px;margin-left:auto}
-.save-item>*{min-width:0}
-.save-item:has(input:checked){border-color:var(--forest);background:var(--sage-soft)}
-.save-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
-.save-sum div{border-radius:10px;padding:10px 12px;background:var(--sheet);border:1px solid var(--line);font-size:14px}
-.save-sum div.on{background:var(--forest);border-color:var(--forest);color:var(--paper)}
-.save-sum b{display:block;font-size:20px;font-variant-numeric:tabular-nums;line-height:1.35}
-.save-note{font-size:13px;color:var(--muted);margin:10px 0 0}
-@media (max-width:640px){.save-sum{grid-template-columns:1fr}.save-item{grid-template-columns:auto minmax(0,1fr)}.save-item .amt{grid-column:2;text-align:left}.save-item .amt i{margin-left:0;max-width:none}}
+/* 대관료 지원 시 경감 */
+.save{margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--forest);border-radius:10px;padding:12px 16px;background:var(--paper);font-size:15px}
+.save b{color:var(--forest);font-variant-numeric:tabular-nums;white-space:nowrap}
+.save .lab{display:inline-block;font-weight:700;color:var(--paper);background:var(--forest);border-radius:999px;padding:1px 10px;margin-right:6px;font-size:14px}
 footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:22px max(16px,env(safe-area-inset-left,0px));text-align:center;font-size:14px}
 :root[data-theme="dark"] footer{background:#0f1712;color:#cfe0cc}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) footer{background:#0f1712;color:#cfe0cc}}
@@ -908,19 +893,9 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
 
     <div class="share" id="share" aria-label="항목별 비중"></div>
 
-    <div class="save" id="save">
-      <h3>절감안: 지원을 받으면 줄일 수 있는 금액</h3>
-      <p class="small muted">아래 지원을 받으면 그 항목은 경감 가능함. 받을 지원을 고르면 실제 부담 금액이 바로 바뀌고, 금액은 위 견적 칸과 함께 움직임.</p>
-      <div class="save-list" id="saveList"></div>
-      <div class="save-sum">
-        <div><span>견적 공급가액</span><b id="saveBase"></b></div>
-        <div><span>고른 지원으로 경감</span><b id="saveCut"></b></div>
-        <div class="on"><span>절감 후 부담 금액</span><b id="saveAfter"></b></div>
-      </div>
-      <p class="save-note" id="saveMax"></p>
-    </div>
+    <p class="save" id="save"><span class="lab">대관료 지원 시</span>주최 측 지원이나 교과서협회 공동 부스 등으로 부스 임차(대관료)를 지원받으면 <b id="saveCut">4,000,000원</b> 경감 가능, 공급가액 <b id="saveAfter">10,720,000원</b></p>
 
-    <p class="remark">※ 기타 경비(식비, 숙박비 등)는 개인 지출</p>
+    <p class="remark">※ 전체 금액은 부스 배정 규모, 홍보물품 제작 수량, 인력 운영 방식에 따라 협의해 조정 가능<br>※ 기타 경비(식비, 숙박비 등)는 개인 지출</p>
   </div>
 </div>
 
@@ -1108,32 +1083,17 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     const ph=$("perHead"); if(ph) ph.textContent="약 "+won(Math.round(sub/3000/100)*100)+"~"+won(Math.round(sub/2000/100)*100)+"원";
     $("share").innerHTML=rows.map(r=>{const a=amt(r),p=sub?a/sub*100:0;
       return `<div>${r.name}<b>${won(a)}원 | ${p.toFixed(1)}%</b><div class="bar"><i style="width:${p}%"></i></div></div>`}).join("");
-    if(typeof saveUpdate==="function"&&$("sa0")) saveUpdate();
+    if($("saveCut")) saveUpdate();
   }
-  /* 절감안: 지원을 받으면 경감 가능한 항목(번호는 BASE 순서) */
-  const SAVE=[
-    {name:"대관료 지원", how:"주최 측 지원, 교과서협회 공동 부스, 기관 후원으로 부스 임차를 지원받으면 경감 가능", rows:[0]},
-    {name:"강사비 지원", how:"교육청, 연수원, 협력 기관의 강사비나 인건비로 운영 인력을 지원받으면 경감 가능", rows:[2]},
-    {name:"물품 구입 지원", how:"키캡, 옷장 책갈피, 손 체험 재료, 홍보 인쇄물을 기관 예산이나 협찬으로 받으면 경감 가능", rows:[3,4,5,6]}
-  ];
-  $("saveList").innerHTML=SAVE.map((s,i)=>`<label class="save-item" for="sv${i}"><input type="checkbox" id="sv${i}"><span><b>${s.name}</b><small>${s.how}</small></span><span class="amt" id="sa${i}"></span></label>`).join("");
-  SAVE.forEach((s,i)=>$("sv"+i).addEventListener("change",saveUpdate));
+  /* 대관료 지원 시 경감: 1번 부스 임차 금액만큼 */
   function saveUpdate(){
     let sub=0; rows.forEach(r=>sub+=amt(r));
-    let cut=0,all=0;
-    SAVE.forEach((s,i)=>{
-      const a=s.rows.reduce((t,k)=>t+(rows[k]?amt(rows[k]):0),0); all+=a;
-      $("sa"+i).innerHTML=`${won(a)}원<i>${s.rows.map(k=>rows[k]&&rows[k].name).filter(Boolean).join(", ")}</i>`;
-      if($("sv"+i).checked) cut+=a;
-    });
-    const vatOn=$("vatOn").checked, f=n=>won(vatOn?Math.round(n*1.1):n)+"원";
-    $("saveBase").textContent=f(sub);
-    $("saveCut").textContent=(cut?"− ":"")+f(cut);
-    $("saveAfter").textContent=f(sub-cut);
-    $("saveMax").textContent=`세 가지 지원을 모두 받으면 ${f(sub-all)}까지 줄어듦(${sub?Math.round(all/sub*100):0}% 절감). 남는 항목은 부스 구성 및 프로그램 개발(체험 계정, 태블릿 렌탈)임.`+(vatOn?" 금액은 부가세 포함.":" 금액은 부가세 별도.");
+    const a=rows[0]?amt(rows[0]):0, vatOn=$("vatOn").checked, f=n=>won(vatOn?Math.round(n*1.1):n)+"원";
+    $("saveCut").textContent=f(a);
+    $("saveAfter").textContent=f(sub-a)+(vatOn?"(부가세 포함)":"(부가세 별도)");
   }
   $("vatOn").addEventListener("change",update);
-  $("reset").addEventListener("click",()=>{rows=BASE.map(r=>({...r})); $("vatOn").checked=false; SAVE.forEach((s,i)=>$("sv"+i).checked=false); render();});
+  $("reset").addEventListener("click",()=>{rows=BASE.map(r=>({...r})); $("vatOn").checked=false; render();});
   render(); saveUpdate();
 })();
 </script>
