@@ -869,8 +869,8 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     </div>
 
     <div class="total-line">
-      <span class="words" id="words">일금 일천사백칠십이만 원정</span>
-      <span class="num" id="headTotal">14,720,000원</span>
+      <span class="words" id="words">일금 일천육백일십구만이천 원정(부가세 포함)</span>
+      <span class="num" id="headTotal">16,192,000원</span>
     </div>
 
     <div class="est-wrap">
@@ -879,14 +879,14 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <tbody id="rows"></tbody>
         <tfoot>
           <tr><td></td><td colspan="3">공급가액</td><td class="r" id="sub"></td></tr>
-          <tr id="vatRow" hidden><td></td><td colspan="3">부가가치세(10%)</td><td class="r" id="vat"></td></tr>
-          <tr class="grand"><td></td><td colspan="3" id="grandLabel">합계(부가세 별도)</td><td class="r" id="grand"></td></tr>
+          <tr id="vatRow"><td></td><td colspan="3">부가가치세(10%)</td><td class="r" id="vat"></td></tr>
+          <tr class="grand"><td></td><td colspan="3" id="grandLabel">합계(부가세 포함)</td><td class="r" id="grand"></td></tr>
         </tfoot>
       </table>
     </div>
 
     <div class="controls">
-      <label for="vatOn"><input type="checkbox" id="vatOn"> 부가세 포함해 보기</label>
+      <label for="vatOn"><input type="checkbox" id="vatOn" checked> 부가세 포함해 보기</label>
       <button type="button" class="reset" id="reset">처음 값으로</button>
       <span class="changed" id="changed" hidden>처음 견적에서 바뀐 값이 있음</span>
     </div>
@@ -1094,7 +1094,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     $("saveAfter").textContent=f(sub-a);
   }
   $("vatOn").addEventListener("change",update);
-  $("reset").addEventListener("click",()=>{rows=BASE.map(r=>({...r})); $("vatOn").checked=false; render();});
+  $("reset").addEventListener("click",()=>{rows=BASE.map(r=>({...r})); $("vatOn").checked=true; render();});
   render(); saveUpdate();
 })();
 </script>
