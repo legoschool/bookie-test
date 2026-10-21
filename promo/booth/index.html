@@ -84,62 +84,48 @@ nav.top .brand{font-family:var(--f-display);font-weight:700;margin-right:auto;co
 .nav2 button:hover,.nav2 button:focus-visible{background:var(--sage-soft);outline:none}
 .nav2 button:disabled{opacity:.4;cursor:default;background:transparent}
 
-/* 목업 화면 안쪽: 앱 색으로 고정(캡처처럼 보이도록 두 테마 공통) */
-.app{position:absolute;inset:0;display:flex;flex-direction:column;color:#2a2a24;font-size:2.1cqw;line-height:1.5;font-family:var(--f-body)}
-.app-top{display:flex;align-items:center;gap:1.4cqw;padding:1.6cqw 2.4cqw;background:#f3ecd9;border-bottom:1px solid #e4dac0}
-.app-top img{height:4.6cqw;width:auto;display:block}
-.app-top b{font-size:2.3cqw}
-.app-top span{color:#8b8264;font-size:1.7cqw}
-.app-body{flex:1;padding:2.4cqw 3cqw;display:flex;flex-direction:column;gap:1.6cqw;min-height:0}
-.chat{flex:1;display:flex;flex-direction:column;gap:1.4cqw}
-.msg{display:flex;gap:1.2cqw;align-items:flex-end;max-width:78%}
-.msg .av{flex:0 0 5.4cqw;height:5.4cqw;border-radius:50%;background:#e6dcc0;display:grid;place-items:center;font-size:2.6cqw}
-.msg p{margin:0;background:#fff;border:1px solid #e4dac0;border-radius:1.6cqw;padding:1.2cqw 1.8cqw}
-.msg.me{align-self:flex-end;flex-direction:row-reverse}
-.msg.me p{background:#1f3a2c;color:#fff;border-color:#1f3a2c}
-.msg small{display:block;color:#9a8f6e;font-size:1.5cqw}
-.q-step{font-size:1.6cqw;color:#7d7457;text-align:center}
-.inbox{display:flex;gap:1.2cqw;align-items:center;background:#fff;border:1px solid #e4dac0;border-radius:99px;padding:1cqw 1.2cqw 1cqw 2.2cqw;color:#a39a7c}
-.inbox i{margin-left:auto;font-style:normal;background:#1f3a2c;color:#fff;border-radius:99px;padding:.6cqw 2cqw}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw}
-.cards div{background:#fff;border:1px solid #e4dac0;border-radius:1.2cqw;padding:1cqw 1.4cqw;font-size:1.8cqw;display:flex;gap:.8cqw;align-items:center}
-.cards div span{font-size:2.4cqw}
-.cards div.on{border:.35cqw solid #1f3a2c;background:#eef4ea;font-weight:700}
-.write{background:#fff;border:1px solid #e4dac0;border-radius:1.4cqw;padding:1.4cqw 2cqw}
-.stars{color:#e3a72f;font-size:3.2cqw;letter-spacing:.4cqw}
-.stars em{color:#d8d0b8;font-style:normal}
-.write p{margin:.4cqw 0 0}
-.done{align-self:flex-end;background:#1f3a2c;color:#fff;border-radius:99px;padding:.8cqw 2.6cqw;font-size:1.8cqw}
-.pf{display:grid;grid-template-columns:1fr 1.25fr;gap:2cqw;flex:1;min-height:0}
-.pf-hero{background:linear-gradient(160deg,#2f5440,#1f3a2c);color:#fff;border-radius:1.8cqw;padding:2.2cqw;display:flex;flex-direction:column;gap:.6cqw}
-.pf-hero .yr{font-size:1.6cqw;opacity:.8}
-.pf-hero .nm{font-size:3cqw;font-family:var(--f-display);font-weight:700;line-height:1.2}
-.pf-hero .lv{font-size:1.6cqw;opacity:.85}
-.pf-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw;margin-top:auto}
-.pf-stats div{background:rgba(255,255,255,.13);border-radius:1.2cqw;padding:1cqw;text-align:center;font-size:1.5cqw}
-.pf-stats b{display:block;font-size:3.2cqw;line-height:1.2}
-.pf-col{display:flex;flex-direction:column;gap:1.2cqw;min-height:0}
-.pf-sec{font-size:1.7cqw;color:#7d7457;font-weight:700}
-.pf-month{display:flex;align-items:center;gap:1.2cqw;background:#fff;border:1px solid #e4dac0;border-radius:1.2cqw;padding:1cqw 1.4cqw}
-.pf-month small{color:#9a8f6e;font-size:1.6cqw}
-.pf-month .pf-tag{margin:0 0 0 auto}
-.pf-month img{width:4.4cqw;height:6cqw;object-fit:cover;border-radius:.6cqw}
-.pf-best{display:flex;gap:1.4cqw;background:#fff;border:1px solid #e4dac0;border-radius:1.2cqw;padding:1.2cqw 1.4cqw}
-.pf-best img{width:7cqw;height:9.4cqw;object-fit:cover;border-radius:.6cqw;flex:none}
-.pf-best b{display:block;font-size:2cqw}
-.pf-best q{font-size:1.8cqw;color:#4a463a}
-.pf-tag{display:inline-block;font-size:1.4cqw;background:#eef4ea;color:#1f3a2c;border-radius:99px;padding:.1cqw 1.2cqw;margin-top:.6cqw}
-.tag-scene{position:absolute;inset:0;background:#efe7d3;display:flex;align-items:center;justify-content:center;gap:6cqw}
-.tag-scene .bmk{width:20cqw;transform:rotate(-8deg);border-radius:1.6cqw;box-shadow:0 2cqw 4cqw -2cqw rgba(0,0,0,.4)}
-.phone{width:26cqw;aspect-ratio:9/18;background:#1d211e;border-radius:4cqw;padding:1.4cqw;transform:rotate(6deg);box-shadow:0 2cqw 4cqw -2cqw rgba(0,0,0,.45)}
-.phone div{height:100%;background:#fbf6ea;border-radius:3cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4cqw;padding:2cqw;text-align:center}
-.phone .nfc{font-size:1.7cqw;color:#7d7457}
-.phone .pop{background:#fff;border:1px solid #e4dac0;border-radius:2cqw;padding:1.6cqw;font-size:1.8cqw;width:100%}
-.phone .pop b{display:block;color:#1f3a2c;font-size:2.2cqw}
-.phone .go{background:#1f3a2c;color:#fff;border-radius:99px;padding:.8cqw 2.4cqw;font-size:1.7cqw}
-.waves{position:absolute;left:47%;top:44%;width:8cqw;height:8cqw;border:.5cqw solid #8fae8b;border-radius:50%;opacity:.7}
-.waves.w2{width:13cqw;height:13cqw;left:44.5%;top:39%;opacity:.4}
+/* 부기 지금: 최신 현황 */
+.blk{padding-block:30px 34px;border-top:1px solid var(--line);scroll-margin-top:56px}
+.now-lead{font-size:16px;margin:0 0 14px;color:var(--muted)}
+.covers{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;margin:16px 0 4px}
+.covers img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:5px;display:block;box-shadow:0 2px 6px -3px rgba(0,0,0,.4)}
+.covers-cap{font-size:13px;color:var(--muted);margin:4px 0 0}
+.field{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.field div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--sheet);font-size:14px;line-height:1.55}
+.field b{display:block;color:var(--forest);font-size:15px;margin-bottom:2px}
+@media (max-width:860px){.covers{grid-template-columns:repeat(6,minmax(0,1fr))}.field{grid-template-columns:1fr}}
 
+/* 체험 단계 오른쪽 작은 그림 */
+.side-row{display:flex;gap:6px;margin-top:12px;max-width:300px}
+.side-row img{flex:1;min-width:0;border-radius:8px;border:1px solid var(--line);background:#f5f1e7}
+.acts{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;margin-top:12px;max-width:340px}
+.acts img{width:100%;aspect-ratio:1;border-radius:6px;background:#f5f1e7}
+.cosrow{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin-top:10px;max-width:340px}
+.cosrow img{width:100%;aspect-ratio:1;border-radius:6px;background:#efe8d6}
+
+/* 부스 체험 메뉴 */
+.zone{margin-top:22px}
+.zone:first-of-type{margin-top:8px}
+.zone-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.zone-h h3{margin:0;font-size:19px}
+.zone-h span{font-size:14px;color:var(--muted)}
+.zone-h i{font-style:normal;font-size:13px;font-weight:700;color:var(--paper);background:var(--forest);border-radius:999px;padding:1px 10px}
+.menu-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.mcard{margin:0;background:var(--sheet);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.mcard .ph{position:relative;aspect-ratio:16/10;background:#f5f1e7;overflow:hidden}
+.mcard .ph img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.mcard .ph.fit img{object-fit:contain;object-position:center}
+.mcard .ph .badge{top:auto;bottom:6px;right:6px}
+.mcard figcaption{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.mcard figcaption b{color:var(--forest);font-size:16px;line-height:1.35}
+.mcard figcaption span{font-size:14px;line-height:1.55}
+.mcard figcaption small{margin-top:auto;padding-top:4px;font-size:12.5px;color:var(--muted)}
+.mcard img.zoomable{cursor:zoom-in}
+dialog.zoom{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+dialog.zoom::backdrop{background:rgba(10,16,12,.78)}
+dialog.zoom img{display:block;max-width:100%;max-height:86vh;border-radius:10px;background:#f5f1e7}
+dialog.zoom p{color:#fff;font-size:14px;margin:8px 2px 0}
+dialog.zoom button{position:absolute;top:8px;right:8px;font:inherit;font-size:14px;border:0;border-radius:999px;padding:4px 12px;background:rgba(255,255,255,.9);color:#1d2b22;cursor:pointer}
 
 /* 영상 반복 재생 */
 .reel{position:relative;border-radius:14px;overflow:hidden;background:var(--bezel);aspect-ratio:16/9}
@@ -370,7 +356,9 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
 
 <nav class="top wrap" aria-label="문서 이동">
   <span class="brand">부기 × 에듀플러스위크</span>
+  <a href="#now">부기 지금</a>
   <a href="#demo">체험 화면</a>
+  <a href="#menu">체험 메뉴</a>
   <a href="#effect">효과</a>
   <a href="#moongcle">뭉클</a>
   <a href="#overview">제안서</a>
@@ -391,8 +379,8 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       <span id="reelName">부기 오프닝</span>
       <span class="reel-dots" role="group" aria-label="영상 고르기">
         <button type="button" data-i="0" aria-label="부기 오프닝" aria-pressed="true"></button>
-        <button type="button" data-i="1" aria-label="15초 1편 어휘력과 문해력" aria-pressed="false"></button>
-        <button type="button" data-i="2" aria-label="15초 2편 마음과 독서 습관" aria-pressed="false"></button>
+        <button type="button" data-i="1" aria-label="정답 대신, 질문을 60초" aria-pressed="false"></button>
+        <button type="button" data-i="2" aria-label="한 권 활용편 토끼와 거북이" aria-pressed="false"></button>
       </span>
     </div>
   </div>
@@ -410,6 +398,39 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   </div>
 </div>
 
+<div class="blk wrap" id="now">
+  <div class="demo-head">
+    <h2>부기 지금: 2026. 10. 기준으로 갖춘 것</h2>
+  </div>
+  <p class="now-lead">화려한 기능보다 책 읽기 본연의 즐거움을. 박람회에서 보여 줄 것은 모두 지금 bookie.io.kr에서 돌아가는 실제 화면임.</p>
+  <div class="kpi">
+    <div><b>300권</b><span>1~6학년 학년마다 50권, 현장 교사가 학생 눈높이로 다시 쓴 명작</span></div>
+    <div><b>4개 언어</b><span>1~4학년 200권을 한국어, 영어, 베트남어, 러시아어로 나란히 읽기</span></div>
+    <div><b>특허 등록</b><span>책 속 인물과 대화. 정답 대신 학생 답에 까닭을 다시 묻는 발문</span></div>
+    <div><b>9가지 + 퀴즈</b><span>독후활동 카드 9가지와 책마다 붙은 독후 퀴즈</span></div>
+  </div>
+  <div class="kpi" style="margin-top:10px">
+    <div><b>읽는 화면</b><span>낱말 뜻, 읽어주기, 밑줄과 메모와 책갈피, 글자 크기, 천천히 읽어요</span></div>
+    <div><b>내 책 옷장</b><span>끝까지 읽으면 그 책 인물 옷이 열림. 사거나 뽑는 방식 없음</span></div>
+    <div><b>수업 만들기</b><span>온책읽기 10차시, 국어 4차시, 아침활동 5차시, 차시 PPT와 지도안</span></div>
+    <div><b>20문항</b><span>어휘력 진단으로 우리 반 수준을 보고 맞는 서가의 책을 골라 줌</span></div>
+  </div>
+  <div class="covers" aria-label="학년별 책 표지">
+    <img src="img/app/cover-01.webp" alt="1학년 책 표지" loading="lazy"><img src="img/app/cover-02.webp" alt="1학년 책 표지" loading="lazy">
+    <img src="img/app/cover-03.webp" alt="2학년 책 표지" loading="lazy"><img src="img/app/cover-04.webp" alt="2학년 책 표지" loading="lazy">
+    <img src="img/app/cover-05.webp" alt="3학년 책 표지" loading="lazy"><img src="img/app/cover-06.webp" alt="3학년 책 표지" loading="lazy">
+    <img src="img/app/cover-07.webp" alt="4학년 책 표지" loading="lazy"><img src="img/app/cover-08.webp" alt="4학년 책 표지" loading="lazy">
+    <img src="img/app/cover-09.webp" alt="5학년 책 표지" loading="lazy"><img src="img/app/cover-10.webp" alt="5학년 책 표지" loading="lazy">
+    <img src="img/app/cover-11.webp" alt="6학년 책 표지" loading="lazy"><img src="img/app/cover-12.webp" alt="6학년 책 표지" loading="lazy">
+  </div>
+  <p class="covers-cap">1학년 「토끼와 거북이」부터 6학년 「레 미제라블」, 「삼국지」까지. 학년별 추천 서가이고 다른 학년 책도 골라 읽음</p>
+  <div class="field">
+    <div><b>양산 석산초</b>9. 21. 설명회 뒤 여러 학년 국어 수업에 적용. 4학년은 캐릭터 꾸미기에 재미를 붙여 쉬는 시간에도 스스로 책을 읽음</div>
+    <div><b>창녕 명덕초</b>러시아어를 쓰는 학생이 한국어 본문과 러시아어를 나란히 보며 반 친구들과 같은 책을 읽음</div>
+    <div><b>시작이 쉬움</b>교사는 구글 계정 하나, 학생은 학급 코드와 이름, 짧은 비밀번호로 입장. 설치할 앱 없음</div>
+  </div>
+</div>
+
 <div class="demo wrap" id="demo">
   <div class="demo-head">
     <h2>학생 체험 화면, 한 사람 약 20분</h2>
@@ -418,8 +439,8 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     <button role="tab" id="t0" aria-controls="p0" aria-selected="true"><small>1 | 1분</small><b>입장</b></button>
     <button role="tab" id="t1" aria-controls="p1" aria-selected="false"><small>2 | 8분</small><b>책 읽기</b></button>
     <button role="tab" id="t2" aria-controls="p2" aria-selected="false"><small>3 | 3분</small><b>인물과 대화</b></button>
-    <button role="tab" id="t3" aria-controls="p3" aria-selected="false"><small>4 | 5분</small><b>독후활동</b></button>
-    <button role="tab" id="t4" aria-controls="p4" aria-selected="false"><small>5 | 2분</small><b>포트폴리오</b></button>
+    <button role="tab" id="t3" aria-controls="p3" aria-selected="false"><small>4 | 5분</small><b>퀴즈와 독후활동</b></button>
+    <button role="tab" id="t4" aria-controls="p4" aria-selected="false"><small>5 | 2분</small><b>내 책 옷장</b></button>
     <button role="tab" id="t5" aria-controls="p5" aria-selected="false"><small>6 | 1분</small><b>책갈피 태그</b></button>
   </div>
 
@@ -427,112 +448,105 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     <div class="tablet">
       <div class="screen">
         <!-- 1 입장 -->
-        <div class="panel shot" id="s0"><span class="badge real">실제 화면</span><img src="img/scr-entry-v2.jpg" alt="부기 첫 화면. 교사로 시작하기와 학생으로 시작하기" width="1200" height="885"></div>
+        <div class="panel shot" id="s0"><span class="badge real">실제 화면</span><img src="img/app/S01-desk.webp" alt="학생 나의 책상. 지금 읽는 은혜 갚은 까치와 읽기, 인물과 대화, 활동, 완주 네 칸, 이어 읽기 단추" width="1600" height="1010"></div>
         <!-- 2 읽기 -->
-        <div class="panel shot" id="s1" hidden><span class="badge real">실제 화면</span><img src="img/scr-read-tokki.jpg" alt="토끼와 거북이 읽기 화면. 펼친 그림 위에 글이 놓이고 자랑했어요, 도착하겠어 같은 낱말에 밑줄이 있음. 위에 한국어, EN, VI, RU, 나란히 버튼" width="1065" height="909"></div>
+        <div class="panel shot" id="s1" hidden><span class="badge real">실제 화면</span><img src="img/app/s-reader-kkachi-word.webp" alt="3학년 은혜 갚은 까치 읽기 화면. 밑줄 친 낱말 뛰어난을 누르자 남보다 훨씬 잘하다라는 뜻이 뜸" width="1600" height="1290"></div>
         <!-- 3 대화 -->
-        <div class="panel" id="s2" hidden><span class="badge ex">예시 화면</span>
-          <div class="app">
-            <div class="app-top"><img src="img/bookie-wordmark.png" alt="부기"><b>인물과 대화</b><span>토끼와 거북이 | 거북이와 이야기하기</span></div>
-            <div class="app-body">
-              <div class="q-step">질문 2 / 4</div>
-              <div class="chat">
-                <div class="msg"><div class="av">거북</div><p><small>거북이</small>토끼가 나를 놀릴 때 나는 어떤 마음이었을까?</p></div>
-                <div class="msg me"><p>속상했지만 끝까지 해 보고 싶었을 것 같아.</p></div>
-                <div class="msg"><div class="av">거북</div><p><small>거북이</small>그럼 너라면 경주 중간에 잠든 토끼를 깨웠을 거야? 왜 그렇게 생각해?</p></div>
-              </div>
-              <div class="inbox">내 생각을 적어 보세요<i>보내기</i></div>
-            </div>
-          </div>
-        </div>
-        <!-- 4 독후활동 -->
-        <div class="panel" id="s3" hidden><span class="badge ex">예시 화면</span>
-          <div class="app">
-            <div class="app-top"><img src="img/bookie-wordmark.png" alt="부기"><b>독후활동 고르기</b><span>9가지 가운데 하나</span></div>
-            <div class="app-body">
-              <div class="cards">
-                <div>인물과 대화</div><div>마음에 남은 장면</div><div class="on">별점과 까닭</div>
-                <div>기억에 남는 낱말 셋</div><div>인물에게 편지</div><div>속마음 말풍선</div>
-                <div>그림으로 표현하기</div><div>읽기 전 짐작, 읽은 후 확인</div><div>함께 쓰는 교실</div>
-              </div>
-              <div class="write">
-                <div class="stars">★★★★<em>★</em></div>
-                <p>별 넷. 거북이가 느려도 쉬지 않고 걸어서 이긴 장면이 좋았다. 나도 줄넘기를 매일 조금씩 연습해 볼 거다.</p>
-              </div>
-              <div class="done">포트폴리오에 담기</div>
-            </div>
-          </div>
-        </div>
-        <!-- 5 포트폴리오 -->
-        <div class="panel" id="s4" hidden><span class="badge ex">예시 화면</span>
-          <div class="app">
-            <div class="app-top"><img src="img/bookie-wordmark.png" alt="부기"><b>독서 포트폴리오</b><span>한 해 동안 읽어 온 책이 모여 나만의 기록이 됨</span></div>
-            <div class="app-body">
-              <div class="pf">
-                <div class="pf-hero">
-                  <span class="yr">2027 독서 기록</span>
-                  <span class="nm">하늘별의<br>독서 발자취</span>
-                  <span class="lv">독서 레벨 3, 스코어 720점</span>
-                  <div class="pf-stats">
-                    <div><b>6</b>완독한 책</div><div><b>6</b>독후 작품</div><div><b>4</b>모은 배지</div>
-                  </div>
-                </div>
-                <div class="pf-col">
-                  <span class="pf-sec">책마다 남긴 독후활동</span>
-                  <div class="pf-month"><img src="img/books/tokki.jpg" alt=""><span>토끼와 거북이</span><span class="pf-tag">별점과 까닭 ★4</span></div>
-                  <div class="pf-month"><img src="img/books/sigol.jpg" alt=""><span>시골 쥐 도시 쥐</span><span class="pf-tag">인물과 대화</span></div>
-                  <div class="pf-month"><img src="img/books/ppalganmoja.jpg" alt=""><span>빨간 모자</span><span class="pf-tag">인물에게 편지</span></div>
-                  <div class="pf-month"><img src="img/books/gotgam.jpg" alt=""><span>호랑이와 곶감</span><span class="pf-tag">기억에 남는 낱말 셋</span></div>
-                  <div class="pf-month"><img src="img/books/geumdokki.jpg" alt=""><span>금도끼 은도끼</span><span class="pf-tag">속마음 말풍선</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="panel shot" id="s2" hidden><span class="badge real">실제 화면</span><img src="img/app/S10-chat-short.webp" alt="부기와 이야기 나누기 화면. 은혜 갚은 까치에서 가장 기억에 남는 장면은 뭐야라고 묻고, 이 대화는 내 책장의 기록에 저장된다는 안내" width="648" height="545"></div>
+        <!-- 4 퀴즈와 독후활동 -->
+        <div class="panel shot" id="s3" hidden><span class="badge real">실제 화면</span><img src="img/app/S09-card.webp" alt="독후활동 카드 별점과 까닭 화면. 별 몇 개, 왜 그만큼인가요, 스스로 점검, 제출하기" width="1000" height="1000"></div>
+        <!-- 5 내 책 옷장 -->
+        <div class="panel shot" id="s4" hidden><span class="badge real">실제 화면</span><img src="img/app/S08-dress.webp" alt="내 책 옷장 화면. 시골 쥐 도시 쥐 시골 쥐 옷을 입은 내 모습, 독서 스코어 1,480점, 완독한 책 12권의 옷 목록" width="1370" height="915"></div>
         <!-- 6 책갈피 -->
-        <div class="panel shot" id="s5" hidden><span class="badge ex">예시 화면</span><img src="img/nfc-tablet.jpg" alt="책갈피를 휴대폰에 대면 독서 포트폴리오가 열리고 책마다 남긴 독후활동이 보임" width="1284" height="1230"></div>
+        <div class="panel shot" id="s5" hidden><span class="badge ex">예시 화면</span><img src="img/nfc-tablet.jpg" alt="책갈피를 휴대폰에 대면 독서 기록이 열리고 책마다 남긴 독후활동이 보임" width="1284" height="1230"></div>
       </div>
     </div>
 
     <div class="info" aria-live="polite">
       <div class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
         <span class="time">1단계 | 1분 | A 맞이</span>
-        <h3>체험 카드로 바로 입장</h3>
-        <p>체험 카드 QR로 체험 계정 입장(별명 사용)</p>
-        <dl><dt>학생</dt><dd>별명 정하기, 학년 고르기</dd><dt>안내</dt><dd>체험 카드 나눠 주기, 빈 태블릿 안내</dd><dt>남는 것</dt><dd>체험 카드(계정 QR)</dd></dl>
+        <h3>체험 카드의 학급 코드로 입장</h3>
+        <p>체험 카드에 적힌 학급 코드, 이름(별명), 짧은 비밀번호로 들어가면 「나의 책상」이 열림</p>
+        <div class="side-row"><img src="img/app/join-step1.webp" alt="학급 코드 입력" width="550" height="550" loading="lazy"><img src="img/app/join-step2.webp" alt="내 이름 고르기" width="550" height="550" loading="lazy"><img src="img/app/join-step3.webp" alt="비밀번호 입력" width="550" height="550" loading="lazy"></div>
+        <dl><dt>학생</dt><dd>학급 코드, 이름, 비밀번호 순서로 입장</dd><dt>안내</dt><dd>학년에 맞는 체험 카드 주기, 빈 태블릿 안내</dd><dt>남는 것</dt><dd>체험 카드(학급 코드와 계정)</dd></dl>
       </div>
       <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
         <span class="time">2단계 | 8분 | B 읽기 존</span>
-        <h3>고전 한 편 끝까지 읽기</h3>
-        <p>짧은 고전 한 편 읽기. 밑줄 낱말 뜻 보기, 4개 언어와 나란히 보기</p>
-        <figure class="side"><img src="img/scr-read-side.jpg" alt="시골 쥐 도시 쥐를 러시아어와 한국어로 나란히 보는 화면" width="1202" height="908" loading="lazy"><figcaption>나란히 보기(러시아어, 한국어)</figcaption></figure>
-        <dl><dt>학생</dt><dd>읽기, 낱말 뜻 보기, 다 읽으면 완독 표시</dd><dt>안내</dt><dd>학년에 맞는 책 추천, 글자 크기와 언어 바꾸기</dd><dt>남는 것</dt><dd>완독 기록</dd></dl>
+        <h3>낱말을 눌러 가며 한 권 끝까지</h3>
+        <p>밑줄 낱말을 누르면 읽던 자리에서 뜻이 뜸. 읽어주기, 글자 크기, 밑줄과 메모, 책갈피도 써 봄</p>
+        <figure class="side"><img src="img/app/r-tokki-vi-cmp.webp" alt="토끼와 거북이 그림책을 베트남어와 한국어로 나란히 보는 화면" width="1600" height="1371" loading="lazy"><figcaption>1~2학년은 그림책. 「나란히」를 켜면 영어, 베트남어, 러시아어와 한국어가 맞붙음</figcaption></figure>
+        <dl><dt>학생</dt><dd>읽기, 낱말 뜻 보기, 마음에 남은 문장에 밑줄</dd><dt>안내</dt><dd>학년에 맞는 짧은 책 추천, 이주배경 가족에게 나란히 보기</dd><dt>남는 것</dt><dd>완독 기록, 독서 노트의 밑줄과 메모</dd></dl>
       </div>
       <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
         <span class="time">3단계 | 3분 | C 독후활동 존</span>
-        <h3>책 속 인물이 묻고 내가 답하기</h3>
-        <p>책 속 인물이 묻는 질문 3~4개에 답하기</p>
-        <dl><dt>학생</dt><dd>내 생각을 한두 문장으로 쓰기</dd><dt>안내</dt><dd>쓰기 어려워하는 학생에게 말로 먼저 묻기</dd><dt>남는 것</dt><dd>질문과 내 답</dd></dl>
+        <h3>인물이 된 부기가 묻고 내가 답하기</h3>
+        <p>다 읽으면 책 속 인물이 된 부기가 말을 검. 답이 짧으면 「그렇게 생각한 까닭은?」 하고 한 번 더 물음</p>
+        <dl><dt>학생</dt><dd>내 말로 한두 문장 답하기</dd><dt>안내</dt><dd>쓰기 어려워하는 학생에게 말로 먼저 묻기</dd><dt>남는 것</dt><dd>내 책장에 저장되는 대화 기록</dd><dt>특허</dt><dd>아바타 기반 도서 등장인물 대화형 독서 활동</dd></dl>
       </div>
       <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
         <span class="time">4단계 | 5분 | C 독후활동 존</span>
-        <h3>독후활동 카드 하나 고르기</h3>
-        <p>독후활동 카드 9가지 중 하나 고르기(붐빌 때는 별점과 까닭)</p>
-        <dl><dt>학생</dt><dd>카드 고르기, 쓰거나 그리기</dd><dt>안내</dt><dd>저학년은 그림으로 표현하기 권함</dd><dt>남는 것</dt><dd>독후 작품 1편</dd></dl>
+        <h3>퀴즈로 짚고, 카드 하나로 남기기</h3>
+        <p>독후 퀴즈 3문제를 푼 뒤 독후활동 카드 9가지 가운데 하나를 골라 씀(붐빌 때는 별점과 까닭)</p>
+        <figure class="side"><img src="img/app/R-quiz.webp" alt="토끼와 거북이 독후 퀴즈. 토끼는 무엇을 자랑했나요" width="1100" height="835" loading="lazy"><figcaption>1학년 「토끼와 거북이」 독후 퀴즈</figcaption></figure>
+        <div class="acts" aria-label="독후활동 카드 9가지"><img src="img/app/act-persona-talk.webp" alt="인물과 대화" title="인물과 대화" loading="lazy"><img src="img/app/act-write.webp" alt="함께 쓰는 교실" title="함께 쓰는 교실" loading="lazy"><img src="img/app/act-scene.webp" alt="마음에 남은 장면" title="마음에 남은 장면" loading="lazy"><img src="img/app/act-stars.webp" alt="별점과 까닭" title="별점과 까닭" loading="lazy"><img src="img/app/act-words.webp" alt="기억에 남는 낱말 셋" title="기억에 남는 낱말 셋" loading="lazy"><img src="img/app/act-letter.webp" alt="인물에게 편지" title="인물에게 편지" loading="lazy"><img src="img/app/act-bubble.webp" alt="속마음 말풍선" title="속마음 말풍선" loading="lazy"><img src="img/app/act-draw.webp" alt="그림으로 표현하기" title="그림으로 표현하기" loading="lazy"><img src="img/app/act-before-after.webp" alt="읽기 전 짐작, 읽은 후 확인" title="읽기 전 짐작, 읽은 후 확인" loading="lazy"></div>
+        <dl><dt>학생</dt><dd>퀴즈 풀기, 카드 고르기, 쓰거나 그리기</dd><dt>안내</dt><dd>저학년은 그림으로 표현하기, 속마음 말풍선 권함</dd><dt>남는 것</dt><dd>독후 작품 1편, 퀴즈 정답률</dd></dl>
       </div>
       <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
-        <span class="time">5단계 | 2분 | D 포트폴리오</span>
-        <h3>내 독서 포트폴리오 확인</h3>
-        <p>읽은 책과 활동이 모인 포트폴리오를 큰 화면에서 확인</p>
-        <dl><dt>학생</dt><dd>내 기록 보기, 사진 찍기</dd><dt>안내</dt><dd>학부모에게 집에서 이어 읽는 방법 안내</dd><dt>남는 것</dt><dd>포트폴리오 화면</dd></dl>
+        <span class="time">5단계 | 2분 | D 기록과 보상</span>
+        <h3>끝까지 읽은 책의 옷이 열림</h3>
+        <p>완독한 책의 인물 옷을 입은 내 모습이 「내 책 옷장」에 열리고, 「내 성장」에 완주, 퀴즈, 활동이 쌓임</p>
+        <div class="cosrow" aria-label="책마다 다른 옷"><img src="img/app/cos01.webp" alt="" loading="lazy"><img src="img/app/cos02.webp" alt="" loading="lazy"><img src="img/app/cos03.webp" alt="" loading="lazy"><img src="img/app/cos04.webp" alt="" loading="lazy"><img src="img/app/cos05.webp" alt="" loading="lazy"><img src="img/app/cos06.webp" alt="" loading="lazy"><img src="img/app/cos07.webp" alt="" loading="lazy"><img src="img/app/cos08.webp" alt="" loading="lazy"></div>
+        <figure class="side"><img src="img/app/S04-growth.webp" alt="내 성장 화면. 완주, 독후 퀴즈, 활동 수와 낱말 진단 결과" width="1590" height="1195" loading="lazy"><figcaption>「내 성장」 화면</figcaption></figure>
+        <dl><dt>학생</dt><dd>열린 옷 입어 보기, 부스 전시장에 작품 띄우기</dd><dt>안내</dt><dd>학부모에게 집에서 이어 읽는 방법 안내</dd><dt>남는 것</dt><dd>내 책 옷장, 내 책장, 내 성장 기록</dd></dl>
       </div>
       <div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden>
         <span class="time">6단계 | 1분 | D 홍보물품</span>
-        <h3>책갈피를 대면 내 독서 포트폴리오로</h3>
-        <p>책갈피 NFC나 QR로 접속하면 책마다 남긴 독후활동 결과물이 포트폴리오로 열림</p>
-        <dl><dt>학생</dt><dd>휴대폰에 대 보기</dd><dt>안내</dt><dd>NFC가 없는 휴대폰은 QR로 안내</dd><dt>남는 것</dt><dd>키캡, 책갈피, 다시 들어오는 길</dd></dl>
+        <h3>책갈피를 대면 내 독서 기록으로</h3>
+        <p>옷장에서 연 옷과 같은 그림의 책갈피를 고르고, NFC나 QR로 접속하면 책마다 남긴 독후활동이 다시 열림</p>
+        <dl><dt>학생</dt><dd>책갈피 고르기, 휴대폰에 대 보기</dd><dt>안내</dt><dd>NFC가 없는 휴대폰은 QR로 안내</dd><dt>남는 것</dt><dd>키캡, 옷장 책갈피, 다시 들어오는 길</dd></dl>
       </div>
       <div class="nav2"><button type="button" id="prev">이전 단계</button><button type="button" id="next">다음 단계</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="blk wrap" id="menu">
+  <div class="demo-head">
+    <h2>부스 체험 메뉴: 무엇을 해 보나</h2>
+  </div>
+  <p class="now-lead">위 6단계를 기본 길로 두고, 기다리는 줄과 큰 화면, 교사 자리에서 할 체험을 구역마다 더함. 그림을 누르면 크게 보임.</p>
+  <div class="zone">
+    <div class="zone-h"><i>B·C</i><h3>태블릿 체험</h3><span>학생, 한 사람 약 20분</span></div>
+    <div class="menu-g">
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/kkachi-popup.webp" alt="은혜 갚은 까치 본문에서 뛰어난을 누르자 뜻이 뜬 화면" loading="lazy"></div><figcaption><b>낱말 눌러 가며 끝까지 읽기</b><span>밑줄 낱말을 누르면 그 학년 말로 쓴 뜻이 뜸. 읽어주기로 듣고, 마음에 남은 문장에 밑줄</span><small>초등학생 | 8분 | 「은혜 갚은 까치」 등 짧은 책</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/r-tokki-vi-cmp.webp" alt="토끼와 거북이 베트남어 나란히 보기" loading="lazy"></div><figcaption><b>네 나라 말로 나란히 읽기</b><span>1~4학년 200권을 영어, 베트남어, 러시아어와 한국어로 맞붙여 읽음</span><small>이주배경 학생과 가족 | 5분 | 학부모 안내와 함께</small></figcaption></figure>
+      <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S10-chat-short.webp" alt="부기와 이야기 나누기 화면" loading="lazy"></div><figcaption><b>책 속 인물과 대화</b><span>인물이 된 부기가 발문을 묻고, 답이 짧으면 까닭을 한 번 더 물음(특허 등록)</span><small>초등학생 | 3분 | 대화는 내 책장에 저장</small></figcaption></figure>
+      <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/R-quiz.webp" alt="토끼와 거북이 독후 퀴즈" loading="lazy"></div><figcaption><b>독후 퀴즈와 활동 카드</b><span>퀴즈 3문제로 내용을 짚고, 독후활동 카드 9가지 가운데 하나로 생각을 남김</span><small>초등학생 | 5분 | 독후 작품 1편</small></figcaption></figure>
+    </div>
+  </div>
+  <div class="zone">
+    <div class="zone-h"><i>D</i><h3>기록과 보상, 큰 화면</h3><span>체험 마무리, 학부모 안내</span></div>
+    <div class="menu-g">
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S08-dress.webp" alt="내 책 옷장 화면" loading="lazy"></div><figcaption><b>내 책 옷장 열기</b><span>끝까지 읽은 책의 인물 옷이 열림. 사거나 뽑는 방식 없이 읽어야만 열림</span><small>초등학생 | 1분 | 옷 입은 내 모습 사진 찍기</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S07-gallery.webp" alt="우리 반 전시장 화면" loading="lazy"></div><figcaption><b>부스 전시장</b><span>체험한 아이들의 독후 작품을 「우리 반 전시장」 큰 화면에 띄워 서로 봄</span><small>누구나 | 오가며 | 체험 학급 하나를 부스 전시장으로</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge ex">시안</span><img class="zoomable" src="img/app/meta1.webp" alt="부기 메타버스 서재 공간 시안" loading="lazy"></div><figcaption><b>책 숲 산책 체험판</b><span>서재에서 책을 고르면 그 책의 세계로 걸어 들어가는 공간. 큰 화면에서 둘러봄</span><small>누구나 | 2분 | 교사 개발팀 시안</small></figcaption></figure>
+    </div>
+  </div>
+  <div class="zone">
+    <div class="zone-h"><i>A</i><h3>손 체험</h3><span>기다리는 줄과 쉼터, 화면 없이</span></div>
+    <div class="menu-g">
+      <figure class="mcard"><div class="ph"><span class="badge ex">시안</span><img class="zoomable" src="img/app/paperdoll.webp" alt="부기 이야기 극장 종이인형 시안" loading="lazy"></div><figcaption><b>부기 이야기 극장</b><span>종이인형에 인물의 모자와 옷을 입혀 「토끼와 거북이」 장면을 다시 꾸밈</span><small>저학년, 가족 | 5~10분 | 도안 인쇄</small></figcaption></figure>
+      <figure class="mcard"><div class="ph fit"><span class="badge ex">실물 자료</span><img class="zoomable" src="img/app/sticker1.webp" alt="양치기 소년 스티커북" loading="lazy"></div><figcaption><b>스티커북과 색칠 꾸미기</b><span>만들기 자료실의 스티커북 5권, 색칠 꾸미기 23권 가운데 골라 꾸밈</span><small>저학년 | 기다리는 동안 | 가져가기</small></figcaption></figure>
+      <figure class="mcard"><div class="ph fit"><span class="badge ex">실물 자료</span><img class="zoomable" src="img/app/closet32.webp" alt="내 책 옷장 책갈피 32종" loading="lazy"></div><figcaption><b>옷장 책갈피 고르기</b><span>화면에서 연 옷과 같은 그림의 책갈피 32종 가운데 하나를 고름. 뒷면 QR과 NFC</span><small>체험 마친 학생 | 1분 | 기념품</small></figcaption></figure>
+    </div>
+  </div>
+  <div class="zone">
+    <div class="zone-h"><i>E</i><h3>교사와 기관 체험</h3><span>교사 10분, 기관 15분</span></div>
+    <div class="menu-g">
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/T06-lesson.webp" alt="수업 만들기 화면" loading="lazy"></div><figcaption><b>10분 만에 수업 만들기</b><span>우리 반 책을 고르고 온책읽기 10차시, 국어 4차시, 아침활동 5차시 가운데 구성을 골라 차시 PPT와 지도안 받기</span><small>교사 | 10분 | 교사 체험 계정</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/T19-result-card.webp" alt="결과 보기 화면" loading="lazy"></div><figcaption><b>결과 보기와 도장</b><span>부스에서 학생들이 낸 카드를 실제로 받아 보고 도장과 한 줄을 남김</span><small>교사 | 3분 | 부스 체험 학급 연결</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/T07-vocab.webp" alt="어휘력 진단 결과 화면" loading="lazy"></div><figcaption><b>어휘력 진단과 우리 반 성장</b><span>낱말 스무 개로 반 수준을 보고, 수준이 오른 학생과 진단 뒤 완독을 한 화면에서 봄</span><small>교사 | 5분 | 진단 문항 직접 풀기</small></figcaption></figure>
+      <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/A01-home.webp" alt="기관용 독서교육 통합 현황 화면" loading="lazy"></div><figcaption><b>독서교육 통합 현황</b><span>참여 학교와 학생, 완독, 어휘력, 독후활동을 한 화면에. 관리자는 보기만 가능</span><small>교육청, 학교 관리자 | 15분 | 위탁 운영 상담</small></figcaption></figure>
     </div>
   </div>
 </div>
@@ -555,11 +569,11 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>구분</th><th>운영 방안</th></tr></thead>
           <tbody>
-            <tr><th>체험</th><td>한 사람 12~20분, 책 한 편 읽고 독후활동까지</td></tr>
-            <tr><th>남는 것</th><td>체험 계정, 독서 포트폴리오, QR과 NFC 책갈피</td></tr>
-            <tr><th>효과 확인</th><td>계정 접속 수, 독후 작품 수, 재접속 수 집계</td></tr>
-            <tr><th>교사</th><td>교사 체험 계정, 부기 선도교사단 200~300명 구성, 오픈채팅방 운영</td></tr>
-            <tr><th>행사 뒤</th><td>책갈피로 다시 접속, 집과 교실에서 독서 기록 이어 가기</td></tr>
+            <tr><th>체험</th><td>한 사람 12~20분, 책 한 권 끝까지 읽고 인물과 대화, 퀴즈와 독후활동까지. 기다리는 줄에서는 종이인형, 스티커북 손 체험</td></tr>
+            <tr><th>남는 것</th><td>체험 계정(학급 코드), 내 책 옷장과 독서 기록, 옷장 책갈피(QR, NFC), 키캡</td></tr>
+            <tr><th>효과 확인</th><td>계정 접속 수, 완독 수, 독후 작품 수, 재접속 수 집계</td></tr>
+            <tr><th>교사</th><td>교사 체험 계정, 시범 사용 신청, 부기 선도교사단 200~300명 구성, 오픈채팅방 운영</td></tr>
+            <tr><th>행사 뒤</th><td>책갈피로 다시 접속, 집과 교실에서 이어 읽기, 선도교사단 학급으로 이어짐</td></tr>
             <tr><th>예산</th><td>체험 구성과 홍보물품 중심</td></tr>
           </tbody>
         </table>
@@ -575,7 +589,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
 
       <div class="perhead">
         <span>1인당 비용(홍보물품 포함)</span>
-        <b id="perHead">약 4,700~7,100원</b>
+        <b id="perHead">약 4,900~7,400원</b>
       </div>
     </div>
   </section>
@@ -626,10 +640,11 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       </table>
       <h3>부스에서 보여 줄 것</h3>
       <ul class="dot">
-        <li><mark>책 읽기 본연의 즐거움</mark>: 고전 한 편을 끝까지 읽는 경험</li>
-        <li>읽은 뒤의 생각: 인물과 대화, 독후활동 카드로 남기는 감상</li>
-        <li>쌓이는 기록: 독후활동이 모여 한 장으로 보이는 독서 포트폴리오</li>
-        <li>교사의 수업: 낱말 뜻 보기, 기억에 남는 낱말 셋, 학생 읽기 기록으로 이어 가는 <mark>어휘력과 문해력</mark> 지도</li>
+        <li><mark>책 읽기 본연의 즐거움</mark>: 학생 눈높이로 다시 쓴 명작 한 권을 낱말 뜻을 보며 끝까지 읽는 경험</li>
+        <li>모두 함께 읽기: 영어, 베트남어, 러시아어와 한국어를 나란히 놓고 같은 책 읽기</li>
+        <li>읽은 뒤의 생각: 특허 등록한 인물과 대화, 독후 퀴즈, 독후활동 카드 9가지</li>
+        <li>읽어야 열리는 보상: 내 책 옷장, 손에 쥐는 옷장 책갈피, 종이인형과 스티커북</li>
+        <li>교사의 수업: 수업 만들기, 어휘력 진단, 결과 보기와 도장, 우리 반 성장으로 이어 가는 <mark>어휘력과 문해력</mark> 지도</li>
       </ul>
     </div>
   </section>
@@ -647,11 +662,12 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>프로그램</th><th>대상</th><th>시간</th><th>내용</th><th>남는 것</th></tr></thead>
           <tbody>
-            <tr><th>부기 읽기 체험</th><td>초등학생</td><td class="n">20분</td><td>입장, 책 읽기, 인물과 대화, 독후활동, 포트폴리오, 홍보물품(위 6단계)</td><td>포트폴리오, 키캡, 책갈피</td></tr>
-            <tr><th>빠른 체험</th><td>초등학생(혼잡 시간)</td><td class="n">12분</td><td>짧은 이야기 읽기, 별점과 까닭, 포트폴리오 확인</td><td>포트폴리오, 책갈피</td></tr>
-            <tr><th>학부모 안내</th><td>동행 학부모</td><td class="n">5분</td><td>아이가 체험하는 동안 포트폴리오 화면과 집에서 이어 읽는 방법 안내</td><td>책갈피 QR</td></tr>
-            <tr><th>교사 체험</th><td>교사</td><td class="n">10분</td><td>교사 계정으로 반 만들기, 독후활동 내주기, 학생 어휘와 읽기 기록, 포트폴리오 보기</td><td>교사 체험 계정, 선도교사단 신청</td></tr>
-            <tr><th>기관 상담</th><td>교육청, 학교 관리자</td><td class="n">15분</td><td>학교 독서교육 위탁 운영, 300권 서고, 사람이 가는 연수 설명</td><td>소개 자료, 상담 신청</td></tr>
+            <tr><th>부기 읽기 체험</th><td>초등학생</td><td class="n">20분</td><td>입장, 책 읽기, 인물과 대화, 퀴즈와 독후활동, 내 책 옷장, 책갈피(위 6단계)</td><td>독서 기록, 키캡, 옷장 책갈피</td></tr>
+            <tr><th>빠른 체험</th><td>초등학생(혼잡 시간)</td><td class="n">12분</td><td>1~2학년 그림책 한 권, 퀴즈, 별점과 까닭, 옷장 열기</td><td>독서 기록, 옷장 책갈피</td></tr>
+            <tr><th>손 체험</th><td>저학년, 가족(기다리는 줄)</td><td class="n">5~10분</td><td>부기 이야기 극장 종이인형, 스티커북, 색칠 꾸미기</td><td>스티커, 색칠한 도안</td></tr>
+            <tr><th>학부모 안내</th><td>동행 학부모</td><td class="n">5분</td><td>내 책장과 내 성장 화면, 집에서 이어 읽는 방법, 네 나라 말 나란히 보기</td><td>책갈피 QR, 소개 책자</td></tr>
+            <tr><th>교사 체험</th><td>교사</td><td class="n">10분</td><td>구글 계정으로 시작, 학급 코드, 수업 만들기(차시 PPT와 지도안), 활동 내주기, 결과 보기와 도장, 어휘력 진단</td><td>교사 체험 계정, 시범 사용 신청, 선도교사단 신청</td></tr>
+            <tr><th>기관 상담</th><td>교육청, 학교 관리자</td><td class="n">15분</td><td>독서교육 통합 현황 화면, 학교 독서교육 위탁 운영, 300권 서가, 교육 강사가 학교로 가는 연수</td><td>소개 책자, 상담 신청</td></tr>
           </tbody>
         </table>
       </div>
@@ -663,16 +679,17 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     <div>
       <h2>부스 배치(안)</h2>
       <div class="plan">
-        <svg viewBox="0 0 720 360" role="img" aria-label="부스 배치도. 입구 쪽에 맞이와 포토존, 가운데 읽기 존, 안쪽에 독후활동 존, 출구 쪽에 포트폴리오와 홍보물품 존, 옆에 교사와 기관 상담 존">
+        <svg viewBox="0 0 720 360" role="img" aria-label="부스 배치도. 입구 쪽에 맞이와 포토존, 가운데 읽기 존, 안쪽에 독후활동 존, 출구 쪽에 기록과 보상, 큰 화면 존, 옆에 교사와 기관 상담 존">
           <rect x="10" y="10" width="700" height="320" rx="10" fill="var(--sheet)" stroke="var(--forest)" stroke-width="2"/>
           <rect x="24" y="24" width="150" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="99" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">A 맞이와 포토존</text>
-          <text x="99" y="100" text-anchor="middle" font-size="12" fill="var(--muted)">체험 카드 받기</text>
-          <text x="99" y="118" text-anchor="middle" font-size="12" fill="var(--muted)">부기 캐릭터 등신대</text>
-          <text x="99" y="136" text-anchor="middle" font-size="12" fill="var(--muted)">1단계</text>
+          <text x="99" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">체험 카드, 등신대</text>
+          <text x="99" y="116" text-anchor="middle" font-size="12" fill="var(--muted)">손 체험: 종이인형,</text>
+          <text x="99" y="132" text-anchor="middle" font-size="12" fill="var(--muted)">스티커북, 색칠</text>
+          <text x="99" y="150" text-anchor="middle" font-size="12" fill="var(--muted)">1단계</text>
           <rect x="190" y="24" width="250" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="315" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">B 읽기 존</text>
-          <text x="315" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 8대, 낮은 책상과 방석, 2단계</text>
+          <text x="315" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 8대, 낱말 뜻, 나란히 보기, 2단계</text>
           <g fill="var(--sheet)" stroke="var(--sage)">
             <rect x="212" y="98" width="40" height="28" rx="4"/><rect x="262" y="98" width="40" height="28" rx="4"/>
             <rect x="312" y="98" width="40" height="28" rx="4"/><rect x="362" y="98" width="40" height="28" rx="4"/>
@@ -681,18 +698,18 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
           </g>
           <rect x="456" y="24" width="240" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="576" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">C 독후활동 존</text>
-          <text x="576" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">인물과 대화, 독후활동 카드</text>
+          <text x="576" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">인물과 대화, 퀴즈, 독후활동 카드</text>
           <text x="576" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 6대, 3~4단계</text>
           <rect x="24" y="180" width="300" height="136" rx="8" fill="var(--mark)" stroke="var(--warn)" stroke-opacity=".4"/>
-          <text x="174" y="222" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">D 포트폴리오와 홍보물품</text>
-          <text x="174" y="246" text-anchor="middle" font-size="12" fill="var(--ink)">큰 화면에서 내 독서 기록 확인</text>
-          <text x="174" y="264" text-anchor="middle" font-size="12" fill="var(--ink)">책 모양 키캡, QR과 NFC 책갈피</text>
-          <text x="174" y="282" text-anchor="middle" font-size="12" fill="var(--ink)">5~6단계, 학부모 안내</text>
+          <text x="174" y="216" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">D 기록과 보상, 큰 화면</text>
+          <text x="174" y="240" text-anchor="middle" font-size="12" fill="var(--ink)">내 책 옷장, 부스 전시장, 책 숲 산책</text>
+          <text x="174" y="258" text-anchor="middle" font-size="12" fill="var(--ink)">책 모양 키캡, 옷장 책갈피(QR, NFC)</text>
+          <text x="174" y="276" text-anchor="middle" font-size="12" fill="var(--ink)">5~6단계, 학부모 안내</text>
           <rect x="340" y="180" width="356" height="136" rx="8" fill="var(--sheet)" stroke="var(--forest)" stroke-dasharray="5 4"/>
           <text x="518" y="222" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">E 교사와 기관 상담</text>
-          <text x="518" y="246" text-anchor="middle" font-size="12" fill="var(--muted)">교사 체험 태블릿 2대, 오픈채팅 QR</text>
-          <text x="518" y="264" text-anchor="middle" font-size="12" fill="var(--muted)">선도교사단 신청, 유료 기능 이용권 안내</text>
-          <text x="518" y="282" text-anchor="middle" font-size="12" fill="var(--muted)">교육청, 학교 관리자 상담 테이블</text>
+          <text x="518" y="246" text-anchor="middle" font-size="12" fill="var(--muted)">교사 체험 태블릿 2대, 수업 만들기, 어휘력 진단</text>
+          <text x="518" y="264" text-anchor="middle" font-size="12" fill="var(--muted)">시범 사용 신청 QR, 선도교사단 신청, 오픈채팅 QR</text>
+          <text x="518" y="282" text-anchor="middle" font-size="12" fill="var(--muted)">교육청, 학교 관리자 상담(독서교육 통합 현황)</text>
           <g stroke="var(--forest)" stroke-width="2" fill="none" marker-end="url(#ar)">
             <path d="M174 94 H188"/><path d="M440 94 H454"/><path d="M576 164 C 560 176, 340 176, 300 182"/>
           </g>
@@ -702,9 +719,10 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       </div>
       <h3>준비 장비</h3>
       <ul class="dot small">
-        <li>학생용 태블릿 14대(읽기 8대, 독후활동 6대), 교사 체험용 2대, 포트폴리오 큰 화면 1대</li>
+        <li>학생용 태블릿 14대(읽기 8대, 독후활동 6대), 교사 체험용 2대, 큰 화면 1대(부스 전시장, 책 숲 산책)</li>
         <li>LTE 공유기 2대(행사장 무선망이 끊길 때 대비), 충전 보관함</li>
-        <li>부기 캐릭터 등신대, 현수막, 오픈채팅 QR 안내판</li>
+        <li>부기 캐릭터 등신대, 현수막, 시범 사용 신청과 오픈채팅 QR 안내판</li>
+        <li>손 체험 재료: 종이인형 도안, 스티커북, 색칠 도안, 색연필, 낮은 책상</li>
       </ul>
     </div>
   </section>
@@ -713,7 +731,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     <div class="tag"><b>6</b><span>홍보물품</span></div>
     <div>
       <h2>홍보물품과 다시 들어오는 길</h2>
-      <figure class="nfcfig"><img src="img/nfc-portfolio.jpg" alt="책갈피 NFC로 독서 포트폴리오 접속, 책마다 다른 독후활동 결과물" width="2400" height="1350" loading="lazy"></figure>
+      <figure class="nfcfig"><img src="img/nfc-portfolio.jpg" alt="책갈피 NFC로 독서 기록 접속, 책마다 다른 독후활동 결과물" width="2400" height="1350" loading="lazy"></figure>
       <div class="goods" style="margin-top:18px">
         <div>
           <h3>책 모양 대형 키캡</h3>
@@ -727,18 +745,20 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
                       </ul>
         </div>
         <div>
-          <h3>QR과 NFC 책갈피</h3>
+          <h3>옷장 책갈피(QR, NFC)</h3>
           <div class="bm">
             <img src="img/bm-front.jpg" alt="부기 책갈피 앞면, 이야기 탐험가" width="360" height="555">
             <img src="img/bm-back.jpg" alt="부기 책갈피 뒷면, bookie.io.kr QR" width="360" height="555">
           </div>
           <ul class="dot small" style="margin-top:10px">
-            <li>10월 책갈피 64종과 베리에이션 14가지 가운데 골라 여러 종으로 제작, 55×85mm</li>
+            <li>내 책 옷장 32종, 초록과 아이들 32종, 베리에이션 14가지 가운데 골라 여러 종으로 제작, 55×85mm</li>
+            <li>화면에서 연 옷과 같은 그림의 책갈피를 골라 가져감</li>
             <li>뒷면에 NFC 칩을 붙여 휴대폰을 대기만 해도 부기 접속</li>
             <li>칩에는 bookie.io.kr 주소를 기록, 새 기능 개발 없이 운영</li>
           </ul>
         </div>
       </div>
+      <figure class="nfcfig" style="margin-top:18px"><img src="img/app/closet32.webp" alt="내 책 옷장 책갈피 32종. 책마다 인물 옷을 입은 아이 그림" width="1600" height="1177" loading="lazy"><figcaption class="small muted">내 책 옷장 책갈피 32종(화면 속 옷과 같은 그림)</figcaption></figure>
       <h3>책갈피 베리에이션 14가지</h3>
       <div class="bmv">
           <figure><div class="bmv-img"><img src="img/bm/V01-1.webp" alt="책갈피 도서관 대출 카드" loading="lazy"></div><figcaption><b>V01</b> 도서관 대출 카드</figcaption></figure>
@@ -765,17 +785,17 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       <h2>전국 부기 선도교사단 200~300명 구성</h2>
       <div class="teacher">
         <div>
-          <p style="margin-top:0">교사 체험 계정, 선도교사단 신청, 오픈채팅방 운영</p>
+          <p style="margin-top:0">모집 문구: “아이들 책 읽어 보도록 하고 싶은 분들 모십니다.”</p>
           <ul class="dot small">
-            <li>박람회 당일: 교사 체험 계정, 선도교사단 신청, 오픈채팅방 입장</li>
-            <li>2027년 2월: 새 학기 수업 자료와 반 만들기 안내</li>
-            <li>2027년 3월부터: 수업 사례 나눔, 피드백 모으기, 공모전</li>
+            <li>박람회 당일: 교사 체험 계정, 시범 사용 신청(테스트 계정과 활용 안내 메일), 선도교사단 신청, 오픈채팅방 입장</li>
+            <li>2027년 2월: 구글 계정으로 새 학기 반 만들기, 학급 코드와 수업 만들기 안내</li>
+            <li>2027년 3월부터: 독서교육 교사 연구회, 수업 사례 나눔, 피드백 모으기, 공모전</li>
           </ul>
         </div>
         <div class="ladder">
           <p><b>참여</b> 선도교사단 신청, 오픈채팅방에서 부기 소식 받기</p>
-          <p><b>활동</b> 수업에 써 보고 피드백 남기기, 공모전 참가</p>
-          <p><b>활동 우수</b> 유료 기능 제공, 교사 책 출간 지원</p>
+          <p><b>활동</b> 연구회에서 수업에 써 보고 피드백 남기기, 공모전 참가. 함께한 선생님께 평생 무료 이용권</p>
+          <p><b>활동 우수</b> 교사 책 출간 지원, 교육박람회 강의 기회 우선</p>
         </div>
       </div>
     </div>
@@ -789,17 +809,17 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>역할</th><th>담당 구역</th><th>담당 업무</th></tr></thead>
           <tbody>
-            <tr><th>총괄 진행</th><td>A, D</td><td>줄 관리, 체험 카드 배부, 포트폴리오 화면 설명, 홍보물품 나눔, 기관 상담</td></tr>
-            <tr><th>체험 안내</th><td>B, C</td><td>책 추천, 태블릿 관리, 인물과 대화와 독후활동 돕기</td></tr>
-            <tr><th>교사 상담</th><td>E</td><td>교사 체험 계정 안내, 선도교사단 신청 받기, 오픈채팅방 안내</td></tr>
+            <tr><th>총괄 진행</th><td>A, D</td><td>줄 관리, 체험 카드 배부, 손 체험 안내, 옷장과 기록 화면 설명, 홍보물품 나눔, 기관 상담</td></tr>
+            <tr><th>체험 안내</th><td>B, C</td><td>책 추천, 태블릿 관리, 인물과 대화와 퀴즈, 독후활동 돕기</td></tr>
+            <tr><th>교사 상담</th><td>E</td><td>교사 체험 계정과 수업 만들기 안내, 시범 사용과 선도교사단 신청 받기, 오픈채팅방 안내</td></tr>
           </tbody>
         </table>
       </div>
       <p class="small muted" style="margin-top:6px">핵심 인력 3명 × 3일, 붐비는 시간 교사 개발팀 지원</p>
       <div class="timeline">
         <div><b>2026. 11월</b>부스 구성 및 프로그램 개발 시작, 부스 신청</div>
-        <div><b>2026. 12월</b>키캡, 책갈피 시안 확정과 발주</div>
-        <div><b>2027. 1월 중순</b>체험 계정 2,000개 만들기, 리허설</div>
+        <div><b>2026. 12월</b>키캡, 옷장 책갈피 시안 확정과 발주, 손 체험 도안 고르기</div>
+        <div><b>2027. 1월 중순</b>체험 학급과 계정 2,000개 만들기, 손 체험 재료 인쇄, 리허설</div>
         <div><b>2027. 1. 25.~27.</b>부스 운영 3일</div>
       </div>
     </div>
@@ -818,7 +838,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       <ul class="dot" style="margin-top:12px">
         <li><b>학생</b>: 키캡과 책갈피가 집과 교실에 남아 bookie.io.kr로 다시 들어오는 길이 됨</li>
         <li><b>교사</b>: 전국 부기 선도교사단이 수업 사례, 공모전, 학교 도입 상담으로 이어짐</li>
-        <li><b>교육청과 학부모</b>: 체험 인원과 포트폴리오 화면이 학교 독서교육 위탁 운영 설명 자료가 됨</li>
+        <li><b>교육청과 학부모</b>: 체험 인원, 완독과 독후 작품 수, 통합 현황 화면이 학교 독서교육 위탁 운영 설명 자료가 됨</li>
       </ul>
     </div>
   </section>
@@ -831,7 +851,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     <div class="adjust"><b>조정 가능</b><span>예산은 부스 배정 규모, 홍보물품 제작 수량, 인력 운영 방식에 따라 협의해 조정할 수 있음. 아래 단가와 수량 칸을 고치면 합계가 바로 바뀜.</span></div>
     <div class="doc-head">
       <table>
-        <tr><th>견적일</th><td>2026. 10. 18.</td></tr>
+        <tr><th>견적일</th><td>2026. 10. 21.</td></tr>
         <tr><th>건명</th><td>에듀플러스위크 2027 부기 부스 운영</td></tr>
         <tr><th>수신</th><td><input id="to" aria-label="수신처" placeholder="받는 곳 입력"> 귀하</td></tr>
         <tr><th>유효기간</th><td>견적일로부터 30일</td></tr>
@@ -845,8 +865,8 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
     </div>
 
     <div class="total-line">
-      <span class="words" id="words">일금 일천사백이십이만 원정</span>
-      <span class="num" id="headTotal">14,220,000원</span>
+      <span class="words" id="words">일금 일천사백칠십이만 원정</span>
+      <span class="num" id="headTotal">14,720,000원</span>
     </div>
 
     <div class="est-wrap">
@@ -881,7 +901,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   /* 첫 화면 영상: 세 편을 차례로 끝없이 */
   (function(){
     const v=document.getElementById("reel"); if(!v) return;
-    const clips=[["media/clip0.mp4","부기 오프닝"],["media/clip1.mp4","15초 1편 | 어휘력과 문해력"],["media/clip2.mp4","15초 2편 | 마음과 독서 습관"]];
+    const clips=[["media/clip0.mp4","부기 오프닝"],["media/clip-question.mp4","정답 대신, 질문을 | 60초"],["media/clip-tokki.mp4","한 권 활용편 | 토끼와 거북이"]];
     const dots=[...document.querySelectorAll(".reel-dots button")];
     let k=0;
     function play(i){
@@ -911,8 +931,10 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       u.parts.forEach(el=>el.classList.toggle("fold-off",!open));
       u.box.classList.toggle("is-folded",!open);
     }
-    const demo=document.getElementById("demo");
-    add(demo,demo.querySelector(".demo-head h2"),()=>[...demo.children].filter(el=>!el.classList.contains("demo-head")));
+    ["now","demo","menu"].forEach(id=>{
+      const box=document.getElementById(id); if(!box) return;
+      add(box,box.querySelector(".demo-head h2"),()=>[...box.children].filter(el=>!el.classList.contains("demo-head")));
+    });
     document.querySelectorAll("main section").forEach(sec=>{
       const body=sec.querySelector(":scope>div:not(.tag)"); const h=body&&body.querySelector(":scope>h2");
       add(sec,h,()=>[...body.children].filter(el=>el!==h));
@@ -932,6 +954,22 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       const t=document.querySelector(a.getAttribute("href")); if(!t) return;
       units.forEach(u=>{if(u.box===t||t.contains(u.box)||u.box.contains(t)) set(u,true);});
     }));
+  })();
+
+  /* 체험 메뉴 그림을 누르면 크게 보기 */
+  (function(){
+    const dlg=document.createElement("dialog"); dlg.className="zoom";
+    dlg.innerHTML='<img alt=""><p></p><button type="button">닫기</button>';
+    document.body.appendChild(dlg);
+    const im=dlg.querySelector("img"), cap=dlg.querySelector("p");
+    dlg.querySelector("button").addEventListener("click",()=>dlg.close());
+    dlg.addEventListener("click",e=>{if(e.target===dlg) dlg.close();});
+    document.querySelectorAll("img.zoomable").forEach(img=>{
+      img.tabIndex=0; img.setAttribute("role","button");
+      const open=()=>{im.src=img.src; im.alt=img.alt; const b=img.closest("figure").querySelector("b"); cap.textContent=b?b.textContent:""; if(dlg.showModal) dlg.showModal();};
+      img.addEventListener("click",open);
+      img.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open();}});
+    });
   })();
 
   /* 체험 단계 넘기기 */
@@ -963,11 +1001,12 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   /* 견적 계산 */
   const BASE=[
     {name:"부스 임차", note:"부스 임차, 시공, 전기, 집기", kind:"lump", price:4000000, qty:1},
-    {name:"부스 구성 및 프로그램 개발(장비 렌탈)", note:"체험 계정 2,000개, 읽기와 독후활동 구성, 태블릿과 큰 화면 렌탈", kind:"lump", price:2000000, qty:1},
+    {name:"부스 구성 및 프로그램 개발(장비 렌탈)", note:"체험 학급과 계정 2,000개, 읽기와 독후활동 구성, 태블릿과 큰 화면 렌탈", kind:"lump", price:2000000, qty:1},
     {name:"운영 인력", note:"핵심 인력만, 1인 1일 단가", kind:"labor", price:180000, people:3, days:3},
     {name:"책 모양 대형 키캡", note:"에듀톡톡 대형 키캡, 바닥 QR", kind:"unit", price:2500, qty:2000},
-    {name:"QR, NFC 책갈피", note:"NFC 칩 포함, 55×85mm", kind:"unit", price:400, qty:2000},
-    {name:"홍보, 인쇄물", note:"현수막, 안내지, 체험 카드", kind:"lump", price:800000, qty:1}
+    {name:"옷장 책갈피(QR, NFC)", note:"NFC 칩 포함, 55×85mm", kind:"unit", price:400, qty:2000},
+    {name:"손 체험 재료", note:"종이인형 도안, 스티커북, 색칠 도안, 색연필", kind:"lump", price:500000, qty:1},
+    {name:"홍보, 인쇄물", note:"현수막, 안내지, 체험 카드, 소개 책자", kind:"lump", price:800000, qty:1}
   ];
   let rows=BASE.map(r=>({...r}));
   const $=id=>document.getElementById(id);
