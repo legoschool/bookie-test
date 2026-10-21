@@ -893,7 +893,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
 
     <div class="share" id="share" aria-label="항목별 비중"></div>
 
-    <p class="save" id="save"><span class="lab">대관료 지원 시</span>주최 측 지원이나 교과서협회 공동 부스 등으로 부스 임차(대관료)를 지원받으면 <b id="saveCut">4,000,000원</b> 경감 가능, 공급가액 <b id="saveAfter">10,720,000원</b></p>
+    <p class="save" id="save"><span class="lab">대관료 지원 시</span>주최 측 지원이나 교과서협회 공동 부스 등으로 부스 임차(대관료)를 지원받으면 부가세 포함 <b id="saveCut">4,400,000원</b> 경감 가능, 합계 <b id="saveAfter">11,792,000원</b>(부가세 포함)</p>
 
     <p class="remark">※ 전체 금액은 부스 배정 규모, 홍보물품 제작 수량, 인력 운영 방식에 따라 협의해 조정 가능<br>※ 기타 경비(식비, 숙박비 등)는 개인 지출</p>
   </div>
@@ -1088,9 +1088,10 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   /* 대관료 지원 시 경감: 1번 부스 임차 금액만큼 */
   function saveUpdate(){
     let sub=0; rows.forEach(r=>sub+=amt(r));
-    const a=rows[0]?amt(rows[0]):0, vatOn=$("vatOn").checked, f=n=>won(vatOn?Math.round(n*1.1):n)+"원";
+    // 부가세 포함 보기와 상관없이 늘 부가세 포함 금액으로 보여 줌
+    const a=rows[0]?amt(rows[0]):0, f=n=>won(Math.round(n*1.1))+"원";
     $("saveCut").textContent=f(a);
-    $("saveAfter").textContent=f(sub-a)+(vatOn?"(부가세 포함)":"(부가세 별도)");
+    $("saveAfter").textContent=f(sub-a);
   }
   $("vatOn").addEventListener("change",update);
   $("reset").addEventListener("click",()=>{rows=BASE.map(r=>({...r})); $("vatOn").checked=false; render();});
