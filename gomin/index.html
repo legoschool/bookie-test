@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>부기 고민 책방 화면 설계</title>
+<meta name="description" content="교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다. 두 길 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
+<style>
+:root{--paper:#f7f4ec;--card:#fff;--forest:#1d3a2a;--soft:#e9efe4;--ink:#1f2b20;--body:#4d574c;--mut:#7a8077;--line:#e6e1d4;--tile:#f6f3ea;--amber:#b45309;--amber-bg:#fdf3e7;--hl:#fff1b8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Pretendard',sans-serif;word-break:keep-all;overflow-wrap:anywhere;line-height:1.6}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+header.hero{padding:44px 0 30px;display:flex;gap:28px;align-items:center}
+.hero img{width:150px;flex:0 0 auto}
+.hero .eb{font-size:13px;font-weight:700;color:var(--amber)}
+.hero h1{font-family:'Noto Serif KR',serif;font-size:38px;line-height:1.3;margin:4px 0 10px}
+.hero p{font-size:17px;color:var(--body)}
+nav.toc{position:sticky;top:0;z-index:5;background:rgba(247,244,236,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+nav.toc .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px}
+nav.toc a{flex:0 0 auto;font-size:14px;font-weight:700;color:var(--forest);text-decoration:none;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+section{padding:40px 0 10px}
+h2{font-family:'Noto Serif KR',serif;font-size:27px;margin-bottom:6px}
+.sub{color:var(--body);margin-bottom:18px}
+.prin{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.prin div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;font-size:14.5px;color:var(--body)}
+.prin b{display:block;font-size:17px;color:var(--ink);margin-bottom:4px}
+.prin b span{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.flows{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px}
+.fl-k{font-size:13px;font-weight:800;color:var(--mut);margin-bottom:6px}
+.flow{display:flex;flex-wrap:wrap;gap:6px 0;align-items:center}
+.flow span{display:inline-flex;align-items:center;gap:7px;background:var(--tile);border-radius:999px;padding:7px 14px 7px 8px;font-size:14.5px;font-weight:700}
+.flow span+span::before{content:'';width:18px;height:2px;background:#b9c9ae;margin:0 4px 0 -14px;display:inline-block}
+.flow span+span{margin-left:22px}
+.flow i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--forest);color:#fff;font-size:12px;display:grid;place-items:center}
+.flow.stu i{background:var(--amber)}
+.bridge{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;border-top:1.5px dashed #c9d4bf;padding-top:14px}
+.bridge div{background:var(--soft);border-radius:12px;padding:10px 14px;font-size:14px}
+.bridge b{display:block;color:var(--forest)}
+.ex{display:inline-block;background:var(--amber-bg);color:var(--amber);font-weight:700;font-size:14px;border-radius:10px;padding:6px 12px;margin-bottom:18px}
+.screen{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start;margin-bottom:34px}
+.screen.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.6fr)}
+.screen.flip figure{order:2}
+section,.screen{scroll-margin-top:64px}
+figure{background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px}
+figure img{border-radius:10px;cursor:zoom-in}
+figcaption{font-size:12px;color:var(--mut);text-align:center;margin-top:6px}
+.sid{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--forest);border-radius:6px;padding:1px 8px}
+#student .sid{background:var(--amber)}
+.desc h3{font-family:'Noto Serif KR',serif;font-size:23px;margin:6px 0 2px}
+.goal{font-size:16px;font-weight:700;color:var(--forest);margin-bottom:12px}
+.desc ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.desc li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 13px;font-size:14.5px;color:var(--body)}
+.desc li b{display:block;font-size:13px;color:var(--ink);font-weight:800}
+.desc li.guard{border-left:4px solid var(--amber)}
+.desc li.now{background:var(--soft);border-color:var(--soft)}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:14.5px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left}
+th{background:var(--forest);color:#fff;font-size:13.5px}
+.note{margin-top:12px;background:var(--amber-bg);border-radius:12px;padding:12px 16px;font-size:14.5px}
+.steps{display:grid;gap:10px}
+.steps div{background:#fff;border:1px solid var(--line);border-left:5px solid var(--forest);border-radius:12px;padding:12px 16px;font-size:15px;color:var(--body)}
+.steps div:first-child{border-left-color:var(--amber)}
+.steps b{display:block;color:var(--ink)}
+footer{margin-top:40px;background:var(--forest);color:#e6eee1;padding:22px 0;font-size:13.5px}
+footer .wrap{display:flex;gap:14px;align-items:center}
+footer img{width:56px}
+.zoom{position:fixed;inset:0;background:rgba(20,28,22,.88);display:none;align-items:center;justify-content:center;z-index:20;padding:20px;cursor:zoom-out}
+.zoom.on{display:flex}
+.zoom img{max-height:100%;border-radius:10px}
+@media (max-width:1100px){.screen,.screen.flip{grid-template-columns:1fr}.screen.flip figure{order:0}.bridge{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}header.hero{flex-direction:column;align-items:flex-start;padding-top:28px}.hero img{width:110px}.hero h1{font-size:29px}.flow span+span{margin-left:0}.flow span+span::before{display:none}.flow{gap:6px}th,td{padding:8px 9px;font-size:13px}}
+</style></head><body>
+<div class="wrap"><header class="hero"><img src="assets/mascot.png" alt="">
+  <div><div class="eb">목업, 2026. 10. 23.</div><h1>부기 고민 책방 화면 설계</h1><p>교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다.<br>두 길 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.</p></div></header></div>
+<nav class="toc"><div class="wrap"><a href="#principles">설계 원칙</a><a href="#flows">두 흐름</a><a href="#teacher">교사 화면 5</a><a href="#student">학생 화면 6</a><a href="#data">기록과 개인정보</a><a href="#steps">만드는 순서</a></div></nav>
+<main class="wrap">
+<section id="principles"><h2>설계 원칙</h2><p class="sub">교사 화면과 학생 화면이 같은 원칙을 따릅니다.</p>
+  <div class="prin"><div><b><span>고민은 물음으로</span></b>«끈기가 없다»를 «끝까지 가 본 사람은 무엇을 붙잡고 있었을까?»로 바꿈. 특정 학생을 겨누지 않고 반 전체가 함께 생각함. 학생의 «친구랑 다퉜어»도 «먼저 말을 걸려면 무엇이 필요할까?»로 바꿈.</div><div><b><span>책은 세 갈래</span></b>비춰 보는 책, 닮은 인물을 만나는 책, 더 넓게 보는 책. 정답 한 권을 주지 않음. 부기 서재 300권 밖의 책은 고르지 않음.</div><div><b><span>활동은 학생이 고름</span></b>고민과 잘 맞는 활동에 표시, 두 개까지 고름. 활동을 직접 만들 수도 있음. 선생님이 내준 활동과 같은 책이면 함께 끝남.</div><div><b><span>기록은 여정으로</span></b>마음, 물음, 책, 활동, 달라진 생각이 한 장에 모임. 10.14. 협의의 «메모와 스스로 고른 독후활동이 모여 리포트가 됨»과 같은 방향.</div><div><b><span>학생 고민은 학생 것</span></b>고른 마음은 학생만 봄. 교사에게는 학생이 켠 기록과 반 단위 집계(다섯 명 이상)만 보임. 위험 신호에는 책보다 사람을 먼저 연결함.</div></div></section>
+<section id="flows"><h2>두 흐름</h2><p class="sub">가운데 세 가지가 교사와 학생을 잇습니다.</p>
+  <div class="flows"><div><div class="fl-k">교사</div><div class="flow tea"><span><i>1</i>고민 적기</span><span><i>2</i>물음으로 바꾸기</span><span><i>3</i>세 갈래 책</span><span><i>4</i>대화로 수업 짜기</span><span><i>5</i>학생에게 내주기</span><span><i>6</i>수업 돌아보기</span></div></div><div><div class="fl-k">학생</div><div class="flow stu"><span><i>1</i>마음 고르기</span><span><i>2</i>물음 고르기</span><span><i>3</i>책 세 권</span><span><i>4</i>읽기</span><span><i>5</i>활동 고르기, 만들기</span><span><i>6</i>물음에 다시 답하기</span><span><i>7</i>고민 여정</span></div></div>
+  <div class="bridge"><div><b>우리 반 고민 지도</b>학생이 고른 마음을 반 단위로</div><div><b>반 책장</b>선생님이 꽂은 책이 학생 추천 맨 앞에</div><div><b>내준 카드</b>선생님 활동과 학생 활동이 함께 끝남</div></div></div></section>
+<section id="teacher"><h2>교사: 학급 고민으로 수업 짜기</h2><div class="ex">예시 학급: 5학년 2반, «공부는 곧잘 하는데 어려운 문제가 나오면 금방 엎드려요»</div>
+  <article class="screen" id="T1">
+    <figure><img src="images/T1.png" alt="고민 적기 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">T1</div><h3>고민 적기</h3><p class="goal">막연한 고민을 수업에서 다룰 물음으로 바꿈</p>
+      <ul><li class=""><b>입력</b>보이는 모습, 드러나는 때(칩), 바라는 모습, 수업 여건(학급은 자동, 1~3차시, 국어 창체 아침활동)</li><li class=""><b>물음 바꾸기</b>AI가 물음 세 개를 제안, 고르거나 직접 고쳐 씀</li><li class=""><b>고민 지도 연결</b>같은 주제를 고른 학생 수가 있으면 함께 보임(T5)</li><li class="guard"><b>지키는 것</b>학생 이름 적지 않기 안내, 진단하는 말 쓰지 않음, 고민 글은 교사 브라우저에만 저장</li><li class="now"><b>지금 부기</b>채팅형 기본판 구현(부기2 개발판). 칸 나눈 입력과 물음 바꾸기는 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen flip" id="T2">
+    <figure><img src="images/T2.png" alt="책 고르기 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">T2</div><h3>책 고르기</h3><p class="goal">정답 한 권 대신 세 갈래를 견주어 고름</p>
+      <ul><li class=""><b>책 카드</b>갈래 이름, 표지, 서재 학년, 길이, 인물과 대화 여부, 고른 까닭 두 문장, 본문 한 줄, 어울리는 활동</li><li class=""><b>세 갈래</b>비춰 보는 책 「토끼와 거북이」, 닮은 인물을 만나는 책 「우공이산」, 더 넓게 보는 책 「그랜트 선장의 아이들」</li><li class=""><b>엮어 읽기</b>짧은 우화로 열고 다른 책으로 이어 읽는 구성도 제안</li><li class="guard"><b>AI</b>300권 목록(제목, 학년, 주제, 교훈) 안에서 번호로만 고름. 목록 밖 책은 서버가 버림. 본문 한 줄은 AI가 쓰지 않고 실제 본문에서 찾아 붙임</li><li class="now"><b>지금 부기</b>2~3권 추천과 까닭은 구현. 갈래 이름, 본문 인용, 엮어 읽기는 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen" id="T3">
+    <figure><img src="images/T3.png" alt="수업 짜기 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">T3</div><h3>수업 짜기</h3><p class="goal">대화로 고치고 결과는 문서로 봄</p>
+      <ul><li class=""><b>양쪽 화면</b>왼쪽 대화, 오른쪽 설계안(목표, 차시 흐름과 분, 학생 카드, 발문, 막힐 때)</li><li class=""><b>바뀐 곳</b>고친 줄은 노란 띠와 «방금 바뀜». 판 번호와 되돌리기</li><li class=""><b>빠른 요청</b>1차시로 줄이기, 모둠 역할극 넣기, 서술형 평가 문항 만들기</li><li class=""><b>내보내기</b>수업 만들기(직접 제작 차시), 지도안 한글 파일, 학생에게 카드 내주기</li><li class="guard"><b>AI</b>설계안 전체를 다시 쓰고 바뀐 줄을 표시. 본문에 없는 사건은 쓰지 않음. 목표는 관찰할 수 있는 행동으로</li><li class="now"><b>지금 부기</b>설계안 카드, 수업 만들기와 활동 내주기로 넘기기는 구현. 양쪽 화면, 바뀐 곳 표시, 한글 지도안은 새로 만듦(기존 한글 내보내기 활용)</li></ul>
+    </div>
+  </article>
+  <article class="screen flip" id="T4">
+    <figure><img src="images/T4.png" alt="수업 돌아보기 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">T4</div><h3>수업 돌아보기</h3><p class="goal">고민에서 시작한 수업이 아이들 글에 남긴 것을 봄</p>
+      <ul><li class=""><b>한 줄 요약</b>처음 고민, 수업 물음, 책, 활동, 제출 수</li><li class=""><b>답 묶어 보기</b>같은 물음에 대한 답을 비슷한 것끼리 묶음. 묶음 이름은 교사가 고침</li><li class=""><b>생각 변화</b>첫날 쪽지(이름 없음)와 다음 날 일기를 나란히</li><li class=""><b>다음 걸음</b>아침활동으로 이어 읽기, 고민 책방 반 책장에 꽂기, 학생별 기록장(한글) 내보내기</li><li class="guard"><b>AI</b>답 묶기만 함. 점수나 학습 효과는 판정하지 않음</li><li class="now"><b>지금 부기</b>기록장, 독후활동 결과 보기 있음. 고민 단위로 묶는 화면은 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen" id="T5">
+    <figure><img src="images/T5.png" alt="우리 반 고민 지도 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">T5</div><h3>우리 반 고민 지도</h3><p class="goal">학생이 고른 마음을 반 단위로만 보고 수업 주제로 씀</p>
+      <ul><li class=""><b>반 단위 집계</b>다섯 명 이상 고른 주제만, 나머지는 «그 밖의 주제»로 묶음. 누가 무엇을 적었는지는 안 보임</li><li class=""><b>수업으로</b>주제마다 «이 주제로 수업 짜기»(T1로 이어짐)</li><li class=""><b>보여 주기로 한 기록</b>학생이 직접 켠 활동만 보임</li><li class=""><b>도움 요청</b>«선생님께 살짝 알리기»를 누른 학생 수와 이름. 학생 글은 오지 않음</li><li class=""><b>반 책장</b>주제별로 선생님이 책을 꽂으면 학생 추천 맨 앞에 나옴</li><li class="now"><b>지금 부기</b>없음. 새로 만듦</li></ul>
+    </div>
+  </article></section><section id="student"><h2>학생: 내 고민으로 책 고르고 활동 짜기</h2><div class="ex">예시 학생: 4학년 하나, «친구랑 다퉜는데 먼저 말 걸기가 어려워»</div>
+  <article class="screen" id="S1">
+    <figure><img src="images/S1.png" alt="고민 책방 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S1</div><h3>고민 책방</h3><p class="goal">쓰기 어려운 아이도 마음을 골라 시작함</p>
+      <ul><li class=""><b>마음 카드</b>갈래 다섯(친구, 나, 가족, 공부, 그냥 궁금해), 갈래마다 카드 여섯</li><li class=""><b>내 말로 쓰기</b>안 써도 됨. 말로 하기는 받아쓰기만, 녹음은 저장하지 않음</li><li class=""><b>이름 가리기</b>친구 이름처럼 보이는 말은 ○○로 바꾼 뒤 처리</li><li class=""><b>지난 여정</b>지난 고민 여정 이어 보기</li><li class="guard"><b>지키는 것</b>고른 마음은 학생만 봄. 위험 신호 낱말이 있으면 책 대신 S6로</li><li class="now"><b>지금 부기</b>독서 마음 일기(표정 20가지) 있음. 고민 책방은 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen flip" id="S2">
+    <figure><img src="images/S2.png" alt="부기가 건넨 책 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S2</div><h3>부기가 건넨 책</h3><p class="goal">내 물음에 닿는 책을 결말을 말하지 않고 건넴</p>
+      <ul><li class=""><b>물음 고르기</b>부기가 바꿔 준 물음 둘 중 하나</li><li class=""><b>책 세 권</b>「사자 왕과 황소」, 「관포지교」, 「굴뚝새와 곰」. 표지, 서재 학년, 등장인물, 결말을 감춘 소개</li><li class=""><b>내 수준</b>어휘력 진단 수준과 책 수준(하, 중, 상)을 견주어 표시</li><li class=""><b>담아 두기</b>읽다가 멈춰도 책장에 담아 두고 이어 읽음</li><li class="guard"><b>AI</b>마음 카드만 고르면 AI 없이 주제 낱말로 찾음. 자유 글이 있을 때만 이름을 가린 뒤 AI 사용</li><li class="now"><b>지금 부기</b>읽고 싶은 책, 어휘 수준별 책 추천 있음</li></ul>
+    </div>
+  </article>
+  <article class="screen" id="S3">
+    <figure><img src="images/S3.png" alt="내가 고르는 활동 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S3</div><h3>내가 고르는 활동</h3><p class="goal">다 읽은 뒤 할 활동을 학생이 고르고 만듦</p>
+      <ul><li class=""><b>잘 맞는 활동</b>고민과 잘 맞는 활동에 표시, 두 개까지</li><li class=""><b>활동 목록</b>기존 독후활동 카드 9가지에 «다른 결말 쓰기», «보내지 않는 편지»를 더함</li><li class=""><b>내가 만들기</b>무엇을(쓰기, 그리기, 말하기, 만들기), 누구와(혼자, 짝, 책 속 인물), 어디에 둘지(기록장, 전시장), 활동 이름</li><li class=""><b>내준 활동과 함께</b>선생님이 같은 책으로 내준 활동이면 함께 끝남</li><li class="now"><b>지금 부기</b>독후활동 카드 9가지 있음. 학생이 고르고 만드는 것은 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen flip" id="S4">
+    <figure><img src="images/S4.png" alt="활동하기 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S4</div><h3>활동하기</h3><p class="goal">책 속 장면에 붙어 쓰고, 처음 물음에 다시 답함</p>
+      <ul><li class=""><b>책 속 장면</b>실제 본문을 보여 주고 바꿔 쓸 자리를 표시</li><li class=""><b>도움 질문</b>부기는 묻기만 하고 답을 대신 쓰지 않음</li><li class=""><b>다시 답하기</b>읽기 전에 고른 물음에 다시 답함. 이 답이 «달라진 생각»이 됨</li><li class=""><b>내 마음</b>마음 일기 표정으로 다 쓰고 난 마음 고르기</li><li class=""><b>친구 결말</b>전시장에 올리기로 했으면 다 쓴 뒤 친구 글을 봄</li><li class="now"><b>지금 부기</b>활동 쓰기, 전시장, 마음 일기 있음. 도움 질문과 다시 답하기는 부기2 AI 협력 탐구 단계와 같은 방식</li></ul>
+    </div>
+  </article>
+  <article class="screen" id="S5">
+    <figure><img src="images/S5.png" alt="고민 여정 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S5</div><h3>고민 여정</h3><p class="goal">한 고민에서 시작한 읽기와 활동이 한 장으로 모임</p>
+      <ul><li class=""><b>여정 한 장</b>마음, 물음, 읽은 책, 고른 활동, 달라진 생각(처음과 지금), 다음에 읽을 책</li><li class=""><b>지난 여정</b>한 줄로 접어 둠</li><li class=""><b>보여 주기</b>항목마다 학생이 켬. 보내지 않는 편지는 늘 학생만</li><li class=""><b>선생님 한마디</b>기존 피드백 도장과 짧은 글</li><li class=""><b>인쇄</b>기록장 인쇄하기. 상담 주간, 학부모 상담 자료로</li><li class="now"><b>지금 부기</b>포트폴리오(독서 발자취), 선생님 한마디 있음. 고민 여정 탭은 새로 만듦</li></ul>
+    </div>
+  </article>
+  <article class="screen flip" id="S6">
+    <figure><img src="images/S6.png" alt="도움이 필요할 때 목업" loading="lazy" data-zoom><figcaption>누르면 크게 봅니다</figcaption></figure>
+    <div class="desc">
+      <div class="sid">S6</div><h3>도움이 필요할 때</h3><p class="goal">위험 신호에는 책 추천을 멈추고 사람을 먼저 연결함</p>
+      <ul><li class=""><b>멈추는 때</b>학교에 오기 싫음과 고립, 괴롭힘, 다치고 싶다는 말</li><li class=""><b>고를 수 있는 길</b>선생님께 살짝 알리기(글은 가지 않음), 우리 학교 Wee클래스, 청소년상담 1388</li><li class=""><b>교사 쪽</b>고민 지도(T5)에 «도움을 청한 학생» 알림</li><li class=""><b>학교 절차</b>바로 알려야 하는 경우의 처리는 학교 위기관리 절차와 맞춰 정함</li></ul>
+    </div>
+  </article></section>
+<section id="data"><h2>기록과 개인정보</h2><p class="sub">무엇이 어디에 남고 누가 보는지 정해 둡니다.</p>
+  <table><thead><tr><th>기록</th><th>저장</th><th>보는 사람</th><th>AI로 가는가</th></tr></thead><tbody><tr><td>교사 고민 글</td><td>교사 브라우저</td><td>교사</td><td>예, 학생 이름 없이</td></tr><tr><td>수업 설계안</td><td>학급 수업 구성</td><td>교사</td><td>고칠 때만</td></tr><tr><td>학생이 고른 마음 카드</td><td>학생 기록</td><td>학생</td><td>아니요</td></tr><tr><td>학생 자유 글</td><td>학생 기록</td><td>학생</td><td>책 찾을 때만, 이름 가린 뒤</td></tr><tr><td>활동 결과물</td><td>학생 기록</td><td>학생, 켠 것만 교사</td><td>도움 질문 받을 때만</td></tr><tr><td>보내지 않는 편지</td><td>학생 기록</td><td>학생만</td><td>아니요</td></tr><tr><td>우리 반 고민 지도</td><td>반 단위 집계</td><td>교사</td><td>아니요</td></tr><tr><td>도움 요청</td><td>알림</td><td>담임</td><td>아니요</td></tr></tbody></table>
+  <div class="note">학생 글을 외부 AI로 보내려면 기관의 외부 AI 사용 절차와 만 14세 미만 보호자 동의가 먼저 있어야 함. 그 전에는 마음 카드와 주제 낱말로만 추천함.</div></section>
+<section id="steps"><h2>만드는 순서</h2><p class="sub">이미 만든 교사 기본판 위에 차례로 올립니다.</p>
+  <div class="steps"><div><b>1단계, 구현됨</b>교사 수업 고민 상담 기본판(부기2 개발판): 고민 채팅, 300권 안에서 책 추천, 설계안, 수업 만들기와 활동 내주기로 넘기기. Gemini와 Upstage 실제 키 연결이 남음</div><div><b>2단계</b>교사 화면 개편 T1~T3: 칸 나눈 입력, 물음 바꾸기, 세 갈래 책과 본문 인용, 양쪽 보드, 한글 지도안</div><div><b>3단계</b>학생 고민 책방 S1~S4와 도움 경로 S6: 마음 카드와 AI 없는 추천부터, 활동 고르기와 만들기, 다시 답하기</div><div><b>4단계</b>고민 여정 S5, 우리 반 고민 지도 T5, 수업 돌아보기 T4</div></div></section>
+</main>
+<footer><div class="wrap"><img src="assets/tool-activity.png" alt=""><div>MSECM, 교사 개발팀<br>화면은 목업이며 숫자와 학생 글은 예시입니다. 책 소개와 본문 인용은 부기 서재 본문에서 가져왔습니다.</div></div></footer>
+<div class="zoom" id="zoom"><img alt=""></div>
+<script>
+const z=document.getElementById('zoom'),zi=z.querySelector('img');
+document.addEventListener('click',e=>{const t=e.target;if(t.matches('[data-zoom]')){zi.src=t.src;zi.alt=t.alt;z.classList.add('on');}else if(z.contains(t)){z.classList.remove('on');}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')z.classList.remove('on');});
+</script>
+</body></html>
