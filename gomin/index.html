@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>부기 고민 책방 화면 설계</title>
-<meta name="description" content="교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다. 두 길 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.">
+<meta name="description" content="교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다. 교사 화면과 학생 화면 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&display=swap">
 <style>
@@ -76,13 +76,13 @@ footer img{width:56px}
 @media (max-width:640px){.wrap{padding:0 16px}header.hero{flex-direction:column;align-items:flex-start;padding-top:28px}.hero img{width:110px}.hero h1{font-size:29px}.flow span+span{margin-left:0}.flow span+span::before{display:none}.flow{gap:6px}th,td{padding:8px 9px;font-size:13px}}
 </style></head><body>
 <div class="wrap"><header class="hero"><img src="assets/mascot.png" alt="">
-  <div><div class="eb">목업, 2026. 10. 23.</div><h1>부기 고민 책방 화면 설계</h1><p>교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다.<br>두 길 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.</p></div></header></div>
+  <div><div class="eb">목업, 2026. 10. 23.</div><h1>부기 고민 책방 화면 설계</h1><p>교사는 학급 고민으로 수업을 짜고, 학생은 자기 고민으로 읽을 책을 고릅니다.<br>교사 화면과 학생 화면 모두 부기 서재 300권과 같은 독후활동 카드를 쓰고, 학생 기록은 고민 여정으로 모입니다.</p></div></header></div>
 <div class="wrap"><div class="live"><div><b>체험판</b><p>이 화면 설계를 구현한 체험판입니다. 교사 화면과 학생 화면을 모두 쓸 수 있고, 책 9권의 인물 23명과 이야기할 수 있습니다.</p><a href="https://bookie-gomin.vercel.app" target="_blank" rel="noopener">체험판 열기</a></div><div><b>학년별 수업 예시</b><p>3학년 「조충의 코끼리 무게 재기」, 5학년 「비밀의 화원」, 6학년 「목걸이」 수업 설계안과 학생 활동지입니다. 인물 대화는 3, 4학년은 인물이 먼저 묻고, 5학년은 주고받고, 6학년은 학생이 질문합니다.</p><a href="https://bookie-gomin.vercel.app/#/samples?who=g" target="_blank" rel="noopener">학년별 수업 보기</a></div><div><b>에듀플러스위크 부스 운영 계획</b><p>2027년 1월 에듀플러스위크에서 현직 교사 단체 뭉클과 이 방식으로 부기 부스를 운영합니다. 입구에서 받은 NFC 카드를 휴대폰에 대면 독서 포트폴리오를 다시 볼 수 있습니다.</p><a href="https://legoschool.github.io/bookie-test/promo/booth/" target="_blank" rel="noopener">부스 제안서 보기</a></div></div></div>
-<nav class="toc"><div class="wrap"><a href="#principles">설계 원칙</a><a href="#flows">두 흐름</a><a href="#teacher">교사 화면 5</a><a href="#student">학생 화면 6</a><a href="#data">기록과 개인정보</a><a href="#steps">만드는 순서</a></div></nav>
+<nav class="toc"><div class="wrap"><a href="#principles">설계 원칙</a><a href="#flows">교사와 학생 흐름</a><a href="#teacher">교사 화면 5</a><a href="#student">학생 화면 6</a><a href="#data">기록과 개인정보</a><a href="#steps">만드는 순서</a></div></nav>
 <main class="wrap">
 <section id="principles"><h2>설계 원칙</h2><p class="sub">교사 화면과 학생 화면이 같은 원칙을 따릅니다.</p>
-  <div class="prin"><div><b><span>고민은 물음으로</span></b>«끈기가 없다»를 «끝까지 가 본 사람은 무엇을 붙잡고 있었을까?»로 바꿈. 특정 학생을 겨누지 않고 반 전체가 함께 생각함. 학생의 «친구랑 다퉜어»도 «먼저 말을 걸려면 무엇이 필요할까?»로 바꿈.</div><div><b><span>책은 세 갈래</span></b>비춰 보는 책, 닮은 인물을 만나는 책, 더 넓게 보는 책. 정답 한 권을 주지 않음. 부기 서재 300권 밖의 책은 고르지 않음.</div><div><b><span>활동은 학생이 고름</span></b>고민과 잘 맞는 활동에 표시, 두 개까지 고름. 활동을 직접 만들 수도 있음. 선생님이 내준 활동과 같은 책이면 함께 끝남.</div><div><b><span>기록은 여정으로</span></b>마음, 물음, 책, 활동, 달라진 생각이 한 장에 모임. 10.14. 협의의 «메모와 스스로 고른 독후활동이 모여 리포트가 됨»과 같은 방향.</div><div><b><span>학생 고민은 학생 것</span></b>고른 마음은 학생만 봄. 교사에게는 학생이 켠 기록과 반 단위 집계(다섯 명 이상)만 보임. 위험 신호에는 책보다 사람을 먼저 연결함.</div></div></section>
-<section id="flows"><h2>두 흐름</h2><p class="sub">가운데 세 가지가 교사와 학생을 잇습니다.</p>
+  <div class="prin"><div><b><span>고민을 질문으로 바꾸기</span></b>«끈기가 없다»를 «끝까지 가 본 사람은 무엇을 붙잡고 있었을까?»로 바꿈. 특정 학생을 겨누지 않고 반 전체가 함께 생각함. 학생의 «친구랑 다퉜어»도 «먼저 말을 걸려면 무엇이 필요할까?»로 바꿈.</div><div><b><span>세 갈래로 책 추천</span></b>비춰 보는 책, 닮은 인물을 만나는 책, 더 넓게 보는 책. 정답 한 권을 주지 않음. 부기 서재 300권 밖의 책은 고르지 않음.</div><div><b><span>활동은 학생이 선택</span></b>고민과 잘 맞는 활동에 표시, 두 개까지 고름. 활동을 직접 만들 수도 있음. 선생님이 내준 활동과 같은 책이면 함께 끝남.</div><div><b><span>기록은 고민 여정에 저장</span></b>마음, 물음, 책, 활동, 달라진 생각이 한 장에 모임. 10.14. 협의의 «메모와 스스로 고른 독후활동이 모여 리포트가 됨»과 같은 방향.</div><div><b><span>학생 고민의 공개 범위</span></b>고른 마음은 학생만 봄. 교사에게는 학생이 켠 기록과 반 단위 집계(다섯 명 이상)만 보임. 위험 신호에는 책보다 사람을 먼저 연결함.</div></div></section>
+<section id="flows"><h2>교사와 학생 흐름</h2><p class="sub">아래 세 기능은 교사 화면과 학생 화면에서 함께 쓰입니다.</p>
   <div class="flows"><div><div class="fl-k">교사</div><div class="flow tea"><span><i>1</i>고민 적기</span><span><i>2</i>물음으로 바꾸기</span><span><i>3</i>세 갈래 책</span><span><i>4</i>대화로 수업 짜기</span><span><i>5</i>학생에게 내주기</span><span><i>6</i>수업 돌아보기</span></div></div><div><div class="fl-k">학생</div><div class="flow stu"><span><i>1</i>마음 고르기</span><span><i>2</i>물음 고르기</span><span><i>3</i>책 세 권</span><span><i>4</i>읽기</span><span><i>5</i>활동 고르기, 만들기</span><span><i>6</i>물음에 다시 답하기</span><span><i>7</i>고민 여정</span></div></div>
   <div class="bridge"><div><b>우리 반 고민 지도</b>학생이 고른 마음을 반 단위로</div><div><b>반 책장</b>선생님이 꽂은 책이 학생 추천 맨 앞에</div><div><b>내준 카드</b>선생님 활동과 학생 활동이 함께 끝남</div></div></div></section>
 <section id="teacher"><h2>교사: 학급 고민으로 수업 짜기</h2><div class="ex">예시 학급: 5학년 2반, «공부는 곧잘 하는데 어려운 문제가 나오면 금방 엎드려요»</div>
