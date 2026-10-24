@@ -85,7 +85,7 @@
 
   // 시험 사용 신청 메뉴는 대표님 지시로 잠시 뺌 (2026-08-24) — 다시 넣을 때:
   // + '<a href="#/apply" data-nav="/apply" style="color:var(--brand);font-weight:700">시험 사용 신청</a>'
-  $('topnav').innerHTML = '<a href="#/" data-nav="/">차례</a><a href="https://bookie-gomin.vercel.app" target="_blank" rel="noopener" title="우리 반 고민에서 시작하는 독서, 학년별 수업 예시">고민 책방 체험판</a><button type="button" id="printBtn">인쇄</button>';
+  $('topnav').innerHTML = '<a href="#/" data-nav="/">차례</a><a href="https://bookie-gomin.vercel.app" target="_blank" rel="noopener" title="고민 책방 체험판과 학년별 수업 예시">고민 책방 체험판</a><button type="button" id="printBtn">인쇄</button>';
   $('printBtn').addEventListener('click', function () { window.print(); });
 
   /* ── 라우터 ──────────────────────────────── */
