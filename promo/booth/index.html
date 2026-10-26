@@ -375,7 +375,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   <a href="#demo">체험 화면</a>
   <a href="#menu">체험 메뉴</a>
   <a href="#effect">효과</a>
-  <a href="#gomin">고민 책방</a>
+  <a href="#flow">운영 흐름</a>
   <a href="#moongcle">뭉클</a>
   <a href="#overview">제안서</a>
   <a href="#estimate">견적서</a>
@@ -455,125 +455,124 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
 
 <div class="demo wrap" id="demo">
   <div class="demo-head">
-    <h2>고민 책방 체험 순서(한 사람 약 20분)</h2>
+    <h2>학생 체험 순서(한 사람 약 20분)</h2>
   </div>
-  <p class="now-lead">부기에 「고민 책방」을 탑재해 박람회에서 처음 선보임. 학생이 고민을 적으면 부기가 질문과 책을 제안하고, 학생은 책을 읽고 독후활동을 한 뒤 독서 포트폴리오를 받음. 시제품은 체험판(<a href="https://bookie-gomin.vercel.app" target="_blank" rel="noopener">bookie-gomin.vercel.app</a>)에서 지금 쓸 수 있음</p>
+  <p class="now-lead">NFC 체험 카드 한 장으로 들어와 책을 고르고, 끝까지 읽고, 책 속 인물과 이야기한 뒤 작가와의 대화나 독후활동으로 생각을 남김. 마지막에 내 책 옷장이 열리고 독서 포트폴리오가 카드에 담김. 화면은 모두 지금 부기의 실제 화면이고, 카드로 다시 여는 화면만 예시 화면</p>
   <div class="steps" role="tablist" aria-label="체험 단계">
-    <button role="tab" id="t0" aria-controls="p0" aria-selected="true"><small>1 | 2분</small><b>고민 적기</b></button>
-    <button role="tab" id="t1" aria-controls="p1" aria-selected="false"><small>2 | 2분</small><b>부기와 이야기</b></button>
-    <button role="tab" id="t2" aria-controls="p2" aria-selected="false"><small>3 | 1분</small><b>책 추천</b></button>
-    <button role="tab" id="t3" aria-controls="p3" aria-selected="false"><small>4 | 7분</small><b>책 읽기</b></button>
-    <button role="tab" id="t4" aria-controls="p4" aria-selected="false"><small>5 | 5분</small><b>인물과 이야기, 독후활동</b></button>
-    <button role="tab" id="t5" aria-controls="p5" aria-selected="false"><small>6 | 3분</small><b>결과물과 NFC</b></button>
+    <button role="tab" id="t0" aria-controls="p0" aria-selected="true"><small>1 | 2분</small><b>입장과 책 고르기</b></button>
+    <button role="tab" id="t1" aria-controls="p1" aria-selected="false"><small>2 | 7분</small><b>책 읽기</b></button>
+    <button role="tab" id="t2" aria-controls="p2" aria-selected="false"><small>3 | 3분</small><b>책 속 인물과 대화</b></button>
+    <button role="tab" id="t3" aria-controls="p3" aria-selected="false"><small>4 | 4분</small><b>작가와의 대화, 독후활동</b></button>
+    <button role="tab" id="t4" aria-controls="p4" aria-selected="false"><small>5 | 2분</small><b>내 책 옷장</b></button>
+    <button role="tab" id="t5" aria-controls="p5" aria-selected="false"><small>6 | 2분</small><b>포트폴리오와 NFC</b></button>
   </div>
 
   <div class="stage">
     <div class="tablet">
       <div class="screen">
-        <div class="panel shot" id="s0"><span class="badge real">체험판 화면</span><img src="img/gomin/shop-mind.webp" alt="고민 책방 화면. 친구, 나, 가족, 공부 마음 카드 가운데 친구랑 다퉜어를 고르고 내 말로 한 줄을 적음. 친구 이름은 ○○로 가려짐" width="1366" height="929"></div>
-        <div class="panel shot" id="s1" hidden><span class="badge ex">예시 화면</span><img src="img/gomin/book-chat.webp" alt="부기와 대화 화면. 고민을 말하자 부기가 어떤 질문을 생각하며 읽고 싶은지 묻고 질문 두 개를 건넴. 오른쪽에 내가 정한 질문, 읽기 전 생각, 추천한 책" width="1586" height="948"></div>
-        <div class="panel shot" id="s2" hidden><span class="badge real">체험판 화면</span><img src="img/gomin/books.webp" alt="책 추천 화면. 곰과 두 나그네, 굴뚝새와 곰, 사자 왕과 황소 세 권과 책마다 인물이 건네는 한마디" width="1366" height="921"></div>
-        <div class="panel shot" id="s3" hidden><span class="badge real">실제 화면</span><img src="img/app/s-reader-kkachi-word.webp" alt="3학년 은혜 갚은 까치 읽기 화면. 밑줄 친 낱말 뛰어난을 누르자 남보다 훨씬 잘하다라는 뜻이 뜸" width="1600" height="1290"></div>
-        <div class="panel shot" id="s4" hidden><span class="badge real">체험판 화면</span><img src="img/gomin/talk.webp" alt="토끼와 거북이 인물과 이야기하기 화면. 왜 중간에 낮잠을 잤어라는 물음에 토끼가 답하고, 학생이 그 답을 받아들이지 않은 까닭을 적음" width="1366" height="769"></div>
-        <div class="panel shot" id="s5" hidden><span class="badge real">체험판 화면</span><img src="img/gomin/folio.webp" alt="체험 기록으로 채운 독서 포트폴리오 한 장. 나의 고민, 내가 정한 질문, 추천한 책, 선택 활동, 생각의 변화, 독후감, 선생님 의견" width="794" height="1123"></div>
+        <div class="panel shot" id="s0"><span class="badge real">실제 화면</span><img src="img/app/S01-desk.webp" alt="학생 나의 책상. 지금 읽는 은혜 갚은 까치와 읽기, 인물과 대화, 활동, 완주 네 칸, 이어 읽기 단추" width="1600" height="1010"></div>
+        <div class="panel shot" id="s1" hidden><span class="badge real">실제 화면</span><img src="img/app/s-reader-kkachi-word.webp" alt="3학년 은혜 갚은 까치 읽기 화면. 밑줄 친 낱말 뛰어난을 누르자 남보다 훨씬 잘하다라는 뜻이 뜸" width="1600" height="1290"></div>
+        <div class="panel shot" id="s2" hidden><span class="badge real">실제 화면</span><img src="img/app/S10-chat-short.webp" alt="부기와 이야기 나누기 화면. 은혜 갚은 까치에서 가장 기억에 남는 장면은 뭐야라고 묻고, 이 대화는 내 책장의 기록에 저장된다는 안내" width="648" height="545"></div>
+        <div class="panel shot" id="s3" hidden><span class="badge real">실제 화면</span><img src="img/app/S09-card.webp" alt="독후활동 카드 별점과 까닭 화면. 별 몇 개, 왜 그만큼인가요, 스스로 점검, 제출하기" width="1000" height="1000"></div>
+        <div class="panel shot" id="s4" hidden><span class="badge real">실제 화면</span><img src="img/app/S08-dress.webp" alt="내 책 옷장 화면. 시골 쥐 도시 쥐 시골 쥐 옷을 입은 내 모습, 독서 스코어 1,480점, 완독한 책 12권의 옷 목록" width="1370" height="915"></div>
+        <div class="panel shot" id="s5" hidden><span class="badge ex">예시 화면</span><img src="img/nfc-tablet.jpg" alt="책갈피를 휴대폰에 대면 독서 기록이 열리고 책마다 남긴 독후활동이 보임" width="1284" height="1230"></div>
       </div>
     </div>
 
     <div class="info" aria-live="polite">
       <div class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
-        <span class="time">1단계 | 2분 | A 맞이</span>
-        <h3>NFC 체험 카드 받기와 고민 적기</h3>
-        <p>입구에서 NFC 체험 카드를 받아 태블릿에 대면 내 자리가 열림. 친구, 나, 가족, 공부 마음 카드 가운데 하나를 고르거나 내 말로 한 줄을 적음</p>
-        <dl><dt>학생</dt><dd>마음 카드 고르기, 고민 한 줄(안 써도 됨)</dd><dt>안내</dt><dd>이름과 학교는 적지 않게 안내. 친구 이름은 화면이 ○○로 가림</dd><dt>남는 것</dt><dd>NFC 체험 카드(카드마다 다른 주소)</dd></dl>
+        <span class="time">1단계 | 2분 | A 맞이, B 읽기 존</span>
+        <h3>NFC 카드로 입장하고 책 고르기</h3>
+        <p>입구에서 NFC 체험 카드를 받아 태블릿에 대면 로그인 없이 「나의 책상」이 열림. 학년 서가에서 오늘의 추천 책이나 어휘력 진단이 권한 책 가운데 10분 안에 읽는 짧은 책 한 권을 고름</p>
+        <dl><dt>학생</dt><dd>카드 대기, 학년 서가에서 책 한 권 고르기</dd><dt>안내</dt><dd>학년과 읽기 수준에 맞는 짧은 책을 함께 고름. 이주배경 가족에게는 나란히 보기가 되는 1~4학년 책</dd><dt>남는 것</dt><dd>NFC 체험 카드(카드마다 다른 주소), 내 책장에 담긴 책</dd></dl>
       </div>
       <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
-        <span class="time">2단계 | 2분 | B 읽기 존</span>
-        <h3>부기와 이야기하며 내 질문 정하기</h3>
-        <p>부기가 고민을 듣고 「이런 질문으로 생각해 볼까?」 하고 질문 두세 개를 건넴. 하나를 고르거나 고쳐 써서 내 질문으로 정하고, 읽기 전 생각을 한 줄 남김</p>
-        <dl><dt>학생</dt><dd>질문 고르기, 읽기 전 생각 한 줄</dd><dt>안내</dt><dd>쓰기 어려운 학생은 말로 먼저 이야기하고 고르기만 함</dd><dt>남는 것</dt><dd>내가 정한 질문, 읽기 전 생각</dd></dl>
-      </div>
-      <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
-        <span class="time">3단계 | 1분 | B 읽기 존</span>
-        <h3>부기 서재 300권에서 세 권 추천</h3>
-        <p>내 질문에 맞춰 비춰 보는 책, 닮은 인물을 만나는 책, 더 넓게 보는 책 세 갈래로 추천. 책마다 책 속 인물이 건네는 한마디와 고른 까닭이 붙음</p>
-        <dl><dt>학생</dt><dd>세 권 가운데 하나 고르기, 나머지는 책장에 담기</dd><dt>안내</dt><dd>부스에서는 10분 안에 읽는 짧은 책을 먼저 권함</dd><dt>남는 것</dt><dd>내 책장에 담긴 추천 책 세 권</dd></dl>
-      </div>
-      <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
-        <span class="time">4단계 | 7분 | B 읽기 존</span>
-        <h3>낱말 뜻을 보며 책 읽기</h3>
-        <p>밑줄 낱말을 누르면 읽던 자리에서 뜻이 뜸. 읽는 동안 화면 위에 내가 정한 질문이 떠 있어 질문을 품고 읽음</p>
+        <span class="time">2단계 | 7분 | B 읽기 존</span>
+        <h3>낱말 뜻을 보며 한 권 끝까지</h3>
+        <p>밑줄 낱말을 누르면 읽던 자리에서 그 학년 말로 쓴 뜻이 뜸. 읽어주기, 글자 크기, 밑줄과 메모, 책갈피도 써 봄</p>
         <figure class="side"><img src="img/app/r-tokki-vi-cmp.webp" alt="토끼와 거북이 그림책을 베트남어와 한국어로 나란히 보는 화면" width="1600" height="1371" loading="lazy"><figcaption>1~2학년은 그림책. 「나란히」를 켜면 영어, 베트남어, 러시아어와 한국어가 맞붙음</figcaption></figure>
         <dl><dt>학생</dt><dd>읽기, 낱말 뜻 보기, 마음에 남은 문장에 밑줄</dd><dt>안내</dt><dd>이주배경 가족에게 나란히 보기 안내</dd><dt>남는 것</dt><dd>완독 기록, 밑줄과 메모</dd></dl>
       </div>
-      <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
-        <span class="time">5단계 | 5분 | C 독후활동 존</span>
-        <h3>책 속 인물과 이야기, 독후활동</h3>
-        <p>다 읽으면 책 속 인물에게 직접 물음. 인물은 책에 있는 일만 1인칭으로 답하고, 학생은 답마다 받아들일지 고르고 까닭을 한 줄 씀. 이어 독후활동 카드 하나를 고르면 부기가 정답 대신 질문으로 도움</p>
-        <figure class="side"><img src="img/gomin/activity-chat.webp" alt="선택 활동 화해 쪽지 쓰기 화면과 부기에게 도움받기 대화" width="1586" height="955" loading="lazy"><figcaption>활동하다 막히면 부기가 질문으로 돕는 화면(예시)</figcaption></figure>
+      <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+        <span class="time">3단계 | 3분 | C 독후활동 존</span>
+        <h3>책 속 인물과 대화</h3>
+        <p>다 읽으면 책 속 인물이 된 부기가 말을 검. 인물은 책에 있는 일만 1인칭으로 답하고, 정답 대신 발문을 건넴. 학생 답이 짧으면 「그렇게 생각한 까닭은?」 하고 한 번 더 물음</p>
+        <dl><dt>학생</dt><dd>내 말로 한두 문장 답하기, 고학년은 인물에게 직접 묻기</dd><dt>안내</dt><dd>저학년은 인물이 먼저 묻게 하고, 쓰기 어려운 학생은 말로 먼저 꺼내게 도움</dd><dt>남는 것</dt><dd>내 책장에 저장되는 인물과 나눈 대화</dd><dt>특허</dt><dd>아바타 기반 도서 등장인물 대화형 독서 활동</dd></dl>
+      </div>
+      <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+        <span class="time">4단계 | 4분 | C 독후활동 존</span>
+        <h3>작가와의 대화, 또는 퀴즈와 독후활동 카드</h3>
+        <p>작가에게 왜 이 이야기를 썼는지, 그 시대는 어땠는지 묻는 작가와의 대화를 하거나, 독후 퀴즈 3문제를 풀고 독후활동 카드 9가지 가운데 하나로 생각을 남김(붐빌 때는 별점과 까닭)</p>
+        <figure class="side"><img src="img/app/R-quiz.webp" alt="토끼와 거북이 독후 퀴즈. 토끼는 무엇을 자랑했나요" width="1100" height="835" loading="lazy"><figcaption>1학년 「토끼와 거북이」 독후 퀴즈</figcaption></figure>
         <div class="acts" aria-label="독후활동 카드 9가지"><img src="img/app/act-persona-talk.webp" alt="인물과 대화" title="인물과 대화" loading="lazy"><img src="img/app/act-write.webp" alt="함께 쓰는 교실" title="함께 쓰는 교실" loading="lazy"><img src="img/app/act-scene.webp" alt="마음에 남은 장면" title="마음에 남은 장면" loading="lazy"><img src="img/app/act-stars.webp" alt="별점과 까닭" title="별점과 까닭" loading="lazy"><img src="img/app/act-words.webp" alt="기억에 남는 낱말 셋" title="기억에 남는 낱말 셋" loading="lazy"><img src="img/app/act-letter.webp" alt="인물에게 편지" title="인물에게 편지" loading="lazy"><img src="img/app/act-bubble.webp" alt="속마음 말풍선" title="속마음 말풍선" loading="lazy"><img src="img/app/act-draw.webp" alt="그림으로 표현하기" title="그림으로 표현하기" loading="lazy"><img src="img/app/act-before-after.webp" alt="읽기 전 짐작, 읽은 후 확인" title="읽기 전 짐작, 읽은 후 확인" loading="lazy"></div>
-        <dl><dt>학생</dt><dd>인물에게 묻기, 받아들일지 고르기, 활동 카드 쓰기</dd><dt>안내</dt><dd>저학년은 인물이 먼저 묻게 하고, 고학년은 학생이 질문을 만듦</dd><dt>남는 것</dt><dd>인물과 나눈 대화, 독후 작품 1편</dd><dt>특허</dt><dd>아바타 기반 도서 등장인물 대화형 독서 활동</dd></dl>
+        <dl><dt>학생</dt><dd>작가에게 묻기, 또는 퀴즈 풀고 카드 하나 쓰거나 그리기</dd><dt>안내</dt><dd>고학년은 작가와의 대화, 저학년은 그림으로 표현하기와 속마음 말풍선 권함</dd><dt>남는 것</dt><dd>작가와 나눈 대화나 독후 작품 1편</dd></dl>
+      </div>
+      <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+        <span class="time">5단계 | 2분 | D 기록과 보상</span>
+        <h3>끝까지 읽은 책의 옷이 열림</h3>
+        <p>완독한 책의 인물 옷을 입은 내 모습이 「내 책 옷장」에 열리고, 「내 성장」에 완주, 퀴즈, 활동이 쌓임. 사거나 뽑는 방식 없이 읽어야만 열림</p>
+        <div class="cosrow" aria-label="책마다 다른 옷"><img src="img/app/cos01.webp" alt="" loading="lazy"><img src="img/app/cos02.webp" alt="" loading="lazy"><img src="img/app/cos03.webp" alt="" loading="lazy"><img src="img/app/cos04.webp" alt="" loading="lazy"><img src="img/app/cos05.webp" alt="" loading="lazy"><img src="img/app/cos06.webp" alt="" loading="lazy"><img src="img/app/cos07.webp" alt="" loading="lazy"><img src="img/app/cos08.webp" alt="" loading="lazy"></div>
+        <dl><dt>학생</dt><dd>열린 옷 입어 보기, 부스 전시장에 작품 띄우기</dd><dt>안내</dt><dd>화면에서 연 옷과 같은 그림의 옷장 책갈피 고르기</dd><dt>남는 것</dt><dd>내 책 옷장, 내 성장 기록, 옷장 책갈피</dd></dl>
       </div>
       <div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden>
-        <span class="time">6단계 | 3분 | D 기록과 보상</span>
+        <span class="time">6단계 | 2분 | D 기록과 보상</span>
         <h3>NFC 카드로 독서 포트폴리오 열기</h3>
-        <p>고민, 내가 정한 질문, 읽은 책, 활동, 읽기 전과 뒤의 생각이 독서 포트폴리오에 모임. 큰 화면에 카드를 대면 부스 전시장에 뜨고, 집에서 휴대폰에 대면 같은 포트폴리오가 다시 열림</p>
-        <figure class="side"><img src="img/gomin/journey.webp" alt="나의 고민 여정 화면. 내 질문, 읽은 책, 고른 활동, 처음 생각과 지금 생각, 인물과 나눈 이야기" width="1366" height="826" loading="lazy"><figcaption>「나의 고민 여정」 화면. 처음 생각과 지금 생각이 나란히 남음</figcaption></figure>
-        <dl><dt>학생</dt><dd>카드 대 보기, 전시장에 작품 띄우기, 내 책 옷장 열기</dd><dt>안내</dt><dd>NFC가 없는 휴대폰은 카드 뒷면 QR, 학부모에게 집에서 이어 읽는 방법 안내</dd><dt>남는 것</dt><dd>독서 포트폴리오 한 장(A4로도 뽑음), 내 책 옷장, 옷장 책갈피</dd></dl>
+        <p>읽은 책, 밑줄과 메모, 인물과 작가와 나눈 대화, 독후 작품이 독서 포트폴리오에 모임. 큰 화면에 카드를 대면 부스 전시장에 뜨고, 집에서 휴대폰에 대면 같은 포트폴리오가 다시 열림</p>
+        <dl><dt>학생</dt><dd>카드 대 보기, 전시장에 작품 띄우기</dd><dt>안내</dt><dd>NFC가 없는 휴대폰은 카드 뒷면 QR, 학부모에게 집에서 이어 읽는 방법 안내</dd><dt>남는 것</dt><dd>독서 포트폴리오(A4로도 뽑음), 옷장 책갈피, 키캡</dd></dl>
       </div>
       <div class="nav2"><button type="button" id="prev">이전 단계</button><button type="button" id="next">다음 단계</button></div>
     </div>
   </div>
 </div>
 
-<div class="blk wrap" id="gomin">
+<div class="blk wrap" id="flow">
   <div class="demo-head">
-    <h2>고민 책방 방식의 부스 운영</h2>
+    <h2>교사가 운영하는 체험 흐름</h2>
   </div>
-  <p class="now-lead">뭉클 교사들이 교실에서 쓰는 수업 순서로 부스를 운영함. 학생은 고민을 적고, 부기가 제안한 질문과 책으로 읽고 활동한 뒤 독서 포트폴리오를 받음. 교사 자리(E)에서는 같은 기능으로 학급 고민에 맞는 수업을 설계해 봄</p>
+  <p class="now-lead">뭉클 교사들이 교실에서 쓰는 독서 수업 순서로 부스를 운영함. 학생은 책을 고르고 끝까지 읽은 뒤 책 속 인물과, 또 작가와 이야기하며 생각을 넓히고 독서 포트폴리오를 받음. 교사 자리(E)에서는 우리 반 고민에 맞는 수업을 설계해 봄</p>
   <div class="field">
     <div><b>학생</b>체험 약 20분. NFC 카드로 집에서 독서 포트폴리오를 다시 열 수 있음</div>
-    <div><b>뭉클 교사</b>존마다 한 명. 고민 들어 주기, 짧은 책 고르기 돕기, 결과물을 함께 읽고 한마디 남기기</div>
-    <div><b>부기</b>300권 서재, 책 속 인물과 이야기, 독서 포트폴리오, NFC 카드와 체험 계정 연결</div>
+    <div><b>뭉클 교사</b>존마다 한 명. 학년과 수준에 맞는 짧은 책 고르기 돕기, 인물 대화에서 까닭을 말로 먼저 꺼내게 돕기, 결과물을 함께 읽고 한마디 남기기</div>
+    <div><b>부기</b>300권 서재, 책 속 인물과 대화(특허 등록), 작가와의 대화, 독서 포트폴리오, NFC 카드와 체험 계정 연결</div>
   </div>
 
   <h3 class="g-h3">결과물 예시</h3>
   <p class="small muted">그림을 누르면 크게 보임</p>
   <div class="menu-g g3">
-    <figure class="mcard"><div class="ph"><span class="badge ex">예시 화면</span><img class="zoomable" src="img/gomin/book-chat.webp" alt="부기와 대화하며 질문을 정하고 책을 추천받는 화면" loading="lazy"></div><figcaption><b>부기와 이야기하며 책 고르기</b><span>"모둠 발표를 준비하다가 짝이랑 싸웠어"에서 "친구와 다툰 뒤 어떻게 먼저 말을 걸까?"라는 질문과 「욕심쟁이 거인」으로</span><small>2~3단계 | 학생 화면</small></figcaption></figure>
-    <figure class="mcard"><div class="ph fit"><span class="badge ex">예시 화면</span><img class="zoomable" src="img/gomin/portfolio.webp" alt="독서 포트폴리오 한 장. 나의 고민부터 선생님 의견까지 일곱 칸" loading="lazy"></div><figcaption><b>독서 포트폴리오</b><span>나의 고민, 내가 정한 질문, 추천한 책, 선택 활동, 생각의 변화, 독후감, 선생님 의견이 한 장에</span><small>6단계 | 카드로 다시 열고 A4로 뽑음</small></figcaption></figure>
-    <figure class="mcard"><div class="ph fit"><span class="badge real">체험판 화면</span><img class="zoomable" src="img/gomin/folio.webp" alt="체험판 기록으로 채운 독서 포트폴리오" loading="lazy"></div><figcaption><b>체험판에서 인쇄한 포트폴리오</b><span>「토끼와 거북이」를 읽고 인물에게 편지를 쓴 기록. 받아들인 말과 받아들이지 않은 말의 까닭도 남음</span><small>6단계 | 체험판 A4</small></figcaption></figure>
-  </div>
-  <figure class="nfcfig" style="margin-top:16px"><img class="zoomable" src="img/gomin/g-overview.webp" alt="3학년 조충의 코끼리 무게 재기, 5학년 비밀의 화원, 6학년 목걸이 학생 결과물 모아보기" width="1800" height="1440" loading="lazy"><figcaption class="small muted">학년별 결과물 모아보기. 3학년 「조충의 코끼리 무게 재기」(생각을 말하기), 5학년 「비밀의 화원」(일을 나누어 맡기), 6학년 「목걸이」(실수 알리고 수습하기)</figcaption></figure>
-  <div class="menu-g g3" style="margin-top:12px">
-    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g3-work.webp" alt="3학년 지우의 장면 읽기 활동지" loading="lazy"></div><figcaption><b>3학년 「내 생각도 말해 볼까?」</b><span>조충이 나선 장면을 그리고, 조충의 방법을 세 그림으로 옮김. 내가 해 볼 일은 "먼저 그려서 짝에게 보여 주기"</span><small>인물이 먼저 묻는 1단계</small></figcaption></figure>
-    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g5-work.webp" alt="5학년 수빈의 장면 비교와 생각 활동지" loading="lazy"></div><figcaption><b>5학년 「내가 다 하면 빨리 끝날까?」</b><span>메리가 먼저 한 일과 디콘과 함께 한 일을 나란히 그리고, 우리 모둠에 옮겨 "바꾸기 전에 만든 친구에게 묻는다"로 고침</span><small>주고받는 2단계</small></figcaption></figure>
-    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g6-work.webp" alt="6학년 도윤의 편지와 수습 기록" loading="lazy"></div><figcaption><b>6학년 「사과하고 나서 한 일」</b><span>처음 쓴 변명을 지우고 고친 편지, 친구의 답, 그 뒤에 한 일 네 가지와 생각의 변화</span><small>학생이 묻는 3단계</small></figcaption></figure>
+    <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S10-chat-short.webp" alt="인물이 된 부기가 가장 기억에 남는 장면을 묻는 대화 화면" loading="lazy"></div><figcaption><b>인물과 나눈 대화</b><span>인물이 발문을 건네고 답이 짧으면 까닭을 다시 물음. 대화는 내 책장의 기록에 저장됨</span><small>3단계 | 특허 등록</small></figcaption></figure>
+    <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S09-card.webp" alt="독후활동 카드 별점과 까닭 화면" loading="lazy"></div><figcaption><b>독후 작품 한 편</b><span>독후활동 카드 9가지 가운데 하나. 별점과 까닭, 인물에게 편지, 속마음 말풍선 등</span><small>4단계 | 부스 전시장에 띄움</small></figcaption></figure>
+    <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S04-growth.webp" alt="내 성장 화면. 완주, 독후 퀴즈, 활동 수와 낱말 진단 결과" loading="lazy"></div><figcaption><b>내 성장과 독서 포트폴리오</b><span>완주, 퀴즈, 활동이 「내 성장」에 쌓이고 독서 포트폴리오로 모임</span><small>5~6단계 | 카드로 다시 열고 A4로 뽑음</small></figcaption></figure>
   </div>
 
   <h3 class="g-h3">NFC 카드 사용 방법</h3>
   <div class="nfc4">
     <div><i>1</i><b>입구에서 받기</b><span>카드마다 다른 주소를 칩에 기록하고 체험 계정과 이어 둠. 로그인 없이 시작</span></div>
-    <div><i>2</i><b>태블릿에 대기</b><span>내 자리가 열리고 고민, 질문, 읽은 책, 활동이 이 카드에 쌓임</span></div>
+    <div><i>2</i><b>태블릿에 대기</b><span>내 자리가 열리고 읽은 책, 밑줄, 인물과 나눈 대화, 활동이 이 카드에 쌓임</span></div>
     <div><i>3</i><b>큰 화면에 대기</b><span>부스 전시장에 내 독서 포트폴리오가 뜸. 다른 친구들의 결과물과 나란히</span></div>
-    <div><i>4</i><b>집에서 휴대폰에 대기</b><span>같은 독서 포트폴리오가 다시 열리고, 책장에 담긴 나머지 두 권을 이어 읽음</span></div>
+    <div><i>4</i><b>집에서 휴대폰에 대기</b><span>같은 독서 포트폴리오가 다시 열리고, 같은 학년 서가의 다른 책을 이어 읽음</span></div>
   </div>
   <figure class="nfcfig narrow" style="margin-top:14px"><img class="zoomable" src="img/nfc-tablet.jpg" alt="책갈피를 휴대폰에 대면 독서 기록이 열리고 책마다 남긴 독후활동이 보임" width="1284" height="1230" loading="lazy"><figcaption class="small muted">카드를 휴대폰에 대면 내 독서 기록이 열리는 모습(예시 화면). 카드는 옷장 책갈피(55×85mm) 뒷면 칩을 그대로 쓰고, NFC가 없는 휴대폰은 뒷면 QR로 염</figcaption></figure>
 
   <h3 class="g-h3">안전과 개인정보</h3>
   <ul class="dot small">
-    <li>고민은 마음 카드로 고르거나 한 줄로 적음(안 써도 됨). 이름과 학교는 적지 않고, 친구 이름은 화면이 ○○로 가림</li>
-    <li>마음이 많이 힘들다는 말이 보이면 책을 권하지 않고 화면이 도움 안내로 바뀜. 현장의 뭉클 교사가 먼저 이야기를 듣고 학교와 상담 창구를 안내</li>
-    <li>책 속 인물은 책에 있는 일만 말하고 책 밖 질문, 설정을 캐는 말, 놀리는 말에는 답하지 않음</li>
+    <li>책 속 인물은 책에 있는 일만 말하고 책 밖 질문, 설정을 캐는 말, 놀리는 말에는 답하지 않음. 작가와의 대화도 작품과 시대 이야기 안에서만 답함</li>
+    <li>대화는 체험 계정으로만 하고 이름과 학교는 묻지도 적지도 않음. 현장의 뭉클 교사가 대화 화면을 곁에서 함께 봄</li>
     <li>만 14세 미만은 동행 보호자에게 체험 내용을 안내하고 동의를 받은 뒤 시작. 결과물에는 학생이 고른 내용만 남고, 카드 기록의 보관 기간은 운영 전 정함</li>
   </ul>
 
   <h3 class="g-h3">선생님 자리(E): 우리 반 고민으로 수업 짜기</h3>
-  <p class="small">선생님이 학급 고민을 적으면 부기가 수업 질문 후보, 세 갈래 책, 2차시 설계안 초안을 내고, 선생님이 말로 고치면 바뀐 줄이 표시됨. 학년마다 인물 대화를 여는 쪽이 달라지는 설계 예시를 함께 보여 줌</p>
+  <p class="small">선생님이 학급 고민을 적으면 부기가 수업 질문 후보, 세 갈래 책, 2차시 설계안 초안을 내고, 선생님이 말로 고치면 바뀐 줄이 표시됨. 학년마다 인물 대화를 여는 쪽이 달라지는 설계 예시와, 그 설계로 한 수업의 학년별 결과물을 함께 보여 줌</p>
   <div class="menu-g">
     <figure class="mcard"><div class="ph"><span class="badge real">체험판 화면</span><img class="zoomable" src="img/gomin/t-plan.webp" alt="수업 짜기 화면. 왼쪽 대화로 고친 줄이 오른쪽 설계안에 노랗게 표시됨" loading="lazy"></div><figcaption><b>대화로 고치는 2차시 설계안</b><span>「토끼와 거북이」 5학년 설계안. "도입을 바꿔 주세요" 한마디에 바뀐 줄이 노랗게 표시되고 2번째 판이 됨</span><small>교사 | 10분 | 활동 카드를 학생에게 내주기</small></figcaption></figure>
     <figure class="mcard"><div class="ph fit"><span class="badge ex">설계 예시</span><img class="zoomable" src="img/gomin/g3-plan.webp" alt="3학년 조충의 코끼리 무게 재기 수업 설계안" loading="lazy"></div><figcaption><b>3학년 설계안</b><span>「조충의 코끼리 무게 재기」, 성취기준 [4국01-05], [4국05-02]. 장면을 읽고 나면 조충이 먼저 물음</span><small>1단계 인물이 먼저 묻기</small></figcaption></figure>
     <figure class="mcard"><div class="ph fit"><span class="badge ex">설계 예시</span><img class="zoomable" src="img/gomin/g5-plan.webp" alt="5학년 비밀의 화원 수업 설계안" loading="lazy"></div><figcaption><b>5학년 설계안</b><span>「비밀의 화원」, 성취기준 [6국05-03], [6국01-06]. 디콘이 먼저 묻고 학생이 질문 하나를 만듦</span><small>2단계 주고받기</small></figcaption></figure>
     <figure class="mcard"><div class="ph fit"><span class="badge ex">설계 예시</span><img class="zoomable" src="img/gomin/g6-plan.webp" alt="6학년 목걸이 수업 설계안" loading="lazy"></div><figcaption><b>6학년 설계안</b><span>「목걸이」, 성취기준 [6국02-02], [6국05-06]. 학생이 마틸드와 남편에게 같은 질문을 던져 답을 견줌</span><small>3단계 학생이 묻기</small></figcaption></figure>
+  </div>
+  <figure class="nfcfig" style="margin-top:16px"><img class="zoomable" src="img/gomin/g-overview.webp" alt="3학년 조충의 코끼리 무게 재기, 5학년 비밀의 화원, 6학년 목걸이 학생 결과물 모아보기" width="1800" height="1440" loading="lazy"><figcaption class="small muted">설계안으로 한 수업의 학년별 결과물 모아보기. 3학년 「조충의 코끼리 무게 재기」(생각을 말하기), 5학년 「비밀의 화원」(일을 나누어 맡기), 6학년 「목걸이」(실수 알리고 수습하기)</figcaption></figure>
+  <div class="menu-g g3" style="margin-top:12px">
+    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g3-work.webp" alt="3학년 지우의 장면 읽기 활동지" loading="lazy"></div><figcaption><b>3학년 「내 생각도 말해 볼까?」</b><span>조충이 나선 장면을 그리고, 조충의 방법을 세 그림으로 옮김. 내가 해 볼 일은 "먼저 그려서 짝에게 보여 주기"</span><small>인물이 먼저 묻는 1단계</small></figcaption></figure>
+    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g5-work.webp" alt="5학년 수빈의 장면 비교와 생각 활동지" loading="lazy"></div><figcaption><b>5학년 「내가 다 하면 빨리 끝날까?」</b><span>메리가 먼저 한 일과 디콘과 함께 한 일을 나란히 그리고, 우리 모둠에 옮겨 "바꾸기 전에 만든 친구에게 묻는다"로 고침</span><small>주고받는 2단계</small></figcaption></figure>
+    <figure class="mcard"><div class="ph fit"><span class="badge ex">학생 결과물</span><img class="zoomable" src="img/gomin/g6-work.webp" alt="6학년 도윤의 편지와 수습 기록" loading="lazy"></div><figcaption><b>6학년 「사과하고 나서 한 일」</b><span>처음 쓴 변명을 지우고 고친 편지, 친구의 답, 그 뒤에 한 일 네 가지와 생각의 변화</span><small>학생이 묻는 3단계</small></figcaption></figure>
   </div>
 </div>
 
@@ -581,13 +580,13 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
   <div class="demo-head">
     <h2>부스 체험 메뉴: 무엇을 해 보나</h2>
   </div>
-  <p class="now-lead">위 고민 책방 6단계를 기본 길로 두고, 기다리는 줄과 큰 화면, 교사 자리에서 할 체험을 구역마다 더함. 그림을 누르면 크게 보임.</p>
+  <p class="now-lead">위 학생 체험 6단계를 기본 길로 두고, 기다리는 줄과 큰 화면, 교사 자리에서 할 체험을 구역마다 더함. 그림을 누르면 크게 보임.</p>
   <div class="zone">
     <div class="zone-h"><i>B·C</i><h3>태블릿 체험</h3><span>학생, 한 사람 약 20분</span></div>
     <div class="menu-g">
       <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/kkachi-popup.webp" alt="은혜 갚은 까치 본문에서 뛰어난을 누르자 뜻이 뜬 화면" loading="lazy"></div><figcaption><b>낱말 눌러 가며 끝까지 읽기</b><span>밑줄 낱말을 누르면 그 학년 말로 쓴 뜻이 뜸. 읽어주기로 듣고, 마음에 남은 문장에 밑줄</span><small>초등학생 | 8분 | 「은혜 갚은 까치」 등 짧은 책</small></figcaption></figure>
       <figure class="mcard"><div class="ph"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/r-tokki-vi-cmp.webp" alt="토끼와 거북이 베트남어 나란히 보기" loading="lazy"></div><figcaption><b>네 나라 말로 나란히 읽기</b><span>1~4학년 200권을 영어, 베트남어, 러시아어와 한국어로 맞붙여 읽음</span><small>이주배경 학생과 가족 | 5분 | 학부모 안내와 함께</small></figcaption></figure>
-      <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S10-chat-short.webp" alt="부기와 이야기 나누기 화면" loading="lazy"></div><figcaption><b>책 속 인물과 대화</b><span>인물이 된 부기가 발문을 묻고, 답이 짧으면 까닭을 한 번 더 물음(특허 등록)</span><small>초등학생 | 3분 | 대화는 내 책장에 저장</small></figcaption></figure>
+      <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/S10-chat-short.webp" alt="부기와 이야기 나누기 화면" loading="lazy"></div><figcaption><b>책 속 인물과 대화, 작가와의 대화</b><span>인물이 된 부기가 발문을 묻고, 답이 짧으면 까닭을 한 번 더 물음(특허 등록). 이어 작가에게 왜 이 이야기를 썼는지 물어봄</span><small>초등학생 | 3~4분 | 대화는 내 책장에 저장</small></figcaption></figure>
       <figure class="mcard"><div class="ph fit"><span class="badge real">실제 화면</span><img class="zoomable" src="img/app/R-quiz.webp" alt="토끼와 거북이 독후 퀴즈" loading="lazy"></div><figcaption><b>독후 퀴즈와 활동 카드</b><span>퀴즈 3문제로 내용을 짚고, 독후활동 카드 9가지 가운데 하나로 생각을 남김</span><small>초등학생 | 5분 | 독후 작품 1편</small></figcaption></figure>
     </div>
   </div>
@@ -636,11 +635,11 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>구분</th><th>운영 방안</th></tr></thead>
           <tbody>
-            <tr><th>체험</th><td>한 사람 약 20분. 고민 적기, 부기와 이야기, 책 추천, 책 읽기, 인물과 이야기와 독후활동, 독서 포트폴리오 순서(혼잡 시간 12분 빠른 체험). 기다리는 줄에서는 종이인형, 스티커북 손 체험</td></tr>
+            <tr><th>체험</th><td>한 사람 약 20분. NFC 카드로 입장과 책 고르기, 책 읽기, 책 속 인물과 대화, 작가와의 대화나 독후활동, 내 책 옷장, 독서 포트폴리오 순서(혼잡 시간 12분 빠른 체험). 기다리는 줄에서는 종이인형, 스티커북 손 체험</td></tr>
             <tr><th>남는 것</th><td>NFC 체험 카드(옷장 책갈피, 카드마다 다른 주소), 독서 포트폴리오, 내 책 옷장, 키캡</td></tr>
-            <tr><th>효과 확인</th><td>고민에서 결과물까지 간 수, 완독 수, 독후 작품 수, 박람회 뒤 카드로 다시 연 수 집계</td></tr>
+            <tr><th>효과 확인</th><td>입장에서 포트폴리오까지 간 수, 완독 수, 독후 작품 수, 박람회 뒤 카드로 다시 연 수 집계</td></tr>
             <tr><th>교사</th><td>교사 체험 계정, 선도교사단 신청, 부기 선도교사단 200~300명 구성, 오픈채팅방 운영</td></tr>
-            <tr><th>행사 뒤</th><td>카드를 대어 포트폴리오 다시 열기, 책장에 담긴 추천 책 이어 읽기, 집과 교실에서 이어 읽기, 선도교사단 학급으로 이어짐</td></tr>
+            <tr><th>행사 뒤</th><td>카드를 대어 포트폴리오 다시 열기, 학년 서가의 다른 책 이어 읽기, 집과 교실에서 이어 읽기, 선도교사단 학급으로 이어짐</td></tr>
             <tr><th>예산</th><td>체험 구성과 홍보물품 중심</td></tr>
           </tbody>
         </table>
@@ -707,7 +706,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
       </table>
       <h3>부스에서 보여 줄 것</h3>
       <ul class="dot">
-        <li><mark>고민 책방</mark>: 학생이 적은 고민으로 질문과 책을 정하고, 읽고 활동한 기록을 독서 포트폴리오로 받는 부기 기능</li>
+        <li><mark>책 속 인물과 작가와의 대화</mark>: 다 읽은 책의 인물과 이야기하고(특허 등록), 작가에게 왜 이 이야기를 썼는지 묻고, 그 기록을 독서 포트폴리오로 받는 부기 기능</li>
         <li><mark>책 읽기 본연의 즐거움</mark>: 학생 눈높이로 다시 쓴 명작 한 권을 낱말 뜻을 보며 끝까지 읽는 경험</li>
         <li>모두 함께 읽기: 영어, 베트남어, 러시아어와 한국어를 나란히 놓고 같은 책 읽기</li>
         <li>읽은 뒤의 생각: 특허 등록한 인물과 대화, 독후 퀴즈, 독후활동 카드 9가지</li>
@@ -730,7 +729,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>프로그램</th><th>대상</th><th>시간</th><th>내용</th><th>남는 것</th></tr></thead>
           <tbody>
-            <tr><th>부기 읽기 체험</th><td>초등학생</td><td class="n">20분</td><td>고민 적기, 부기와 이야기, 책 추천, 책 읽기, 인물과 이야기와 독후활동, 결과물과 NFC(위 6단계)</td><td>독서 포트폴리오, NFC 체험 카드, 키캡</td></tr>
+            <tr><th>부기 읽기 체험</th><td>초등학생</td><td class="n">20분</td><td>NFC 카드로 입장과 책 고르기, 책 읽기, 책 속 인물과 대화, 작가와의 대화나 독후활동, 내 책 옷장, 포트폴리오와 NFC(위 6단계)</td><td>독서 포트폴리오, NFC 체험 카드, 키캡</td></tr>
             <tr><th>빠른 체험</th><td>초등학생(혼잡 시간)</td><td class="n">12분</td><td>1~2학년 그림책 한 권, 퀴즈, 별점과 까닭, 옷장 열기</td><td>독서 기록, 옷장 책갈피</td></tr>
             <tr><th>손 체험</th><td>저학년, 가족(기다리는 줄)</td><td class="n">5~10분</td><td>부기 이야기 극장 종이인형, 스티커북, 색칠 꾸미기</td><td>스티커, 색칠한 도안</td></tr>
             <tr><th>학부모 안내</th><td>동행 학부모</td><td class="n">5분</td><td>내 책장과 내 성장 화면, 집에서 이어 읽는 방법, 네 나라 말 나란히 보기</td><td>책갈피 QR, 소개 책자</td></tr>
@@ -751,13 +750,13 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
           <rect x="10" y="10" width="700" height="320" rx="10" fill="var(--sheet)" stroke="var(--forest)" stroke-width="2"/>
           <rect x="24" y="24" width="150" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="99" y="76" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">A 맞이와 포토존</text>
-          <text x="99" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">NFC 카드, 고민 적기</text>
+          <text x="99" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">NFC 카드 받기, 입장</text>
           <text x="99" y="116" text-anchor="middle" font-size="12" fill="var(--muted)">손 체험: 종이인형,</text>
           <text x="99" y="132" text-anchor="middle" font-size="12" fill="var(--muted)">스티커북, 색칠</text>
           <text x="99" y="150" text-anchor="middle" font-size="12" fill="var(--muted)">1단계</text>
           <rect x="190" y="24" width="250" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="315" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">B 읽기 존</text>
-          <text x="315" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 8대, 부기와 이야기, 책 추천, 읽기, 2~4단계</text>
+          <text x="315" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 8대, 책 고르기와 읽기, 1~2단계</text>
           <g fill="var(--sheet)" stroke="var(--sage)">
             <rect x="212" y="98" width="40" height="28" rx="4"/><rect x="262" y="98" width="40" height="28" rx="4"/>
             <rect x="312" y="98" width="40" height="28" rx="4"/><rect x="362" y="98" width="40" height="28" rx="4"/>
@@ -766,13 +765,13 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
           </g>
           <rect x="456" y="24" width="240" height="140" rx="8" fill="var(--sage-soft)" stroke="var(--sage)"/>
           <text x="576" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">C 독후활동 존</text>
-          <text x="576" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">인물과 이야기, 독후활동 카드</text>
-          <text x="576" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 6대, 5단계</text>
+          <text x="576" y="80" text-anchor="middle" font-size="12" fill="var(--muted)">인물과 대화, 작가와의 대화, 독후활동</text>
+          <text x="576" y="98" text-anchor="middle" font-size="12" fill="var(--muted)">태블릿 6대, 3~4단계</text>
           <rect x="24" y="180" width="300" height="136" rx="8" fill="var(--mark)" stroke="var(--warn)" stroke-opacity=".4"/>
           <text x="174" y="216" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">D 기록과 보상, 큰 화면</text>
           <text x="174" y="240" text-anchor="middle" font-size="12" fill="var(--ink)">포트폴리오, 카드 대면 전시장에, 내 책 옷장</text>
           <text x="174" y="258" text-anchor="middle" font-size="12" fill="var(--ink)">책 모양 키캡, 옷장 책갈피(QR, NFC)</text>
-          <text x="174" y="276" text-anchor="middle" font-size="12" fill="var(--ink)">6단계, 학부모 안내</text>
+          <text x="174" y="276" text-anchor="middle" font-size="12" fill="var(--ink)">5~6단계, 학부모 안내</text>
           <rect x="340" y="180" width="356" height="136" rx="8" fill="var(--sheet)" stroke="var(--forest)" stroke-dasharray="5 4"/>
           <text x="518" y="222" text-anchor="middle" font-size="15" font-weight="700" fill="var(--forest)">E 교사와 기관 상담</text>
           <text x="518" y="246" text-anchor="middle" font-size="12" fill="var(--muted)">교사 태블릿 2대, 우리 반 고민으로 수업 짜기</text>
@@ -877,15 +876,15 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <table class="grid">
           <thead><tr><th>역할</th><th>담당 구역</th><th>담당 업무</th></tr></thead>
           <tbody>
-            <tr><th>총괄 진행</th><td>A, D</td><td>줄 관리, NFC 체험 카드 배부와 고민 적기 안내, 손 체험 안내, 옷장과 기록 화면 설명, 홍보물품 나눔, 기관 상담</td></tr>
-            <tr><th>체험 안내</th><td>B, C</td><td>부기와 이야기, 책 고르기 돕기, 태블릿 관리, 인물과 이야기와 독후활동 돕기, 결과물 함께 읽기</td></tr>
+            <tr><th>총괄 진행</th><td>A, D</td><td>줄 관리, NFC 체험 카드 배부와 입장 안내, 손 체험 안내, 옷장과 기록 화면 설명, 홍보물품 나눔, 기관 상담</td></tr>
+            <tr><th>체험 안내</th><td>B, C</td><td>책 고르기 돕기, 태블릿 관리, 인물과 대화와 작가와의 대화, 독후활동 돕기, 결과물 함께 읽기</td></tr>
             <tr><th>교사 상담</th><td>E</td><td>교사 체험 계정과 수업 만들기 안내, 선도교사단 신청 받기, 오픈채팅방 안내</td></tr>
           </tbody>
         </table>
       </div>
       <p class="small muted" style="margin-top:6px">핵심 인력 3명 × 3일, 붐비는 시간 교사 개발팀 지원</p>
       <div class="timeline">
-        <div><b>2026. 11월</b>부스 구성 및 프로그램 개발 시작, 부기에 고민 책방 탑재 개발, 부스 신청</div>
+        <div><b>2026. 11월</b>부스 구성 및 프로그램 개발 시작, 작가와의 대화 다듬기, 교사용 우리 반 고민으로 수업 짜기 탑재 개발, 부스 신청</div>
         <div><b>2026. 12월</b>키캡, 옷장 책갈피 시안 확정과 발주, NFC 카드 주소와 체험 계정 연결 시험, 손 체험 도안 고르기</div>
         <div><b>2027. 1월 중순</b>체험 학급과 계정 2,000개 만들기, 카드마다 주소 기록, 손 체험 재료 인쇄, 리허설</div>
         <div><b>2027. 1. 25.~27.</b>부스 운영 3일</div>
@@ -904,7 +903,7 @@ footer{background:var(--forest);color:var(--paper);margin-inline:calc(-1*max(16p
         <div><b>200~300명</b><span>부기 선도교사단 구성</span></div>
       </div>
       <ul class="dot" style="margin-top:12px">
-        <li><b>학생</b>: 자기 고민으로 고른 책을 읽고 독서 포트폴리오를 받음. NFC 카드와 키캡으로 집과 교실에서 포트폴리오를 다시 열 수 있음</li>
+        <li><b>학생</b>: 제 학년 책 한 권을 끝까지 읽고 책 속 인물, 작가와 이야기한 기록을 독서 포트폴리오로 받음. NFC 카드와 키캡으로 집과 교실에서 포트폴리오를 다시 열 수 있음</li>
         <li><b>교사</b>: 전국 부기 선도교사단이 수업 사례, 공모전, 학교 도입 상담으로 이어짐</li>
         <li><b>교육청과 학부모</b>: 체험 인원, 완독과 독후 작품 수, 통합 현황 화면이 학교 독서교육 위탁 운영 설명 자료가 됨</li>
       </ul>
