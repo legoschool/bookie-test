@@ -1,0 +1,380 @@
+{
+ "date": "2026-10-31",
+ "proposal": "v37",
+ "summary": "v8",
+ "book_pages": 62,
+ "brochure_pages": 9,
+ "video_variants": 14,
+ "files": [
+  {
+   "path": "dl/gomin/grade-plans.pdf",
+   "bytes": 1899516,
+   "sha256": "952800ecb2dd2076ee9a3a10c653e45efed181f9b261767dd3b876aa23c52cfe"
+  },
+  {
+   "path": "dl/gomin/portfolio-blank.pdf",
+   "bytes": 248800,
+   "sha256": "92f5acd1c16b988ed6d7eb2717bbfdebeae50e99bf23f9cb2d701ab954c5b852"
+  },
+  {
+   "path": "dl/gomin/lesson-plan-sample.pdf",
+   "bytes": 432965,
+   "sha256": "b6df8ea46d8867fe84a3e6608a24d18935b90b144db7f4e70b6c53703c2410f9"
+  },
+  {
+   "path": "dl/brochure/bookie-summary-1p-edit.pptx",
+   "bytes": 13100630,
+   "sha256": "c2d966266377b479a555b00bc7b59a825f266ddd2db971f07251691606a9cb6f"
+  },
+  {
+   "path": "dl/brochure/bookie-summary-1p-edit.pdf",
+   "bytes": 164524,
+   "sha256": "2a882470f0165a821181df8ba07ec9733e1631df6a43dd328c19bcbaff32f6cb"
+  },
+  {
+   "path": "dl/brochure/bookie-complete-9p-edit.pptx",
+   "bytes": 13100673,
+   "sha256": "a2cd3823b8a90f2f263b3d0441256395c8bb31a037164e8ae272fdc6202d26e9"
+  },
+  {
+   "path": "dl/brochure/bookie-complete-9p-edit.pdf",
+   "bytes": 401907,
+   "sha256": "2de98882a16c5e83d8e691392a1f0b62b8c7f8ca1dbe017d997cc0bf20d7ebd5"
+  },
+  {
+   "path": "dl/brochure/bookie-detail-8p-edit.pptx",
+   "bytes": 13100668,
+   "sha256": "0e943cd746d6d7d1c61565153b8c1cd2535639e330bc170c014d7ed7165bb1ae"
+  },
+  {
+   "path": "dl/brochure/bookie-detail-8p-edit.pdf",
+   "bytes": 384674,
+   "sha256": "bf7e8195bb401e20b8308d600f13a176514b8a7645e336fc8b75306e2c789c8b"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-summary-1p.pptx",
+   "bytes": 27024269,
+   "sha256": "70c326a30accd816c0dab2c9c204d2276e61023369bb5074c21fa1ac54529cc1"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-summary-1p.pdf",
+   "bytes": 249839,
+   "sha256": "b27066aad4b7e0292b8be477800a978ad588dd47faf21feb7a8f3ca307409ae4"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-v36.pdf",
+   "bytes": 5192099,
+   "sha256": "2c63fb78c499b1ad1a80dc7ddee29b2d1cb0041f3f6cfc517d9c73a1a812008d"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-v36.pptx",
+   "bytes": 36383512,
+   "sha256": "0a971c3ee35ff64a840d944d2a412afe3e21113921e534b37726c9d9adb648a1"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-v37.pdf",
+   "bytes": 6127792,
+   "sha256": "dd6453e9233dce7687f65761a1b0d6c0d9fb515e0b43f3041bb7c6926da7feeb"
+  },
+  {
+   "path": "dl/proposal/bookie-proposal-v37.pptx",
+   "bytes": 37561721,
+   "sha256": "3c170c0db672251d26406cad0e2c08c7cb8968cf1ba73a9a29dee9dad7da1e62"
+  },
+  {
+   "path": "dl/booklet/bookie-a4-b-62p.pdf",
+   "bytes": 12986674,
+   "sha256": "64483ea9160d5e7905803160b10326677e713eb197e3d946527095df811b5e82"
+  },
+  {
+   "path": "dl/booklet/bookie-a4-c-62p.pdf",
+   "bytes": 13046795,
+   "sha256": "31c748a820698015adc1fe42723588f18e97e9ae3c7348e9b8e5ce70d06c72f9"
+  },
+  {
+   "path": "dl/booklet/bookie-sinkuk-b-62p.pdf",
+   "bytes": 7900658,
+   "sha256": "cb4eee4e136c2b80cd2e73a52602f5d02d83aa7042f8ebb48350a8ca304363d5"
+  },
+  {
+   "path": "dl/booklet/bookie-sinkuk-c-62p.pdf",
+   "bytes": 7785320,
+   "sha256": "e73a5d959f110d49e8e0439223d4a31f94005dc6f25faaf17074b48e6646a90a"
+  },
+  {
+   "path": "dl/video/edu-office-20261028-1080p.mp4",
+   "bytes": 33630933,
+   "sha256": "35f3c605a2140ad1edf6cdb95f01e3485e3a5de9f7383a0b48a14dc55177b4d7"
+  },
+  {
+   "path": "dl/video/teachers-20261028-1080p.mp4",
+   "bytes": 29051006,
+   "sha256": "99162727858e3a8eeba1df012a1ad8113dd61da7dc25245861fef12c5b3a820d"
+  },
+  {
+   "path": "dl/video/parents-20261028-1080p.mp4",
+   "bytes": 24537113,
+   "sha256": "ac5b5ea50d0f82c6dfff8737a65a8d3d4f4a6a1da222d10b74ae5a7ac39eb012"
+  },
+  {
+   "path": "dl/video/book-prince-20261031-full.mp4",
+   "bytes": 14656529,
+   "sha256": "e00f16b418aba63e030b4adcbb5c53f26ed3845268f4b9aa558904df25f09112"
+  },
+  {
+   "path": "dl/video/book-prince-vertical-20261031-full.mp4",
+   "bytes": 14077030,
+   "sha256": "68f6a9431b2b80d530173eb2f72102f991db17961ead0660baf0635dbde9e386"
+  },
+  {
+   "path": "dl/video/edu-office-20261031-full.mp4",
+   "bytes": 45350797,
+   "sha256": "13c09539fe74ab3c610ed1d939270356cabd276716118a38d1fb7ac7310e77db"
+  },
+  {
+   "path": "dl/video/edu-office-short-20261031-full.mp4",
+   "bytes": 16194033,
+   "sha256": "83082e4fca4044aece15f9d0df43387cea4a14ce3821b4669a124f009297611e"
+  },
+  {
+   "path": "dl/video/parents-20261031-full.mp4",
+   "bytes": 38515959,
+   "sha256": "0f4cab0838101dcc13c3aabae4746e40466e4893dce076d7607d230fdb133834"
+  },
+  {
+   "path": "dl/video/q-2m-20261031-full.mp4",
+   "bytes": 15490434,
+   "sha256": "ff58a41175a4039ef58e59f159603333ff68335ff6470d2c3cf85ff845a9a25a"
+  },
+  {
+   "path": "dl/video/short-clay-20261031-full.mp4",
+   "bytes": 10952925,
+   "sha256": "7846dea189d5a31380cacc837a35808264121e99334bfafa91e5fc18ec58e519"
+  },
+  {
+   "path": "dl/video/short-heart-20261031-full.mp4",
+   "bytes": 8319524,
+   "sha256": "7e09e76e7b7f1b9319b4e38daf844446012f325a2c04e0e02222017d127f05cd"
+  },
+  {
+   "path": "dl/video/short-heart-vertical-20261031-full.mp4",
+   "bytes": 8848044,
+   "sha256": "d18bef0bd8264cefa4a4f3270a43640ad3f77bcdf05d4cf2a1ee3db187b3c6c1"
+  },
+  {
+   "path": "dl/video/short-motion-20261031-full.mp4",
+   "bytes": 2294167,
+   "sha256": "9327572ee2b93dcde4f1055bf59477951b9b89252379d592c03d4cc2dde5ec1b"
+  },
+  {
+   "path": "dl/video/short-word-20261031-full.mp4",
+   "bytes": 10529282,
+   "sha256": "5b5c21488aee835d4f4f19cd1d88d0d4cdf22782859c64d2028e30fa61b19f05"
+  },
+  {
+   "path": "dl/video/short-word-vertical-20261031-full.mp4",
+   "bytes": 9784036,
+   "sha256": "f218b7c0e879ad8241b0af2361d1665b4a2e51980242d5bde6db883d7e409627"
+  },
+  {
+   "path": "dl/video/students-20261031-full.mp4",
+   "bytes": 22138732,
+   "sha256": "c3a643b5d84ea9802b9787680719e33ce66576a175d5e88de18cd8adf6460eb3"
+  },
+  {
+   "path": "dl/video/teachers-20261031-full.mp4",
+   "bytes": 35785851,
+   "sha256": "b1c31cafd8b879ed3616373c4634d91b1a477900d521c0e9458b3720bbf50c1a"
+  },
+  {
+   "path": "dl/guides/부기_01_아침10분_시작안내.docx",
+   "bytes": 1387461,
+   "sha256": "10a2c212b70cdfcd9a8cb23a00a792c1bae9a5b45068280e7833b7407db42dfa"
+  },
+  {
+   "path": "dl/guides/부기_02_교사용_화면따라하기.docx",
+   "bytes": 4513017,
+   "sha256": "63ea5e7d5fded7d275ab2fc9cd98b0aec99d6f50682746debca11fc6d9964097"
+  },
+  {
+   "path": "dl/guides/부기_학생용_상세활동.pptx",
+   "bytes": 15592033,
+   "sha256": "292bc8516ca583acce4d39c120333d32890f6a564c80a400dce490588a726817"
+  },
+  {
+   "path": "dl/guides/부기_학생용_아침활동.pptx",
+   "bytes": 8173202,
+   "sha256": "6c5967f1ac76aba2e3e63c32c20e4528115a875190c985b5a59990b88433eca0"
+  },
+  {
+   "path": "dl/booth/bookie-booth.zip",
+   "bytes": 9901126,
+   "sha256": "2692d2e7a7d61fe614b80ffc215d0e39f54e2b3426cc1b9a49ad48e1a5c8d1a1"
+  },
+  {
+   "path": "video/book-anne.jpg",
+   "bytes": 61648,
+   "sha256": "28f3f2af39291f09f0903d847c086e10c6baf944bca1c8b55c1b417be5248638"
+  },
+  {
+   "path": "video/book-anne.mp4",
+   "bytes": 2816524,
+   "sha256": "0bdf53fc0b6efd31a75618f327e1f5e55eabc46eb9e4fd9cb6e2a05726311f11"
+  },
+  {
+   "path": "video/book-prince.jpg",
+   "bytes": 18002,
+   "sha256": "7bc74aebde39bd51ad046ac750b81e7cef5f96c1062a4db7f23f24bc4cb6f261"
+  },
+  {
+   "path": "video/book-prince.mp4",
+   "bytes": 8318159,
+   "sha256": "686487b617161316e6989138380f791c1f190dadc696eb561954f9f196f42147"
+  },
+  {
+   "path": "video/book-tokki.jpg",
+   "bytes": 52649,
+   "sha256": "b15e3f73c7b6fbc5aa62208d2f0dfe2e971734ab6e32991ffab373a264e27575"
+  },
+  {
+   "path": "video/book-tokki.mp4",
+   "bytes": 2905334,
+   "sha256": "ca665426c2c13a0238f2b470652cddedac2d4768c10bfcbe16975abbfa12f2fc"
+  },
+  {
+   "path": "video/edu-office.jpg",
+   "bytes": 15549,
+   "sha256": "bc050e8614b4fff2524a936ce30df58da1e40776309add6b19c8baa786c9d48f"
+  },
+  {
+   "path": "video/edu-office.mp4",
+   "bytes": 22405082,
+   "sha256": "3b1e15a4fa00ef5c037d1f9760138e579f83259c0b3082e470df672c07487db1"
+  },
+  {
+   "path": "video/howto-student.jpg",
+   "bytes": 47219,
+   "sha256": "beb9876b1deebbf57599654bd8c36f0543bbdd5476ee0ad87d70c0a0d316eaaa"
+  },
+  {
+   "path": "video/howto-student.mp4",
+   "bytes": 1648942,
+   "sha256": "5389306bb01b1c04a9f64b800e850aafd0e3a483d84b09552e2a183e41fa1880"
+  },
+  {
+   "path": "video/howto-teacher.jpg",
+   "bytes": 46984,
+   "sha256": "21a1f5214e6148a4176b377c70ff42d18a4b0e9a6ebe5ae21169cb4ebffe4bd8"
+  },
+  {
+   "path": "video/howto-teacher.mp4",
+   "bytes": 1949231,
+   "sha256": "861da2c3fbf19e7167704cbe521493cdd193ca18ff57e68045e052e1e3290bdb"
+  },
+  {
+   "path": "video/parents.jpg",
+   "bytes": 15549,
+   "sha256": "bc050e8614b4fff2524a936ce30df58da1e40776309add6b19c8baa786c9d48f"
+  },
+  {
+   "path": "video/parents.mp4",
+   "bytes": 18396371,
+   "sha256": "e8bcbfbe9f2252d2a9b0c0ff40b8372b014780df8d42c6be9fe3100e0b60e317"
+  },
+  {
+   "path": "video/q-2m.jpg",
+   "bytes": 14581,
+   "sha256": "15b85d24af320d422b95cc4f6a99df23d9b03dc567445ef32b02bed91cb54061"
+  },
+  {
+   "path": "video/q-2m.mp4",
+   "bytes": 10227047,
+   "sha256": "d56e1d704defe79120a899be628b471aaa7af564b1eacf45fab52330c7480cae"
+  },
+  {
+   "path": "video/short-clay.jpg",
+   "bytes": 32719,
+   "sha256": "1a2c1743593bf470bf0983238d263e710b814738478f6a954c3202fb1bf1b1ce"
+  },
+  {
+   "path": "video/short-clay.mp4",
+   "bytes": 5454912,
+   "sha256": "e245d9d63a81e717bda00d80623e9cbcf1ca2fe1a0af4fe002a268920f8fd915"
+  },
+  {
+   "path": "video/short-heart.jpg",
+   "bytes": 12016,
+   "sha256": "6c6c15fdf56cdae09baf6d4079073c40f42e63d0b0c1c7864dc28f14d1c2515d"
+  },
+  {
+   "path": "video/short-heart.mp4",
+   "bytes": 2938474,
+   "sha256": "3c000a5d2f4806e70fd4d60bfa0315f33344759f4635ae8c31319ebfb60b139f"
+  },
+  {
+   "path": "video/short-motion.jpg",
+   "bytes": 26852,
+   "sha256": "647bccaffd72b7ef8586748d2e0bc50a010c29224a401b994f732b38f15ce7b8"
+  },
+  {
+   "path": "video/short-motion.mp4",
+   "bytes": 1470875,
+   "sha256": "90e37c5792fefd2bec3b58a756e87b42f9a5af2985db1a9f8002252152910ce1"
+  },
+  {
+   "path": "video/short-word.jpg",
+   "bytes": 20477,
+   "sha256": "48f0f3e216917a6f0177e6265e831eacabf0d61122d946bbb842e0bc2d89214a"
+  },
+  {
+   "path": "video/short-word.mp4",
+   "bytes": 3510713,
+   "sha256": "e97011088ed00580b1b91cd06ca2d3c2ae5f3eb4219b38b16943f78d8d067c93"
+  },
+  {
+   "path": "video/students.jpg",
+   "bytes": 16784,
+   "sha256": "52a5e295677f07331aec943ffc8851a91a8e56c4e5221ec18df0ffc184cda952"
+  },
+  {
+   "path": "video/students.mp4",
+   "bytes": 10136234,
+   "sha256": "87e2da3eade0402669c2da121a365b6417eac35fdeb3ef8b9ab9159be3cdf2ad"
+  },
+  {
+   "path": "video/teachers.jpg",
+   "bytes": 17778,
+   "sha256": "9bfe822d1a7cb0118b0e8a7c3eb57966567d476b2e0043e10aed2cc1579eceae"
+  },
+  {
+   "path": "video/teachers.mp4",
+   "bytes": 17355616,
+   "sha256": "30dba0ac55fbc29f82633f46f7c141598f2fff6bee7339f6c6dea347e5acbe56"
+  },
+  {
+   "path": "video/edu-office.srt",
+   "bytes": 5561,
+   "sha256": "0bec8d831aa3d26a5d884c57bf928b2ab528f4acbebfa2c33b41e68d29e31765"
+  },
+  {
+   "path": "video/teachers.srt",
+   "bytes": 4406,
+   "sha256": "45f170fbaf1f10abc44ea4bf864acdf82684ed4ad91584c34d89deb5999ee9ee"
+  },
+  {
+   "path": "video/parents.srt",
+   "bytes": 4273,
+   "sha256": "0440fe95297e7bb17ef73b5e3444e391c83baecba25b23fa26f04e1182a30560"
+  },
+  {
+   "path": "video/edu-office-short.mp4",
+   "bytes": 10289266,
+   "sha256": "7c353e8060b4fd85ea792ab86b6d970b45d54440af8acf57caf9422148139214"
+  },
+  {
+   "path": "video/edu-office-short.jpg",
+   "bytes": 15549,
+   "sha256": "bc050e8614b4fff2524a936ce30df58da1e40776309add6b19c8baa786c9d48f"
+  }
+ ]
+}
