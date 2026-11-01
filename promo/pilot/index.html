@@ -363,6 +363,18 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
 .pl-sh h3 { font-size: clamp(22px, 2.8vw, 29px); margin-bottom: 4px; }
 .pl-sh p { color: var(--muted); margin: 0; }
 
+/* 갈래 접기: 머리(summary)를 누르면 접히고 펼쳐짐 */
+.pl summary.pl-sh { cursor: pointer; list-style: none; }
+.pl summary.pl-sh::-webkit-details-marker { display: none; }
+.pl summary.pl-sh > div { flex: 1; min-width: 0; }
+.pl-fold { flex: none; align-self: center; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--muted); border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 5px 12px; }
+.pl-fold::before { content: "접기"; }
+.pl-fold::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(2px) rotate(-135deg); transform-origin: center; transition: transform .2s ease; }
+details:not([open]) > summary .pl-fold::before { content: "펼치기"; }
+details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rotate(45deg); }
+.pl summary.pl-sh:hover .pl-fold { border-color: var(--pl-c); color: var(--pl-c); }
+.pl details:not([open]) > summary.pl-sh { margin-bottom: 0; }
+
 /* 사진: 폴라로이드처럼 */
 .pl-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; padding: 6px 4px; }
 .pl-photo { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 6px; padding: 10px 10px 4px; box-shadow: 0 10px 22px -16px rgba(0, 0, 0, .45); transition: transform .2s ease; }
@@ -444,11 +456,12 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
 
   <div class="pl-banner" aria-hidden="true"><img src="../img/wall.webp" alt="" width="900" height="482"></div>
 
-  <div class="pl-sec pl-first">
-    <div class="pl-sh">
+  <details class="pl-sec pl-first" open>
+    <summary class="pl-sh">
       <img src="img/i-act-scene.webp" alt="" width="168" height="168">
       <div><h3>교실 사진</h3></div>
-    </div>
+      <span class="pl-fold" aria-hidden="true"></span>
+    </summary>
     <div class="pl-photos">
       <figure class="pl-photo">
         <img src="img/p2-together.webp" alt="6학년 학생들이 노트북으로 각자 부기 책을 펼쳐 읽는 모습" width="1400" height="1050" loading="lazy">
@@ -467,13 +480,14 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
         <figcaption><b>내동초등학교 1학년</b>국어 1학년 2학기 5단원에 제목만 실린 전래동화와 이솝 우화를 부기에서 찾아 읽었습니다.</figcaption>
       </figure>
     </div>
-  </div>
+  </details>
 
-  <div class="pl-sec">
-    <div class="pl-sh">
+  <details class="pl-sec" open>
+    <summary class="pl-sh">
       <img src="img/i-bookie-teacher.webp" alt="" width="180" height="254">
       <div><h3>사용한 시기</h3><p>반마다 쓰는 시간이 달랐습니다. 후기에 가장 자주 나온 때는 <u class="ul">아침 독서 시간</u>입니다.</p></div>
-    </div>
+      <span class="pl-fold" aria-hidden="true"></span>
+    </summary>
     <div class="pl-uses">
       <div class="box pl-use"><img src="img/i-act-scene.webp" alt="" width="168" height="168"><h4>아침 독서 시간</h4><p>TV에 책 한 권을 띄워 다 같이 읽기도 하고, 노트북으로 각자 고른 책을 읽기도 했습니다.</p><span class="pl-who">석산초 3·4·5·6학년, 칠서초 5학년, 거학초 5학년</span></div>
       <div class="box pl-use"><img src="img/i-act-oneline.webp" alt="" width="168" height="168"><h4>국어 독서 단원</h4><p>교과서에 제목만 나오는 책을 부기에서 바로 열었습니다. 미뤄 둔 독서 단원을 부기로 진행한 반도 있었습니다.</p><span class="pl-who">내동초 1학년, 석산초 4학년</span></div>
@@ -482,13 +496,14 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
       <div class="box pl-use"><img src="img/i-act-letter.webp" alt="" width="168" height="168"><h4>영어, 다문화 수업</h4><p>한국어 본문 옆에 영어, 베트남어, 러시아어 번역을 나란히 띄워 읽었습니다.</p><span class="pl-who">웅천초, 다문화 학급</span></div>
       <div class="box pl-use"><img src="img/i-act-draw.webp" alt="" width="168" height="168"><h4>동아리, 행사 날</h4><p>전래동화 컬러링부는 영상을 보고 색칠하던 활동을 책을 읽고 기억에 남는 장면을 그리는 활동으로 바꿨습니다. 육상 대회로 아이들이 많이 빠진 날에는 남은 학생들과 부기로 수업한 반도 있었습니다.</p><span class="pl-who">내동초 1학년, 백동초</span></div>
     </div>
-  </div>
+  </details>
 
-  <div class="pl-sec">
-    <div class="pl-sh">
+  <details class="pl-sec" open>
+    <summary class="pl-sh">
       <img src="img/i-act-bubble.webp" alt="" width="168" height="168">
       <div><h3>선생님 후기</h3><p>선생님들이 사용후기에 남긴 글을 맞춤법만 다듬어 옮겼습니다. 이름은 홍보 사용에 동의한 분만 일부 적었습니다.</p></div>
-    </div>
+      <span class="pl-fold" aria-hidden="true"></span>
+    </summary>
     <div class="pl-quotes">
       <figure class="box pl-q kakao">
         <blockquote><p>“부기 덕분에 아침활동 시간이 <mark>고요에 빠졌습니다</mark>~”</p></blockquote>
@@ -540,13 +555,14 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
         <figcaption><b>시범 교사</b> · 단체방, 10. 30.</figcaption>
       </figure>
     </div>
-  </div>
+  </details>
 
-  <div class="pl-sec">
-    <div class="pl-sh">
+  <details class="pl-sec" open>
+    <summary class="pl-sh">
       <img src="img/i-act-vocab.webp" alt="" width="168" height="168">
       <div><h3>반영 의견</h3><p>시범 활용 기간에 받은 선생님 의견은 <u class="ul">그때그때 앱을 고쳐 바로 반영</u>했습니다.</p></div>
-    </div>
+      <span class="pl-fold" aria-hidden="true"></span>
+    </summary>
     <ol class="pl-tl">
       <li><span class="d">10. 2.</span><h4>교사 화면에 ‘내용 오류 제보’ 단추 추가</h4><p>책 내용에 잘못된 곳이 보이면 선생님이 그 자리에서 알려 주실 수 있습니다.</p></li>
       <li><span class="d">10. 6.</span><h4>‘함께 쓰는 교실’ 열기, 학년별 50권씩 300권</h4><p>학생이 독후 글을 쓰는 화면을 선생님이 함께 보면서 바로 의견을 남길 수 있습니다.</p></li>
@@ -562,24 +578,21 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
       <li><span class="d">10. 29.</span><h4>완독 기록 1분 안팎 반영, 골라 읽는 책 8권</h4><p>선생님 화면을 새로 고치지 않아도 1분 안팎이면 완독 기록이 올라옵니다. 우리 반 책 1권 말고도 골라 읽을 책을 8권까지 정할 수 있습니다.</p></li>
       <li><span class="d">10. 30.</span><h4>천천히 읽기 안내 기준 완화, 기록장 칸 정리</h4><p>조금만 빨리 넘겨도 앞쪽부터 다시 읽으라는 안내가 뜨던 기준을 낮췄습니다. 읽은 책이 100권을 넘으면 칸이 어긋나던 문제도 고쳤습니다.</p></li>
     </ol>
-  </div>
+  </details>
 
-  <div class="pl-sec">
-    <div class="pl-sh">
+  <details class="pl-sec" open>
+    <summary class="pl-sh">
       <img src="img/i-stage-st01.webp" alt="" width="320" height="320">
       <div><h3>아쉬운 점과 바라는 점</h3><p>선생님들이 짚어 주신 내용을 주제별로 정리했습니다.</p></div>
-    </div>
+      <span class="pl-fold" aria-hidden="true"></span>
+    </summary>
     <div class="pl-todo">
       <div class="box"><h4>메뉴를 찾기 어렵다</h4><p>메뉴 이름이 서로 비슷해 <u class="ul">하나씩 눌러 봐야 안다</u>는 의견이 여러 번 나왔습니다. 독후감 쓰는 곳을 찾지 못해 헤맨 학생도 있었습니다.</p></div>
       <div class="box"><h4>줄인 이야기에서 빠진 부분</h4><p>원작을 줄이는 과정에서 <u class="ul">인물이 왜 그렇게 행동했는지</u>가 빠졌다는 지적이 있었습니다. 교훈은 아예 빼자는 의견과 학생이 먼저 써 본 뒤 비교하게 하자는 의견이 함께 나왔습니다.</p></div>
       <div class="box"><h4>다문화 학급</h4><p>더 짧은 글, 한 줄씩 맞춘 나란히 읽기, 읽어주기 속도 조절, 더 많은 언어 지원을 요청받았습니다.</p></div>
       <div class="box"><h4>선생님이 함께 만드는 자리</h4><p>선생님이 직접 책을 올릴 수 있는 양식, 부기로 한 수업 자료를 나누는 게시판을 만들어 달라는 제안이 있었습니다.</p></div>
     </div>
-  </div>
-
-  <div class="pl-src">
-    <p>MSECM과 교사 개발팀</p>
-  </div>
+  </details>
 
 </div>
 <p style="margin-top:28px"><a class="dl" href="../#pilot">홍보 자료실로 가기</a></p></main>
