@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>경남부기시범활용교사단 결과 기록</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* 배치: 머리(로고, 제목) 아래 여섯 갈래 탭 띠를 고정하고, 누른 갈래만 아래에 보여 줌. 갈래 안의 작은 갈래도 같은 방식 */
+:root {
+  --paper: #F6F4EC; --sheet: #FFFEF9; --ink: #1E3326; --muted: #5E6B60; --line: #E2DCCB; --shade: #EDE8DA;
+  --green: #2D6B45; --gold: #A87717; --goldsoft: #F3E7C3; --stagebg: #E9E4D6;
+  --t-web: #2D6B45; --t-video: #B9572A; --t-prop: #34688F; --t-book: #9A6A14; --t-act: #7D4E93; --t-press: #A33A36; --t-pilot: #1F7468;
+  --display: 'Gowun Batang', 'Noto Serif KR', serif;
+  --body: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121C16; --sheet: #1A2620; --ink: #ECE8DC; --muted: #A9B3A8; --line: #2C3A31; --shade: #22302A;
+  --green: #7CC398; --gold: #D9B65A; --goldsoft: #3A3220; --stagebg: #0E1511;
+  --t-web: #7CC398; --t-video: #EE9466; --t-prop: #82B4DA; --t-book: #E0B04F; --t-act: #C89BE0; --t-press: #EE8A86; --t-pilot: #6CC8BA; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121C16; --sheet: #1A2620; --ink: #ECE8DC; --muted: #A9B3A8; --line: #2C3A31; --shade: #22302A;
+  --green: #7CC398; --gold: #D9B65A; --goldsoft: #3A3220; --stagebg: #0E1511;
+  --t-web: #7CC398; --t-video: #EE9466; --t-prop: #82B4DA; --t-book: #E0B04F; --t-act: #C89BE0; --t-press: #EE8A86; --t-pilot: #6CC8BA; color-scheme: dark }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 120px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(clamp(16px, 3.6vw, 40px), env(safe-area-inset-left, 0px)); padding-right: max(clamp(16px, 3.6vw, 40px), env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* 머리 */
+.top { padding-block: 26px 14px; }
+.top .wrap { display: flex; align-items: center; gap: 18px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; flex: 1; }
+.brand img { height: 56px; width: auto; }
+.logo-dark { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+:root[data-theme="dark"] .logo-light { display: none; } :root[data-theme="dark"] .logo-dark { display: block; }
+.brand h1 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.2; }
+.brand h1 small { display: block; font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.top .kids { height: 92px; width: auto; flex: none; }
+
+/* 탭 띠 */
+.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 6px 14px -12px rgba(0,0,0,.25); }
+.tabs .wrap { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; padding-block: 10px; }
+.tab { --a: var(--t-web); cursor: pointer; text-align: left; min-width: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px 10px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 9px; align-items: center; }
+.tab svg { width: 26px; height: 26px; color: var(--a); grid-row: span 2; }
+.tab b { font-size: 16.5px; font-weight: 900; line-height: 1.25; white-space: nowrap; }
+.tab span { font-size: 12.5px; color: var(--muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.tab:hover { border-color: var(--a); }
+.tab[aria-selected="true"] { background: var(--a); border-color: var(--a); color: #fff; }
+.tab[aria-selected="true"] svg, .tab[aria-selected="true"] span { color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tab[aria-selected="true"] { color: #10180F; } :root:not([data-theme="light"]) .tab[aria-selected="true"] svg, :root:not([data-theme="light"]) .tab[aria-selected="true"] span { color: #10180F; } }
+:root[data-theme="dark"] .tab[aria-selected="true"], :root[data-theme="dark"] .tab[aria-selected="true"] svg, :root[data-theme="dark"] .tab[aria-selected="true"] span { color: #10180F; }
+.t-web { --a: var(--t-web); } .t-video { --a: var(--t-video); } .t-prop { --a: var(--t-prop); } .t-book { --a: var(--t-book); } .t-act { --a: var(--t-act); } .t-press { --a: var(--t-press); } .t-pilot { --a: var(--t-pilot); }
+
+/* 갈래 공통 */
+main { padding-block: 26px 70px; }
+.panel[hidden] { display: none; }
+.phead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 18px; }
+.phead h2 { font-size: clamp(24px, 3vw, 31px); }
+.phead .n { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+.date { color: var(--muted); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.box { background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; }
+.btn { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; cursor: pointer; font-size: 14.5px; font-weight: 700; padding: 8px 15px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); line-height: 1.3; }
+.btn:hover { opacity: .88; }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.dl { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; font-size: 14px; font-weight: 500; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--sheet); line-height: 1.3; }
+.dl:hover { border-color: var(--green); color: var(--green); }
+.dl svg { width: 15px; height: 15px; color: var(--green); flex: none; }
+.dl em { font-style: normal; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.dls { display: flex; flex-wrap: wrap; gap: 8px; }
+.dl[hidden] { display: none; }
+#sBro { border-color: var(--green); }
+.subtabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.chip { cursor: pointer; border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 7px 15px; font-size: 14.5px; font-weight: 700; }
+.chip:hover { border-color: var(--a, var(--green)); }
+.chip[aria-selected="true"] { background: var(--a, var(--green)); border-color: var(--a, var(--green)); color: var(--paper); }
+.sub[hidden] { display: none; }
+.shot { border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: var(--stagebg); }
+.shot img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform .25s ease; }
+a:hover > .shot img, a.shot:hover img { transform: scale(1.015); }
+.url { font-size: 13.5px; color: var(--muted); overflow-wrap: anywhere; }
+
+/* 누리집 */
+.site-hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 26px; padding: 18px; align-items: center; }
+.site-hero h3 { font-size: clamp(24px, 2.6vw, 30px); margin: 6px 0 4px; }
+.site-hero .line { margin: 10px 0 18px; font-size: 15.5px; }
+.site-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 18px; }
+.site-card { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.site-card .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.site-card h3 { font-size: 19px; }
+.site-card .line { margin: 0; font-size: 14.5px; color: var(--muted); }
+.site-card .btn { align-self: flex-start; margin-top: auto; }
+
+/* 영상 */
+.vwrap { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+.vstage { background: #0d0f0e; border-radius: 14px; overflow: hidden; aspect-ratio: 16 / 9; }
+.vstage video { width: 100%; height: 100%; object-fit: contain; display: block; background: #0d0f0e; }
+.vinfo { padding: 14px 4px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; justify-content: space-between; }
+.vinfo .g { font-size: 13.5px; color: var(--t-video); font-weight: 700; }
+.vinfo h3 { font-size: clamp(21px, 2.4vw, 26px); }
+.vinfo .len { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; margin-left: 8px; font-family: var(--body); font-weight: 500; }
+.vlist { max-height: min(76vh, 760px); overflow-y: auto; padding: 6px; }
+.vlist h4 { margin: 12px 8px 6px; font-size: 14px; display: flex; justify-content: space-between; gap: 8px; color: var(--t-video); }
+.vlist h4 span { color: var(--muted); font-weight: 500; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.vitem { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; align-items: center; width: 100%; text-align: left; cursor: pointer; background: none; border: 0; border-radius: 10px; padding: 6px; }
+.vitem:hover { background: var(--shade); }
+.vitem[aria-current="true"] { background: var(--goldsoft); }
+.vitem .th { position: relative; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; background: #0d0f0e; }
+.vitem .th img { width: 100%; height: 100%; object-fit: cover; }
+.vitem .th.v img { object-fit: contain; }
+.vitem .th i { position: absolute; right: 4px; bottom: 4px; font-style: normal; font-size: 11px; background: rgba(0,0,0,.72); color: #fff; border-radius: 4px; padding: 0 5px; font-variant-numeric: tabular-nums; }
+.vitem b { font-size: 14.5px; font-weight: 700; line-height: 1.35; }
+
+/* 넘겨 보기(제안서, 책자) */
+.viewer-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 20px; margin-bottom: 14px; }
+.viewer-head h3 { font-size: clamp(22px, 2.6vw, 28px); }
+.viewer-head .sub { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+.stage { background: var(--stagebg); border-radius: 14px; padding: 12px; position: relative; }
+.stage figure { margin: 0; position: relative; }
+.slide img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 6px; background: var(--sheet); }
+.spread { display: flex; justify-content: center; gap: 4px; }
+.spread img { height: min(calc(100vh - 210px), 900px); width: auto; max-width: 50%; aspect-ratio: 595 / 842; object-fit: contain; background: var(--sheet); box-shadow: 0 2px 10px rgba(0,0,0,.18); }
+.spread img[hidden] { display: none; }
+.spread.one img { max-width: 100%; }
+.hit { position: absolute; top: 0; bottom: 0; width: 24%; background: transparent; border: 0; cursor: pointer; }
+.hit.prev { left: 0; } .hit.next { right: 0; }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; margin-top: 12px; }
+.ctrl select { font: inherit; font-size: 14.5px; padding: 7px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--sheet); color: var(--ink); max-width: 100%; min-width: 0; flex: 1 1 260px; }
+.pager { display: flex; align-items: center; gap: 8px; }
+.pager button { cursor: pointer; font-weight: 700; font-size: 14px; padding: 7px 15px; border-radius: 999px; border: 1px solid var(--line); background: var(--sheet); }
+.pager button.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pager button:disabled { opacity: .4; cursor: default; }
+.pager .count { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 14px; min-width: 64px; text-align: center; }
+details.all { margin-top: 16px; }
+details.all summary { cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 2px; color: var(--green); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; padding-top: 6px; }
+.thumbs.port { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+.thumbs button { cursor: pointer; background: none; border: 0; padding: 0; text-align: left; display: grid; gap: 4px; }
+.thumbs img { width: 100%; border-radius: 6px; border: 1px solid var(--line); background: var(--sheet); }
+.thumbs span { font-size: 12.5px; line-height: 1.35; color: var(--muted); }
+.thumbs span i { font-style: normal; color: var(--gold); font-weight: 700; margin-right: 4px; font-variant-numeric: tabular-nums; }
+.cover-pick { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--muted); }
+.booth { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; padding: 18px; align-items: center; }
+.booth h3 { font-size: clamp(22px, 2.6vw, 28px); margin: 4px 0; }
+.booth .sub { color: var(--muted); margin-bottom: 16px; }
+.summary1 { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: 28px; padding: 18px; align-items: center; }
+.summary1 button { cursor: zoom-in; padding: 0; border: 0; background: none; }
+.summary1 img { width: 100%; height: auto; aspect-ratio: 1100 / 1557; border-radius: 8px; border: 1px solid var(--line); background: #fff; }
+.summary1 h3 { font-size: clamp(22px, 2.6vw, 28px); margin: 4px 0; }
+.summary1 .desc { color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+.guides { margin-top: 26px; padding: 18px 20px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; }
+.guides h3 { font-size: 19px; }
+
+/* 브로슈어 */
+.bros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.bro { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: grid; gap: 8px; align-content: start; }
+.bro button { cursor: zoom-in; padding: 0; border: 0; background: none; }
+.bro img { width: 100%; height: auto; aspect-ratio: 595 / 842; border-radius: 6px; border: 1px solid var(--line); background: #fff; }
+.bro-t small { display: block; font-size: 12.5px; font-weight: 700; color: var(--t-book); }
+.bro-t b { font-size: 20px; }
+.bro-t p { margin: 6px 0 2px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.bro img { max-height: 460px; object-fit: contain; }
+.bro-archive { margin-top: 24px; }
+.bro-group-title { margin: 28px 0 14px; font-size: 21px; color: var(--t-book); }
+.bro-note { margin: -6px 0 14px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.bro .dls { display: flex; flex-wrap: wrap; gap: 8px; }
+.bro-archive p { margin: 14px 0; }
+.bro .dl { justify-self: start; }
+
+/* 활동 자료 */
+.act-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; margin-bottom: 16px; }
+.act-head h3 { font-size: clamp(22px, 2.6vw, 27px); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.gallery.big { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery.span1 > button:first-child { grid-column: span 2; }
+.gallery button { cursor: zoom-in; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 8px; display: grid; gap: 6px; text-align: left; }
+.gallery button:hover { border-color: var(--t-act); }
+.gallery img { width: 100%; height: 220px; object-fit: contain; background: var(--stagebg); border-radius: 8px; }
+.gallery.big img { height: 260px; }
+.gallery span { font-size: 14px; font-weight: 500; padding: 0 2px 2px; }
+.paper-site { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; padding: 18px; align-items: center; }
+.paper-site .line { margin: 8px 0 16px; }
+.play { margin-top: 18px; padding: 16px 18px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; }
+.play b { font-size: 16.5px; }
+.play .date { margin-left: 6px; }
+
+/* 보도자료 */
+.heads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 26px; }
+.head-card { cursor: pointer; text-align: left; display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; }
+.head-card img { width: 132px; height: 92px; object-fit: cover; border-radius: 8px; }
+.head-card small { color: var(--t-press); font-weight: 700; font-size: 13px; }
+.head-card b { display: block; font-family: var(--display); font-size: 17.5px; line-height: 1.35; margin-top: 2px; }
+.head-card[aria-selected="true"] { border-color: var(--t-press); box-shadow: inset 0 0 0 1px var(--t-press); }
+.news { max-width: 780px; margin: 0 auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 18px; padding: clamp(18px, 4vw, 44px); }
+.news[hidden] { display: none; }
+.vers { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; --a: var(--t-press); }
+.vers .chip b { font-weight: 500; opacity: .8; margin-right: 5px; }
+.art[hidden] { display: none; }
+.eyebrow { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 13px; font-weight: 700; color: var(--t-press); border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 18px; }
+.eyebrow .date { font-weight: 500; }
+.kicker { font-size: 16px; font-weight: 700; color: var(--gold); margin: 0 0 6px; }
+.news h3 { font-size: clamp(25px, 3.3vw, 34px); line-height: 1.32; }
+.deck { font-size: 17px; color: var(--muted); margin: 10px 0 0; font-weight: 500; }
+.byline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 16px 0 20px; font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.copy { cursor: pointer; font-size: 13px; font-weight: 700; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: var(--paper); }
+.news figure { margin: 0 0 22px; }
+.news figure img { width: 100%; border-radius: 10px; cursor: zoom-in; }
+.news figcaption { font-size: 13.5px; color: var(--muted); margin-top: 7px; line-height: 1.5; }
+.body p { margin: 0 0 1.05em; font-size: 17px; line-height: 1.85; text-indent: 0.6em; }
+.photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 26px 0 6px; }
+.photos button { cursor: zoom-in; padding: 0; border: 0; background: none; }
+.photos img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; }
+.photos button:first-child { grid-column: span 2; grid-row: span 2; }
+.photos button:first-child img { height: 100%; aspect-ratio: auto; }
+.pnote { font-size: 13px; color: var(--muted); margin: 0 0 6px; }
+.voices { margin-top: 26px; display: grid; gap: 12px; }
+.voices h4 { margin: 0; font-size: 15.5px; }
+.voice { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; align-items: center; border: 1px solid var(--line, #e6e0d2); border-radius: 12px; padding: 14px; background: #fffdf8; }
+.voice button { cursor: zoom-in; padding: 0; border: 0; background: none; }
+.voice img { width: 100%; border-radius: 8px; display: block; }
+.voice blockquote { margin: 0; font-size: 17px; line-height: 1.6; }
+.voice blockquote::before { content: "“"; color: var(--t-press); font-size: 26px; margin-right: 2px; }
+.voice blockquote::after { content: "”"; color: var(--t-press); font-size: 26px; margin-left: 2px; }
+.voice cite { display: block; margin-top: 8px; font-style: normal; font-size: 13.5px; color: var(--muted); }
+@media screen and (max-width: 640px) { .voice { grid-template-columns: 1fr; } }
+.check { margin-top: 26px; border: 1px dashed var(--t-press); border-radius: 12px; padding: 14px 18px; }
+.check h4 { margin: 0 0 8px; font-size: 15.5px; }
+.check ul { margin: 0; padding-left: 1.1em; }
+.check li { font-size: 14.5px; margin: 4px 0; }
+.check li span { color: var(--muted); }
+.about { margin-top: 30px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.about h4 { font-family: var(--display); font-size: 20px; margin: 0 0 4px; }
+.about .line { font-weight: 700; color: var(--green); margin: 0 0 12px; }
+.about .row { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 18px; align-items: start; }
+.about p { margin: 0 0 .7em; font-size: 15px; line-height: 1.75; }
+.about .sym { display: grid; gap: 8px; justify-items: center; }
+.about .sym img { width: 130px; }
+.about .sym .wm { width: 96px; }
+.about .scr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.about .scr figure { margin: 0; }
+.about .scr img { border: 1px solid var(--line); }
+.about .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; margin-top: 6px; }
+.about .links a { color: var(--green); font-weight: 700; }
+
+/* 크게 보기 */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+dialog.lb::backdrop { background: rgba(10, 14, 12, .86); }
+.lb-in { display: grid; gap: 10px; justify-items: center; }
+.lb-in img { max-width: 94vw; max-height: 84vh; width: auto; height: auto; border-radius: 8px; background: #fff; }
+.lb-bar { display: flex; gap: 10px; align-items: center; color: #fff; font-size: 14.5px; flex-wrap: wrap; justify-content: center; }
+.lb-bar button { cursor: pointer; border: 1px solid rgba(255,255,255,.5); background: rgba(255,255,255,.08); color: #fff; border-radius: 999px; padding: 6px 14px; font-weight: 700; }
+.lb-cap { max-width: 70vw; text-align: center; }
+
+dialog.fr { width: min(1400px, 96vw); height: 92vh; max-width: 96vw; max-height: 92vh; padding: 0; border: 0; border-radius: 14px; background: var(--sheet); color: var(--ink); overflow: hidden; }
+dialog.fr::backdrop { background: rgba(10, 14, 12, .8); }
+.fr-in { display: flex; flex-direction: column; height: 100%; }
+.fr-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px 8px 18px; border-bottom: 1px solid var(--line); }
+.fr-bar b { font-family: var(--display); font-size: 17px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fr-bar button { cursor: pointer; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 14px; font-weight: 700; flex: none; }
+.fr-in iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+button.btn { font-family: var(--body); }
+button.shotbtn { cursor: pointer; padding: 0; border: 0; background: none; display: block; width: 100%; text-align: left; }
+footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 980px) {
+  .tabs .wrap { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .vwrap { grid-template-columns: minmax(0, 1fr); }
+  .vlist { max-height: none; }
+  .site-hero, .booth, .paper-site, .summary1 { grid-template-columns: minmax(0, 1fr); }
+  .heads { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .top .kids { height: 64px; }
+  .brand img { height: 42px; }
+  .tabs .wrap { gap: 6px; padding-block: 8px; }
+  .tab { padding: 8px 8px; column-gap: 6px; }
+  .tab svg { width: 19px; height: 19px; grid-row: auto; }
+  .tab b { font-size: 14.5px; }
+  .tab span { display: none; }
+  .site-grid { grid-template-columns: minmax(0, 1fr); }
+  .gallery, .gallery.big { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gallery.mspan1 > button:first-child { grid-column: span 2; }
+  .bros { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .gallery img, .gallery.big img { height: 140px; }
+  .head-card { grid-template-columns: 96px minmax(0, 1fr); }
+  .head-card img { width: 96px; height: 72px; }
+  .body p { font-size: 16px; }
+  .photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .photos button:first-child { grid-column: auto; grid-row: auto; }
+  .photos button:first-child img { aspect-ratio: 4 / 3; height: auto; }
+  .about .row { grid-template-columns: minmax(0, 1fr); }
+  .about .scr { grid-template-columns: minmax(0, 1fr); }
+  .spread img { height: auto; max-height: 72vh; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* 같은 뷰어: 실제 표시 영역의 너비와 높이를 기준으로 맞춘다. */
+.document-reader { background:var(--paper);border-radius:16px; }
+.book-tools { display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 0; }
+.book-tools button,.book-tools select { font:inherit;border:1px solid var(--line);border-radius:9px;background:var(--sheet);color:var(--ink);padding:9px 14px;cursor:pointer; }
+.book-tools button[aria-pressed=true] { background:var(--ink);color:var(--paper); }
+.book-modes { display:flex;gap:6px; }
+#bFull,#sFull { margin-left:auto; }
+.document-reader .stage { height:72dvh;min-height:180px;overflow:auto;overscroll-behavior:contain;display:block;padding:10px; }
+.document-reader .stage figure { display:flex;gap:6px;justify-content:center;align-items:flex-start;max-width:none;margin:0 auto; }
+.document-reader .stage figure img { flex:none;max-width:none;max-height:none;aspect-ratio:auto;object-fit:contain;display:block; }
+.document-reader .stage img[hidden] { display:none; }
+.document-reader .ctrl { padding:8px 0;margin:0;flex:none; }
+.document-reader:fullscreen,.document-reader.full-fallback { width:100%;height:100dvh;max-width:none;border-radius:0;padding:0 12px;display:flex;flex-direction:column;overflow:hidden;background:var(--paper); }
+.document-reader.full-fallback { position:fixed;inset:0;z-index:1000; }
+.document-reader:fullscreen .book-tools,.document-reader.full-fallback .book-tools { flex:none; }
+.document-reader:fullscreen .stage,.document-reader.full-fallback .stage { flex:1 1 0;height:0;min-height:0; }
+@media(max-width:600px){.document-reader .book-tools{gap:6px}.book-tools button,.book-tools select{padding:8px;font-size:13px}.document-reader .stage{padding:5px;height:65dvh}.document-reader:fullscreen,.document-reader.full-fallback{padding:0 6px}.document-reader .ctrl{gap:5px}.document-reader .ctrl select{flex-basis:150px}#bSpread{display:none}}
+/* 활동 자료는 축소 썸네일 대신 본문 폭으로 읽는다. */
+#p-act .gallery { grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start; }
+#p-act .gallery > button { min-width:0;display:flex;flex-direction:column;padding:10px; }
+#p-act .gallery > button:last-child:nth-child(odd) { grid-column:1 / -1; }
+#p-act .gallery img { width:100%;height:auto;max-height:none;object-fit:contain; }
+@media(max-width:600px){#p-act .gallery {grid-template-columns:minmax(0,1fr);gap:16px;}#p-act .gallery > button {grid-column:auto;padding:6px;}#p-act .gallery > button:last-child:nth-child(odd){grid-column:auto;}}
+/* 시범 활용 탭(경남부기시범활용교사단 결과 기록). 자료실 index.html과 pilot/index.html에 같이 들어감. 모든 규칙은 .pl 안에서만 */
+.pl { --pl-orange: #B9572A; --pl-hl: #F7DE8E; --pl-tint: #E7F1EC; --pl-c: var(--t-pilot, var(--green)); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pl { --pl-orange: #EE9466; --pl-hl: rgba(217, 182, 90, .38); --pl-tint: #1C2E28; } }
+:root[data-theme="dark"] .pl { --pl-orange: #EE9466; --pl-hl: rgba(217, 182, 90, .38); --pl-tint: #1C2E28; }
+.pl p { margin: 0 0 12px; }
+
+/* 강조: 형광펜과 초록 밑줄 */
+.pl mark { color: inherit; background: linear-gradient(transparent 52%, var(--pl-hl) 52%, var(--pl-hl) 92%, transparent 92%); padding: 0 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.pl u.ul { text-decoration: underline; text-decoration-color: var(--pl-c); text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 700; color: var(--ink); }
+
+/* 머리 */
+.pl-banner { height: 112px; border-radius: 16px; overflow: hidden; position: relative; margin-bottom: 24px; background: var(--stagebg); }
+.pl-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.pl-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(30, 51, 38, .55), rgba(30, 51, 38, .1) 60%, rgba(30, 51, 38, .4)); }
+.pl-hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+.pl-eb { display: inline-block; font-size: 13.5px; font-weight: 700; color: #fff; background: var(--pl-c); border-radius: 999px; padding: 3px 12px; margin: 0 0 14px; }
+.pl-hero h3 { font-size: clamp(28px, 4.2vw, 42px); line-height: 1.3; margin-bottom: 16px; }
+.pl-hand { color: var(--pl-c); background: linear-gradient(transparent 62%, var(--pl-hl) 62%); padding: 0 3px; }
+.pl-lede { font-size: 17px; color: var(--muted); }
+.pl-date { color: var(--muted); font-size: 13.5px; font-variant-numeric: tabular-nums; margin-top: 4px; }
+.pl-kids { width: 100%; max-width: 380px; height: auto; justify-self: center; border-radius: 20px; }
+
+.pl-nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
+.pl-num { padding: 18px 18px 16px; border-top: 4px solid var(--pl-c); }
+.pl-num b { display: block; font-family: var(--display); font-size: clamp(32px, 4.2vw, 46px); line-height: 1.1; color: var(--pl-c); font-variant-numeric: tabular-nums; }
+.pl-num b small { font-size: .45em; margin-left: 3px; color: var(--ink); }
+.pl-num span { display: block; font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* 갈래 머리: 캐릭터 + 제목 */
+.pl-sec { padding-top: 56px; }
+.pl-sh { display: flex; align-items: flex-end; gap: 14px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px dashed var(--line); }
+.pl-sh > img { width: 72px; height: 72px; object-fit: contain; flex: none; }
+.pl-sh h3 { font-size: clamp(22px, 2.8vw, 29px); margin-bottom: 4px; }
+.pl-sh p { color: var(--muted); margin: 0; }
+
+/* 사진: 폴라로이드처럼 */
+.pl-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; padding: 6px 4px; }
+.pl-photo { margin: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 6px; padding: 10px 10px 4px; box-shadow: 0 10px 22px -16px rgba(0, 0, 0, .45); transition: transform .2s ease; }
+.pl-photo:nth-child(odd) { transform: rotate(-.7deg); }
+.pl-photo:nth-child(even) { transform: rotate(.6deg); }
+.pl-photo:hover { transform: rotate(0) scale(1.01); }
+.pl-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: var(--stagebg); }
+.pl-photo figcaption { padding: 11px 6px 10px; font-size: 14.5px; }
+.pl-photo figcaption b { display: block; font-size: 13px; color: var(--pl-c); margin-bottom: 2px; }
+
+/* 쓴 시간 */
+.pl-uses { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.pl-use { padding: 16px 18px 16px; display: flex; flex-direction: column; }
+.pl-use > img { width: 64px; height: 64px; object-fit: contain; margin: -2px 0 6px -4px; }
+.pl-use h4, .pl-todo h4 { font-family: var(--display); font-size: 18.5px; margin: 0 0 6px; }
+.pl-use p { font-size: 14.5px; color: var(--muted); margin: 0; }
+.pl-who { display: inline-block; align-self: flex-start; margin-top: auto; padding-top: 12px; font-size: 12.5px; color: var(--gold); font-weight: 700; }
+
+/* 후기 */
+.pl-quotes { columns: 2 340px; column-gap: 16px; }
+.pl-q { break-inside: avoid; margin: 0 0 16px; padding: 20px 20px 16px; position: relative; }
+.pl-q::before { content: "“"; position: absolute; top: -6px; left: 14px; font-family: var(--display); font-size: 54px; line-height: 1; color: var(--pl-c); opacity: .35; }
+.pl-q blockquote { margin: 0; font-family: var(--display); font-size: 17px; line-height: 1.8; }
+.pl-q blockquote p { margin: 0; }
+.pl-q figcaption { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+.pl-q figcaption b { color: var(--ink); }
+.pl-q.kakao { background: var(--goldsoft); border-color: transparent; }
+.pl-q.kakao::after { content: "단체방"; position: absolute; top: 12px; right: 14px; font-size: 11.5px; font-weight: 700; color: var(--gold); }
+
+/* 받은 의견, 고친 화면 */
+.pl-tl { list-style: none; margin: 0 0 0 8px; padding: 0; border-left: 2px solid var(--line); }
+.pl-tl li { position: relative; padding: 0 0 22px 24px; }
+.pl-tl li::before { content: ""; position: absolute; left: -8px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--sheet); border: 3px solid var(--pl-c); }
+.pl-tl .d { font-size: 13.5px; font-weight: 700; color: var(--pl-c); font-variant-numeric: tabular-nums; }
+.pl-tl h4 { font-size: 16.5px; font-weight: 700; margin: 2px 0 4px; }
+.pl-tl p { font-size: 14.5px; color: var(--muted); margin: 0; }
+.pl-fast { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--pl-orange); border-radius: 999px; padding: 1px 9px; margin-left: 6px; vertical-align: 2px; }
+.pl-shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.pl-shots figure { margin: 0; }
+.pl-shots img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid var(--line); background: var(--stagebg); }
+.pl-shots figcaption { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+
+/* 아쉬운 점 */
+.pl-todo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.pl-todo .box { padding: 18px 20px; border-left: 4px solid var(--gold); }
+.pl-todo p { font-size: 14.5px; color: var(--muted); margin: 0; }
+
+.pl-next { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 18px; align-items: center; padding: 24px 26px; background: var(--pl-tint); border-color: transparent; }
+.pl-next h4 { font-family: var(--display); font-size: 22px; margin: 0 0 8px; }
+.pl-next p:last-child { margin: 0; }
+.pl-next img { width: 150px; height: auto; }
+
+.pl-src { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.pl-src p { margin: 0 0 6px; }
+
+@media (max-width: 820px) {
+  .pl-hero { grid-template-columns: minmax(0, 1fr); }
+  .pl-kids { max-width: 260px; }
+  .pl-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pl-uses, .pl-todo { grid-template-columns: minmax(0, 1fr); }
+  .pl-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .pl-banner { height: 76px; }
+  .pl-photos { grid-template-columns: minmax(0, 1fr); }
+  .pl-sh > img { width: 56px; height: 56px; }
+  .pl-next { grid-template-columns: minmax(0, 1fr); }
+  .pl-next img { width: 110px; justify-self: end; margin-top: -8px; }
+}
+@media (prefers-reduced-motion: reduce) { .pl-photo, .pl-photo:nth-child(n) { transform: none; transition: none; } }
+
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="../" style="text-decoration:none"><img class="logo-light" src="../img/wordmark.png" alt="부기" width="227" height="150"><img class="logo-dark" src="../img/logo-light.png" alt="부기" width="233" height="204"><h1>시범 활용<small>경남부기시범활용교사단 결과 기록</small></h1></a><img class="kids" src="../img/kids.webp" alt="" width="260" height="256"></div></header>
+<main class="wrap"><div class="pl">
+
+  <div class="pl-banner" aria-hidden="true"><img src="../img/wall.webp" alt="" width="900" height="482"></div>
+
+  <div class="pl-hero">
+    <div>
+      <p class="pl-eb">경남부기시범활용교사단 결과 기록</p>
+      <h3>선생님 24명이 <span class="pl-hand">교실에서</span> 부기를 썼습니다</h3>
+      <p class="pl-lede">2026년 9월 23일부터 10월 31일까지 <u class="ul">경남 14개 학교 선생님 24명</u>이 1학년부터 6학년까지 각자의 반에서 부기를 썼습니다. 사용후기 42건과 카카오톡 단체방 대화를 읽고 정리했습니다.</p>
+      <p class="pl-date">2026. 11. 1. 정리 · MSECM</p>
+    </div>
+    <img class="pl-kids" src="../img/kids2.webp" alt="부기 캐릭터 두 아이가 초록 책을 들고 있는 그림" width="900" height="633">
+  </div>
+
+  <div class="pl-nums">
+    <div class="box pl-num"><b>14<small>개교</small></b><span>참여 학교</span></div>
+    <div class="box pl-num"><b>24<small>명</small></b><span>의견을 남긴 선생님</span></div>
+    <div class="box pl-num"><b>42<small>건</small></b><span>사용후기</span></div>
+    <div class="box pl-num"><b>36<small>건</small></b><span>10. 31.까지 처리한 의견</span></div>
+  </div>
+
+  <div class="pl-sec">
+    <div class="pl-sh">
+      <img src="img/i-act-scene.webp" alt="" width="168" height="168">
+      <div><h3>교실 사진</h3><p>홍보 사용에 동의한 선생님이 보내 주신 사진입니다.</p></div>
+    </div>
+    <div class="pl-photos">
+      <figure class="pl-photo">
+        <img src="img/p2-together.webp" alt="6학년 학생들이 노트북으로 각자 부기 책을 펼쳐 읽는 모습" width="1400" height="1050" loading="lazy">
+        <figcaption><b>석산초등학교 6학년</b>노트북으로 각자 고른 책을 읽고 있습니다. 이 반 아이들은 ‘숲 산책’에서 캐릭터를 고르는 화면을 좋아했다고 합니다.</figcaption>
+      </figure>
+      <figure class="pl-photo">
+        <img src="img/p1-screen.webp" alt="노트북 화면에 부기 첫 화면이 열려 있는 모습" width="1400" height="1050" loading="lazy">
+        <figcaption><b>석산초등학교 4학년</b>아침 활동 시간에 학생 노트북으로 부기를 연 화면입니다.</figcaption>
+      </figure>
+      <figure class="pl-photo">
+        <img src="img/p3-floor.webp" alt="5학년 학생 셋이 교실 바닥에 누워 태블릿으로 책을 읽는 모습" width="1400" height="1050" loading="lazy">
+        <figcaption><b>거학초등학교 5학년</b>점심시간에 교실 바닥에 누워 태블릿으로 읽고 있습니다. 이 반은 다음 날부터 아침 독서 시간에도 부기를 쓰기로 했습니다.</figcaption>
+      </figure>
+      <figure class="pl-photo">
+        <img src="img/p4-grade1.webp" alt="1학년 학생이 태블릿에서 그림책을 고르는 모습" width="1400" height="1050" loading="lazy">
+        <figcaption><b>내동초등학교 1학년</b>국어 1학년 2학기 5단원에 제목만 나오는 전래동화와 이솝 우화를 부기에서 찾아 읽었습니다.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="pl-sec">
+    <div class="pl-sh">
+      <img src="img/i-bookie-teacher.webp" alt="" width="180" height="254">
+      <div><h3>어느 시간에 썼나</h3><p>반마다 달랐습니다. 후기에 가장 많이 나온 것은 <u class="ul">아침 독서 시간</u>입니다.</p></div>
+    </div>
+    <div class="pl-uses">
+      <div class="box pl-use"><img src="img/i-act-scene.webp" alt="" width="168" height="168"><h4>아침 독서 시간</h4><p>책 한 권을 TV에 띄워 다 같이 읽은 반도 있고, 각자 노트북으로 고른 책을 읽은 반도 있습니다.</p><span class="pl-who">석산초 3·4·5·6학년, 칠서초 5학년, 거학초 5학년</span></div>
+      <div class="box pl-use"><img src="img/i-act-oneline.webp" alt="" width="168" height="168"><h4>국어 독서 단원</h4><p>교과서에 제목만 나오는 책을 부기에서 찾아 읽었습니다. 미뤄 두었던 독서 단원을 부기로 진행한 반도 있습니다.</p><span class="pl-who">내동초 1학년, 석산초 4학년</span></div>
+      <div class="box pl-use"><img src="img/i-act-persona-talk.webp" alt="" width="168" height="168"><h4>온책읽기</h4><p>반 전체가 같은 동화를 열어 돌아가며 소리 내어 읽었습니다. 책을 따로 살 필요가 없습니다.</p><span class="pl-who">2·3·6학년 여러 반</span></div>
+      <div class="box pl-use"><img src="img/i-act-stars.webp" alt="" width="168" height="168"><h4>점심, 쉬는 시간</h4><p>캐릭터를 꾸미려고 쉬는 시간에도 책을 연다는 후기가 있었습니다.</p><span class="pl-who">석산초 4학년, 거학초 5학년</span></div>
+      <div class="box pl-use"><img src="img/i-act-letter.webp" alt="" width="168" height="168"><h4>영어, 다문화 수업</h4><p>영어, 베트남어, 러시아어 번역을 한국어 본문과 나란히 놓고 읽었습니다.</p><span class="pl-who">웅천초, 다문화 학급</span></div>
+      <div class="box pl-use"><img src="img/i-act-draw.webp" alt="" width="168" height="168"><h4>동아리, 행사 날</h4><p>전래동화 컬러링부는 영상을 보고 색칠하던 활동을 책을 읽고 인상 깊은 장면을 그리는 활동으로 바꿨습니다. 육상 대회로 아이들이 많이 빠진 날, 남은 학생들과 부기로 수업한 반도 있습니다.</p><span class="pl-who">내동초 1학년, 백동초</span></div>
+    </div>
+  </div>
+
+  <div class="pl-sec">
+    <div class="pl-sh">
+      <img src="img/i-act-bubble.webp" alt="" width="168" height="168">
+      <div><h3>선생님 후기</h3><p>사용후기에 적힌 글을 맞춤법만 고쳐 옮겼습니다. 홍보 사용에 동의한 선생님만 이름 일부를 적었습니다.</p></div>
+    </div>
+    <div class="pl-quotes">
+      <figure class="box pl-q kakao">
+        <blockquote><p>“부기 덕분에 아침활동 시간이 <mark>고요에 빠졌습니다</mark>~”</p></blockquote>
+        <figcaption><b>3학년 담임</b> · 단체방, 10. 29.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“아이들이 항상 읽을 책이 없고 두꺼운 책 두께에 부담감을 느꼈는데, 부기를 활용하니 <mark>책을 더 많이 읽게 된 것 같아요.</mark> 캐릭터 꾸미기를 너무 좋아해서 <mark>쉬는 시간에도 계속 읽고 있네요.</mark>”</p></blockquote>
+        <figcaption><b>석산초 4학년 김○미 선생님</b> · 10. 2.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“아직 한글 해득이 완벽하지 않아 책 읽기를 어려워하는 학생들도 <mark>‘읽어주기’ 기능으로 적극적으로 참여</mark>했습니다. 읽기 속도 차이에서 오는 <mark>수업 격차를 조금 줄일 수 있었습니다.</mark>”</p></blockquote>
+        <figcaption><b>내동초 1학년 김○주 선생님</b> · 10. 31.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“아침 시간에 함께 읽을 책 한 권을 골라 화면에 띄워 놓고 같이 읽었습니다. 학년 수준에 맞는 도서라 아이들도 집중해서 보았고, <mark>함께 읽어야 한다는 약간의 의무감</mark>도 생겨서 좋았습니다.”</p></blockquote>
+        <figcaption><b>석산초 6학년 황○현 선생님</b> · 10. 24.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“<mark>만화만 읽던 아이들도</mark> 분위기상 읽어야 해서 고전을 접하게 되어 좋습니다. 수업 중에 책 이야기를 하면 고전을 읽지 않은 학생이 많아 답답했는데, 조금이라도 접할 수 있게 되었습니다.”</p></blockquote>
+        <figcaption><b>석산초 5학년 길○정 선생님</b> · 10. 31.</figcaption>
+      </figure>
+      <figure class="box pl-q kakao">
+        <blockquote><p>“내일부터 아침독서 시간에 읽어도 된다고 하니 학생들이 <mark>‘아싸 잘됐다, 책 읽을 거 없었는데’</mark> 하네요.”</p></blockquote>
+        <figcaption><b>거학초 5학년 정○아 선생님</b> · 단체방, 10. 29.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“함께 읽은 책 권수부터 독서 퀴즈 정답률, 마음 남기기 활동까지 <mark>한눈에 살펴볼 수 있어</mark> 개별 독서 지도를 하기에 매우 유용합니다.”</p></blockquote>
+        <figcaption><b>거학초 5학년 정○아 선생님</b> · 10. 31.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“책을 읽기 전 <mark>뜻을 아는 낱말과 모르는 낱말을 구분</mark>해 보는 단계가 유익합니다. 어려운 고어나 낱말을 누르면 뜻을 알려 주는 기능도 좋습니다.”</p></blockquote>
+        <figcaption><b>석산초 4학년 김○선 선생님</b> · 10. 27.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“영어, 베트남어, 러시아어 번역본이 있어 다문화 학생뿐 아니라 <mark>영어 수업 시간에도</mark> 활용하기 좋습니다. 바뀐 판형은 글과 그림의 배치가 단어와 문장을 익히는 데 큰 도움이 될 것 같습니다.”</p></blockquote>
+        <figcaption><b>웅천초 김○원 선생님</b> · 10. 26.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“학생들이 매우 흥미로워했습니다. 고학년인데도 <mark>저학년 책부터 탐독</mark>하며 호기심을 가졌습니다.”</p></blockquote>
+        <figcaption><b>석산초 6학년 배○연 선생님</b> · 10. 1. 어휘력 진단, 추천 도서 읽기, 우리 반 책 독후 활동, 독서 파티 순서로 운영</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“어떤 학생이 부기를 이번까지만 쓴다고 하니 아쉬워하더라고요. <mark>책이 연체된 아이들</mark>에게 정말 좋은 사이트였습니다. 고전에 생각보다 관심 있는 학생도 좋아했습니다.”</p></blockquote>
+        <figcaption><b>어방초 6학년 이○서 선생님</b> · 10. 29.</figcaption>
+      </figure>
+      <figure class="box pl-q">
+        <blockquote><p>“함께 읽을 수 있는 콘텐츠가 있고, 그것을 <mark>독후활동으로 자연스럽게 이어 준다</mark>는 점이 좋았습니다. 녹아 있는 게이미피케이션 요소도 마음에 드는 부분이 많았습니다.”</p></blockquote>
+        <figcaption><b>칠서초 5학년 유○욱 선생님</b> · 10. 27.</figcaption>
+      </figure>
+      <figure class="box pl-q kakao">
+        <blockquote><p>“아이들이 점수를 잘 받으려고 <mark>아주 꼼꼼하게 풀어요.</mark> 어휘력 진단을 계속 새로 올려 달라고 난리네요.”</p></blockquote>
+        <figcaption><b>시범 교사</b> · 단체방, 10. 30.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="pl-sec">
+    <div class="pl-sh">
+      <img src="img/i-act-vocab.webp" alt="" width="168" height="168">
+      <div><h3>받은 의견, 고친 화면</h3><p>의견은 단체방과 사용후기 두 곳으로 들어왔습니다. 교사 개발팀이 받은 날 고친 것도 있습니다. 사용후기 42건 가운데 <u class="ul">36건은 10월 31일까지 처리</u>했습니다.</p></div>
+    </div>
+    <ol class="pl-tl">
+      <li><span class="d">10. 2.</span><h4>교사 화면에 ‘내용 오류 제보’ 단추</h4><p>책 내용에서 이상한 곳을 선생님이 바로 알릴 수 있습니다.</p></li>
+      <li><span class="d">10. 6.</span><h4>‘함께 쓰는 교실’, 학년별 50권씩 300권</h4><p>학생이 독후 글을 쓰는 동안 선생님이 화면으로 보고 바로 의견을 달 수 있습니다.</p></li>
+      <li><span class="d">10. 13.</span><h4>책 숲 산책 지도, 학부모 가정통신문</h4><p>보호자 동의서 양식이 있으면 좋겠다는 의견을 받고 가정통신문을 만들었습니다.</p></li>
+      <li><span class="d">10. 21.</span><h4>300권 전권 삽화, 영어·베트남어·러시아어 번역</h4><p>1학년 「토끼와 거북이」, 「개미와 베짱이」, 「여우와 신포도」는 새 판형으로 바꿨습니다.</p>
+        <div class="pl-shots">
+          <figure><img src="../press/scr-tokki.webp" alt="1학년 새 판형 토끼와 거북이 화면" width="1400" height="1200" loading="lazy"><figcaption>1학년 새 판형 「토끼와 거북이」</figcaption></figure>
+          <figure><img src="../press/scr-ru.webp" alt="러시아어 번역 화면" width="1400" height="1057" loading="lazy"><figcaption>러시아어로 읽는 화면</figcaption></figure>
+          <figure><img src="../press/scr-word.webp" alt="낱말을 누르면 뜻이 뜨는 화면" width="1400" height="1129" loading="lazy"><figcaption>낱말을 누르면 뜻이 뜹니다</figcaption></figure>
+        </div></li>
+      <li><span class="d">10. 22.</span><h4>기록장에 ‘책별’ 탭 <span class="pl-fast">같은 날 반영</span></h4><p>‘지난 책 활동을 보려면 아이 이름을 한 명씩 눌러야 한다’는 의견이 <u class="ul">아침 8시 58분</u>에 올라왔고, <u class="ul">저녁 7시 31분</u>에 ‘책별’ 탭을 열었습니다. 책을 고르면 반 전체 결과가 한 표에 나옵니다.</p></li>
+      <li><span class="d">10. 29.</span><h4>읽기 점검 5문제, 4문제 이상 맞혀야 완독 <span class="pl-fast">9분 뒤 반영</span></h4><p>‘책은 안 읽고 퀴즈만 대충 찍어 점수를 올리는 아이가 있다’는 의견이 12시 39분에 올라왔습니다. 12시 48분에 읽기 점검을 5문제로 늘렸고, 떨어지면 ‘책을 다시 읽어야 해요!’ 카드와 다시 찾아볼 문제 목록이 뜹니다. 정답은 보여 주지 않습니다.</p></li>
+      <li><span class="d">10. 29.</span><h4>완독 기록 1분 안팎 반영, 골라 읽는 책 8권</h4><p>선생님 화면을 새로 고치지 않아도 완독 기록이 나타납니다. 우리 반 책 1권과 함께 골라 읽을 책 8권을 정할 수 있습니다.</p></li>
+      <li><span class="d">10. 30.</span><h4>천천히 읽기 안내 기준 완화, 기록장 칸 정리</h4><p>조금만 빨리 넘겨도 앞쪽부터 다시 읽으라는 안내가 뜬다는 의견, 읽은 책이 100권을 넘으면 칸이 어긋난다는 의견을 고쳤습니다.</p></li>
+    </ol>
+  </div>
+
+  <div class="pl-sec">
+    <div class="pl-sh">
+      <img src="img/i-stage-st01.webp" alt="" width="320" height="320">
+      <div><h3>아쉬운 점과 바라는 점</h3><p>주제별로 묶었습니다.</p></div>
+    </div>
+    <div class="pl-todo">
+      <div class="box"><h4>메뉴 찾기가 어렵습니다</h4><p>메뉴 이름이 비슷해 <u class="ul">직접 눌러 봐야 안다</u>는 의견이 여러 번 나왔습니다. 독후감을 어디에 쓰는지 몰라 헤맨 학생도 있었습니다.</p></div>
+      <div class="box"><h4>줄인 이야기에서 빠진 부분</h4><p>원작을 줄이면서 <u class="ul">인물이 왜 그렇게 했는지</u>가 빠졌다는 의견이 있었습니다. 교훈은 빼자는 의견과, 학생이 먼저 써 보고 비교하게 하자는 의견이 둘 다 나왔습니다.</p></div>
+      <div class="box"><h4>다문화 학급</h4><p>더 짧은 글, 한 줄씩 맞춘 나란히 읽기, 읽어주기 속도 조절, 더 많은 언어를 요청받았습니다.</p></div>
+      <div class="box"><h4>선생님이 함께 만드는 자리</h4><p>선생님이 직접 책을 넣을 수 있는 양식과, 부기로 한 수업 자료를 나누는 게시판을 만들어 달라는 제안이 있었습니다.</p></div>
+    </div>
+  </div>
+
+  <div class="pl-sec">
+    <div class="box pl-next">
+      <div>
+        <h4>다음에 할 일</h4>
+        <p>남은 의견 6건과 위의 요청은 이어서 반영합니다.</p>
+        <p>선생님이 직접 쓴 책을 부기에 싣는 일도 준비하고 있습니다. <u class="ul">선생님 책 공모전</u>을 열고, 뽑힌 작품은 전문 작가 검토와 삽화 작업을 거쳐 ISBN을 받은 정식 도서로 낼 계획입니다.</p>
+      </div>
+      <img src="img/i-mascot.webp" alt="" width="260" height="256">
+    </div>
+  </div>
+
+  <div class="pl-src">
+    <p>자료: 「2026. 부기 사용 결과 기록」 사용후기 42건(2026. 9. 23.~10. 31.), 경남부기시범활용교사단 카카오톡 단체방(2026. 10. 2.~10. 31.)</p>
+    <p>후기 인용과 사진은 홍보 사용에 동의한 선생님의 글과 사진만 썼습니다. 단체방 글은 동의를 따로 받지 않아 학년만 적었습니다(사용후기에서 동의한 선생님은 이름 일부 표시).</p>
+    <p>최종 검수와 책임 MSECM과 교사 개발팀 · <a href="https://bookie.io.kr">bookie.io.kr</a></p>
+  </div>
+
+</div>
+<p style="margin-top:28px"><a class="dl" href="../#pilot">홍보 자료실로 가기</a></p></main>
+</body>
+</html>
