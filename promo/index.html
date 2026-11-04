@@ -46,7 +46,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
 :root[data-theme="dark"] .logo-light { display: none; } :root[data-theme="dark"] .logo-dark { display: block; }
 .brand h1 { font-size: clamp(26px, 3.6vw, 38px); line-height: 1.2; }
-.brand h1 small { display: block; font-family: var(--body); font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 2px; font-variant-numeric: tabular-nums; }
+.brand h1 small { display: block; font-family: var(--body); font-size: 15px; font-weight: 600; color: var(--green); letter-spacing: 0; margin-top: 4px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+@media (max-width: 600px) { .brand h1 small { font-size: 13px; } }
 .top .kids { height: 92px; width: auto; flex: none; }
 
 /* 탭 띠 */
@@ -493,7 +494,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
     <div class="brand">
       <img class="logo-light" src="img/wordmark.png" alt="부기" width="227" height="150">
       <img class="logo-dark" src="img/logo-light.png" alt="부기" width="233" height="204">
-      <h1>홍보 자료실<small>2026. 11. 4. 요금제 탭을 새 요금제(누구나 이용, 학교 요금제 학급당 1년 25만 원)⁠와 장 순서(운영 체계, 학급, 학교, 교육청)⁠로 바꿈</small></h1>
+      <h1>홍보 자료실<small>형편과 사는 곳에 상관없이 모든 학생이 어려움 없이 책을 읽도록, 부기의 읽기와 학급 관리는 누구나 비용 없이 씁니다</small></h1>
     </div>
     <img class="kids" src="img/kids.webp" alt="" width="260" height="256">
   </div>
