@@ -52,7 +52,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 
 /* 탭 띠 */
 .tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 6px 14px -12px rgba(0,0,0,.25); }
-.tabs .wrap { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.3fr) minmax(0, 1fr); gap: 8px; padding-block: 10px; }
+.tabs .wrap { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; padding-block: 10px; }
 .tab { --a: var(--t-web); cursor: pointer; text-align: left; min-width: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px 10px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 9px; align-items: center; }
 .tab svg { width: 26px; height: 26px; color: var(--a); grid-row: span 2; }
 .tab b { font-size: 16.5px; font-weight: 900; line-height: 1.25; white-space: nowrap; }
@@ -63,8 +63,6 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tab[aria-selected="true"] { color: #10180F; } :root:not([data-theme="light"]) .tab[aria-selected="true"] svg, :root:not([data-theme="light"]) .tab[aria-selected="true"] span { color: #10180F; } }
 :root[data-theme="dark"] .tab[aria-selected="true"], :root[data-theme="dark"] .tab[aria-selected="true"] svg, :root[data-theme="dark"] .tab[aria-selected="true"] span { color: #10180F; }
 .t-web { --a: var(--t-web); } .t-video { --a: var(--t-video); } .t-prop { --a: var(--t-prop); } .t-book { --a: var(--t-book); } .t-act { --a: var(--t-act); } .t-press { --a: var(--t-press); } .t-pilot { --a: var(--t-pilot); } .t-bm { --a: var(--t-bm); } .t-road { --a: var(--t-road); }
-.tab.t-bm b { white-space: normal; word-break: keep-all; }
-@media (max-width: 600px) { .tab.t-bm { grid-template-columns: minmax(0, 1fr); padding-inline: 8px; } .tab.t-bm svg { display: none; } .tab.t-bm b { font-size: 15px; } }
 
 /* 갈래 공통 */
 main { padding-block: 26px 70px; }
@@ -282,11 +280,22 @@ button.btn { font-family: var(--body); }
 button.shotbtn { cursor: pointer; padding: 0; border: 0; background: none; display: block; width: 100%; text-align: left; }
 footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--muted); font-size: 13px; }
 
-/* 탭 9칸(11.5. 로드맵 추가): 넓은 화면은 조금 촘촘하게, 1240px 이하는 5칸 두 줄 */
-@media (min-width: 1241px) { .tabs .wrap { gap: 6px; } .tab { padding: 9px 10px 10px; column-gap: 7px; } .tab svg { width: 22px; height: 22px; } }
-@media (max-width: 1240px) { .tabs .wrap { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+/* 탭 9칸(11.10.): 모든 칸 같은 너비. 넓은 화면은 아이콘 옆에 이름, 1240px 이하는 아이콘 위에 이름(한 줄 9칸), 760px 이하는 3칸 세 줄 */
+@media (min-width: 1241px) { .tab { padding: 9px 10px 10px; column-gap: 7px; } .tab svg { width: 22px; height: 22px; } }
+@media (max-width: 1240px) {
+  .tab { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; row-gap: 3px; padding: 8px 4px 9px; }
+  .tab svg { width: 21px; height: 21px; grid-row: auto; }
+  .tab b { font-size: 15px; }
+  .tab span { font-size: 11.5px; max-width: 100%; }
+}
+@media (max-width: 1000px) { .tab span { display: none; } .tab b { font-size: 14px; } }
+@media (max-width: 760px) {
+  .tabs .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tab { grid-template-columns: auto minmax(0, 1fr); justify-items: start; text-align: left; column-gap: 6px; padding: 8px 10px; }
+  .tab svg { width: 19px; height: 19px; }
+  .tab b { font-size: 14.5px; }
+}
 @media (max-width: 980px) {
-  .tabs .wrap { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .vwrap { grid-template-columns: minmax(0, 1fr); }
   .vlist { max-height: none; }
   .site-hero, .booth, .paper-site, .summary1, .short1 { grid-template-columns: minmax(0, 1fr); }
@@ -296,11 +305,8 @@ footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--m
 @media (max-width: 640px) {
   .top .kids { height: 64px; }
   .brand img { height: 42px; }
-  .tabs .wrap { gap: 6px; padding-block: 8px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .tab { padding: 8px 8px; column-gap: 6px; }
-  .tab svg { width: 19px; height: 19px; grid-row: auto; }
-  .tab b { font-size: 14.5px; }
-  .tab span { display: none; }
+  .tabs .wrap { gap: 6px; padding-block: 8px; }
+  .tab { padding: 8px 8px; }
   .site-grid { grid-template-columns: minmax(0, 1fr); }
   .gallery, .gallery.big { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .gallery.mspan1 > button:first-child { grid-column: span 2; }
@@ -596,7 +602,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
   </div>
 </header>
 <nav class="tabs" aria-label="자료 종류">
-  <div class="wrap" role="tablist"><button type="button" class="tab t-web" role="tab" data-tab="web" aria-selected="true" aria-controls="p-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><b>누리집</b><span>4곳</span></button><button type="button" class="tab t-video" role="tab" data-tab="video" aria-selected="false" aria-controls="p-video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg><b>영상</b><span>15편</span></button><button type="button" class="tab t-prop" role="tab" data-tab="prop" aria-selected="false" aria-controls="p-prop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15.5h6M9 9h3"/></svg><b>제안서</b><span>4건</span></button><button type="button" class="tab t-book" role="tab" data-tab="book" aria-selected="false" aria-controls="p-book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg><b>소개 책자</b><span>63쪽, 브로슈어 3종</span></button><button type="button" class="tab t-act" role="tab" data-tab="act" aria-selected="false" aria-controls="p-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6.5" cy="17.5" r="2.8"/><circle cx="17.5" cy="17.5" r="2.8"/><path d="M8.6 15.6 18 4M15.4 15.6 6 4"/></svg><b>활동 자료</b><span>8종</span></button><button type="button" class="tab t-press" role="tab" data-tab="press" aria-selected="false" aria-controls="p-press"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg><b>보도자료</b><span>2개 학교</span></button><button type="button" class="tab t-pilot" role="tab" data-tab="pilot" aria-selected="false" aria-controls="p-pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M5 4h14v12H10l-4 4v-4H5z"/><path d="M9 8.5h6M9 11.5h4"/></svg><b>시범 활용</b><span>교사단 후기</span></button><button type="button" class="tab t-bm" role="tab" data-tab="bm" aria-selected="false" aria-controls="p-bm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a7.5 7.5 0 1 1-6.9 4.6"/><path d="M4.6 4.8v4.6h4.6"/><path d="M9 13.5h6M12 10.5v6"/></svg><b>요금제</b><span>7장</span></button><button type="button" class="tab t-road" role="tab" data-tab="road" aria-selected="false" aria-controls="p-road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M5 21V4"/><path d="M5 4.5h11l-2.2 4 2.2 4H5"/><path d="M9 21h10"/></svg><b>로드맵</b><span>2027. 4. 학교 적용</span></button></div>
+  <div class="wrap" role="tablist"><button type="button" class="tab t-web" role="tab" data-tab="web" aria-selected="true" aria-controls="p-web"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><b>누리집</b><span>4곳</span></button><button type="button" class="tab t-book" role="tab" data-tab="book" aria-selected="false" aria-controls="p-book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5z"/><path d="M12 6.5v13"/></svg><b>소개 책자</b><span>63쪽</span></button><button type="button" class="tab t-act" role="tab" data-tab="act" aria-selected="false" aria-controls="p-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="6.5" cy="17.5" r="2.8"/><circle cx="17.5" cy="17.5" r="2.8"/><path d="M8.6 15.6 18 4M15.4 15.6 6 4"/></svg><b>활동 자료</b><span>8종</span></button><button type="button" class="tab t-video" role="tab" data-tab="video" aria-selected="false" aria-controls="p-video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg><b>영상</b><span>15편</span></button><button type="button" class="tab t-prop" role="tab" data-tab="prop" aria-selected="false" aria-controls="p-prop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 15.5h6M9 9h3"/></svg><b>제안서</b><span>4건</span></button><button type="button" class="tab t-press" role="tab" data-tab="press" aria-selected="false" aria-controls="p-press"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/></svg><b>보도자료</b><span>2개 학교</span></button><button type="button" class="tab t-pilot" role="tab" data-tab="pilot" aria-selected="false" aria-controls="p-pilot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M5 4h14v12H10l-4 4v-4H5z"/><path d="M9 8.5h6M9 11.5h4"/></svg><b>시범 활용</b><span>교사단 후기</span></button><button type="button" class="tab t-bm" role="tab" data-tab="bm" aria-selected="false" aria-controls="p-bm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5a7.5 7.5 0 1 1-6.9 4.6"/><path d="M4.6 4.8v4.6h4.6"/><path d="M9 13.5h6M12 10.5v6"/></svg><b>요금제</b><span>7장</span></button><button type="button" class="tab t-road" role="tab" data-tab="road" aria-selected="false" aria-controls="p-road"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M5 21V4"/><path d="M5 4.5h11l-2.2 4 2.2 4H5"/><path d="M9 21h10"/></svg><b>로드맵</b><span>2027. 4. 적용</span></button></div>
 </nav>
 <main class="wrap">
 <section class="panel" id="p-web" role="tabpanel"><div class="phead"><h2>누리집</h2><span class="n">4곳</span></div><div class="box site-hero"><a href="https://bookie.io.kr" target="_blank" rel="noopener" aria-label="부기 누리집 열기"><div class="shot"><img src="sites/bookie.webp" alt="부기 누리집 첫 화면" width="1200" height="750"></div></a><div><span class="date">운영 중</span><h3>부기 누리집</h3><div class="url">bookie.io.kr</div><p class="line">학생, 선생님 접속과 체험</p><a class="btn" href="https://bookie.io.kr" target="_blank" rel="noopener">열기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></svg></a></div></div><div class="site-grid"><div class="box site-card"><a href="intro/" target="_blank" rel="noopener" aria-label="소개 책자 누리집판 열기"><div class="shot"><img src="sites/intro.webp" alt="소개 책자 누리집판 첫 화면" width="1200" height="750" loading="lazy"></div></a><div class="row"><h3>소개 책자 누리집판</h3><span class="date">2026. 11. 2.</span></div><div class="url">자료실 안의 최신 소개 책자</div><p class="line">AI 시대의 읽기와 교실 수업, 온라인과 인쇄 활동지 운영</p><a class="btn" href="intro/" target="_blank" rel="noopener">열기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></svg></a></div><div class="box site-card"><a href="https://legoschool.github.io/msecm/bookie/" target="_blank" rel="noopener" aria-label="MSECM 누리집 부기 페이지 열기"><div class="shot"><img src="sites/msecm.webp" alt="MSECM 누리집 부기 페이지 첫 화면" width="1200" height="750" loading="lazy"></div></a><div class="row"><h3>MSECM 누리집 부기 페이지</h3><span class="date">2026. 10. 11.</span></div><div class="url">legoschool.github.io/msecm/bookie</div><p class="line">MSECM 회사 소개 안의 부기 페이지</p><a class="btn" href="https://legoschool.github.io/msecm/bookie/" target="_blank" rel="noopener">열기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></svg></a></div><div class="box site-card"><a href="https://edzip.kr/product-detail/6adee27c0f7be2cb69017ba2" target="_blank" rel="noopener" aria-label="에듀집 부기 소개 열기"><div class="shot"><img src="sites/edzip.webp" alt="에듀집 부기 소개 첫 화면" width="1200" height="750" loading="lazy"></div></a><div class="row"><h3>에듀집 부기 소개</h3><span class="date">2026. 11. 2.</span></div><div class="url">edzip.kr</div><p class="line">에듀테크 정보와 체험 플랫폼 에듀집의 부기 제품 페이지. 소개, 주요 기능, 교사 후기와 체험 신청</p><a class="btn" href="https://edzip.kr/product-detail/6adee27c0f7be2cb69017ba2" target="_blank" rel="noopener">열기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></svg></a></div></div></section>
@@ -874,7 +880,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
 </div>
 </section>
 </main>
-<footer><div class="wrap">(주)엠에스이씨엠 MSECM, 교사 개발팀, 외부 작가진</div></footer>
+<footer><div class="wrap">MSECM, 교사 개발팀, 외부 작가진</div></footer>
 
 <dialog class="fr" id="fr" aria-label="자료 보기">
   <div class="fr-in"><div class="fr-bar"><b id="frTitle"></b><button type="button" id="frClose">닫기</button></div><iframe id="frFrame" title="자료 보기" allow="fullscreen"></iframe></div>
