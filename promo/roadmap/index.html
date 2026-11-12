@@ -52,7 +52,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 
 /* 탭 띠 */
 .tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 6px 14px -12px rgba(0,0,0,.25); }
-.tabs .wrap { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)) minmax(0, 1.3fr) minmax(0, 1fr); gap: 8px; padding-block: 10px; }
+.tabs .wrap { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 6px; padding-block: 10px; }
 .tab { --a: var(--t-web); cursor: pointer; text-align: left; min-width: 0; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px 10px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 9px; align-items: center; }
 .tab svg { width: 26px; height: 26px; color: var(--a); grid-row: span 2; }
 .tab b { font-size: 16.5px; font-weight: 900; line-height: 1.25; white-space: nowrap; }
@@ -63,8 +63,6 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.0
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tab[aria-selected="true"] { color: #10180F; } :root:not([data-theme="light"]) .tab[aria-selected="true"] svg, :root:not([data-theme="light"]) .tab[aria-selected="true"] span { color: #10180F; } }
 :root[data-theme="dark"] .tab[aria-selected="true"], :root[data-theme="dark"] .tab[aria-selected="true"] svg, :root[data-theme="dark"] .tab[aria-selected="true"] span { color: #10180F; }
 .t-web { --a: var(--t-web); } .t-video { --a: var(--t-video); } .t-prop { --a: var(--t-prop); } .t-book { --a: var(--t-book); } .t-act { --a: var(--t-act); } .t-press { --a: var(--t-press); } .t-pilot { --a: var(--t-pilot); } .t-bm { --a: var(--t-bm); } .t-road { --a: var(--t-road); }
-.tab.t-bm b { white-space: normal; word-break: keep-all; }
-@media (max-width: 600px) { .tab.t-bm { grid-template-columns: minmax(0, 1fr); padding-inline: 8px; } .tab.t-bm svg { display: none; } .tab.t-bm b { font-size: 15px; } }
 
 /* 갈래 공통 */
 main { padding-block: 26px 70px; }
@@ -277,25 +275,32 @@ button.btn { font-family: var(--body); }
 button.shotbtn { cursor: pointer; padding: 0; border: 0; background: none; display: block; width: 100%; text-align: left; }
 footer { border-top: 1px solid var(--line); padding: 18px 0 34px; color: var(--muted); font-size: 13px; }
 
-/* 탭 9칸(11.5. 로드맵 추가): 넓은 화면은 조금 촘촘하게, 1240px 이하는 5칸 두 줄 */
-@media (min-width: 1241px) { .tabs .wrap { gap: 6px; } .tab { padding: 9px 10px 10px; column-gap: 7px; } .tab svg { width: 22px; height: 22px; } }
-@media (max-width: 1240px) { .tabs .wrap { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+/* 탭 9칸(11.10.): 모든 칸 같은 너비. 넓은 화면은 아이콘 옆에 이름, 1240px 이하는 아이콘 위에 이름(한 줄 9칸), 760px 이하는 3칸 세 줄 */
+@media (min-width: 1241px) { .tab { padding: 9px 10px 10px; column-gap: 7px; } .tab svg { width: 22px; height: 22px; } }
+@media (max-width: 1240px) {
+  .tab { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; row-gap: 3px; padding: 8px 4px 9px; }
+  .tab svg { width: 21px; height: 21px; grid-row: auto; }
+  .tab b { font-size: 15px; }
+  .tab span { font-size: 11.5px; max-width: 100%; }
+}
+@media (max-width: 1000px) { .tab span { display: none; } .tab b { font-size: 14px; } }
+@media (max-width: 760px) {
+  .tabs .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tab { grid-template-columns: auto minmax(0, 1fr); justify-items: start; text-align: left; column-gap: 6px; padding: 8px 10px; }
+  .tab svg { width: 19px; height: 19px; }
+  .tab b { font-size: 14.5px; }
+}
 @media (max-width: 980px) {
-  .tabs .wrap { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .vwrap { grid-template-columns: minmax(0, 1fr); }
   .vlist { max-height: none; }
-  .site-hero, .booth, .paper-site, .summary1 { grid-template-columns: minmax(0, 1fr); }
-  .site-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .site-hero, .booth, .paper-site, .summary1,   .site-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .heads { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
   .top .kids { height: 64px; }
   .brand img { height: 42px; }
-  .tabs .wrap { gap: 6px; padding-block: 8px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .tab { padding: 8px 8px; column-gap: 6px; }
-  .tab svg { width: 19px; height: 19px; grid-row: auto; }
-  .tab b { font-size: 14.5px; }
-  .tab span { display: none; }
+  .tabs .wrap { gap: 6px; padding-block: 8px; }
+  .tab { padding: 8px 8px; }
   .site-grid { grid-template-columns: minmax(0, 1fr); }
   .gallery, .gallery.big { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .gallery.mspan1 > button:first-child { grid-column: span 2; }
