@@ -594,6 +594,13 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
   .rm-log li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
 }
 
+/* 의견을 받아 정할 다음 개발(11.22.) */
+.rm-nextlead { color: var(--muted); font-size: 15.5px; line-height: 1.7; margin: -4px 0 14px !important; word-break: keep-all; text-wrap: pretty; }
+.rm-next { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.rm-next li { background: var(--sheet); border: 1px dashed var(--rm-c); border-radius: 14px; padding: 14px 16px; word-break: keep-all; }
+.rm-next b { display: block; font-size: 16.5px; font-weight: 900; color: var(--rm-c); margin-bottom: 4px; text-wrap: balance; }
+.rm-next span { display: block; font-size: 14.5px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+
 </style>
 </head>
 <body>
@@ -602,13 +609,13 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
 
   <div class="rm-lead">
     <p class="rm-big">2026년 12월 경남 부기 선도교사단, 2027년 1월 전국 부기 선도교사단을 구축합니다.<br><b>2027년 4월부터는 전국 학교에서 정식 운영합니다.</b></p>
-    <p class="rm-sm">2025년부터 현장 선생님들과 구상했습니다. 2026년 3월에 만들기 시작했고, 9월부터 교실에서 시범 운영 중입니다.</p>
+    <p class="rm-sm">2025년부터 현장 선생님들과 구상했습니다. 2026년 3월에 만들기 시작했고, 9월부터 교실에서 시범 운영 중입니다.<br>2026년 11월 18일 기준 18개 학교 학생 614명이 책 11,359권을 완독했습니다.</p>
   </div>
 
   <ol class="rm-strip">
     <li class="done"><span class="w">2025</span><b>구상</b><span class="d">기획·조사 문서, 개발사양서</span></li>
     <li class="done"><span class="w">2026. 3.~8.</span><b>제작</b><span class="d">목업, 시제품, 1차 개발 완료</span></li>
-    <li class="now"><span class="w">2026. 9.~11.</span><b>시범 운영</b><span class="d">학급 시범 운영, 책 300권 정비</span></li>
+    <li class="now"><span class="w">2026. 9.~11.</span><b>시범 운영</b><span class="d">18개 학교 시범 운영, 책 300권 정비</span></li>
     <li class="key"><span class="w">2026. 12.</span><b>경남 교사단</b><span class="d"><em>12. 19.</em> 경남 부기 선도교사단 구축<br>소설 공모전 시작</span></li>
     <li class="key"><span class="w">2027. 1.</span><b>전국 교사단</b><span class="d"><em>1. 25.~27.</em> 전국 부기 선도교사단 구축</span></li>
     <li class="key"><span class="w">2027. 2.~3.</span><b>홍보</b><span class="d">인디스쿨, 온라인 연수, 새학년맞이 세미나</span></li>
@@ -623,6 +630,8 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
       <ul>
         <li><i>책</i>명작 300권 정비 마무리, 작가진 검수</li>
         <li><i>앱</i>시범 운영 학급 의견 반영(읽어주기, 어휘력 진단, 독후활동)</li>
+        <li><i>의견</i>교장·교감 선생님께 학교 독서교육 의견을 묻고 다음 개발에 반영</li>
+        <li><i>확장</i>중학교 창작 수업 구상(읽은 이야기를 다시 쓰고 새로 짓기)</li>
         <li><i>부스</i>에듀플러스위크 부스 준비, 책 속 인물·작가와의 대화 다듬기</li>
         <li><i>공모전</i>교사 자작 소설 공모전 요강 마련</li>
       </ul>
@@ -654,7 +663,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
         <p class="rm-pin">1. 25.(월)~27.(수) 전국 부기 선도교사단 구축</p>
         <ul>
           <li>에듀플러스위크 부스에서 전국 선생님을 모집합니다</li>
-          <li>부스 체험: 고민 책방, 책 속 인물과 대화, 독서 포트폴리오 카드</li>
+          <li>부스 체험: 명작 한 권 다 읽기, 책 속 인물·작가와의 대화, NFC 카드 독서 포트폴리오</li>
           <li>선도교사단 혜택과 소설 공모전을 안내합니다</li>
         </ul>
       </div>
@@ -690,13 +699,23 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
     </section>
   </div>
 
+  <h3 class="rm-h">의견을 받아 정할 다음 개발</h3>
+  <p class="rm-nextlead">연필 교정기와 젓가락 보조기가 손에 익을 때까지 손가락 자리를 잡아 주듯, 부기는 읽기의 어려움을 덜어 아이가 혼자 끝까지 읽을 수 있을 때까지 곁에서 돕습니다. 다음 개발도 같은 방향으로, 학교 현장 의견을 받아 순서를 정합니다(검토 중).</p>
+  <ul class="rm-next">
+    <li><b>학교 체제에 맞는 프로그램</b><span>아침활동, 온책읽기, 국어 수업 시간에 바로 쓰는 프로그램</span></li>
+    <li><b>전자도서관 연계와 추천</b><span>도서관과 전자도서관의 다음 책을 추천</span></li>
+    <li><b>함께 읽기</b><span>같은 책을 읽은 친구와 생각을 나누고 이야기를 이어 쓰기</span></li>
+    <li><b>학생 작가</b><span>읽고 쓴 글을 학급 문집과 책으로 펴내기</span></li>
+    <li><b>중학교 창작 수업</b><span>읽은 이야기를 다시 쓰고 새로 짓는 수업(중학교 확장 중)</span></li>
+  </ul>
+
   <h3 class="rm-h">영역별 일정</h3>
   <div class="rm-scroll">
     <table class="rm-tbl">
       <thead><tr><th>영역</th><th>2026. 11.</th><th>2026. 12.</th><th>2027. 1.</th><th>2027. 2.~3.</th><th>2027. 4.~</th></tr></thead>
       <tbody>
         <tr><th>책</th><td>300권 정비, 작가진 검수</td><td>원작 판본 밝히기</td><td>부스 체험용 책</td><td>학교 운영 도서 확정</td><td>공모전 수상작 올림</td></tr>
-        <tr><th>앱</th><td>현장 의견 반영</td><td>앱 출시 준비</td><td>고민 책방 기능 추가</td><td>학교 계정 준비</td><td>어휘 지원, 고쳐 쓰기</td></tr>
+        <tr><th>앱</th><td>현장 의견 반영</td><td>앱 출시 준비</td><td>부스 체험판(인물·작가와의 대화)</td><td>학교 계정 준비</td><td>어휘 지원, 고쳐 쓰기</td></tr>
         <tr><th>교사단</th><td>시범 운영 의견 정리</td><td class="hi">경남 부기 선도교사단 구축(12. 19.)</td><td class="hi">전국 부기 선도교사단 구축(1. 25.~27.)</td><td>사례 발표, 연수 강사</td><td>찾아가는 연수</td></tr>
         <tr><th>홍보</th><td>홍보 자료실, 영상</td><td>경남 사례 정리</td><td>에듀플러스위크 부스</td><td class="hi">인디스쿨, 온라인 연수, 새학년맞이 세미나</td><td>운영 보고, 보도자료</td></tr>
         <tr><th>공모전·출판</th><td>공모 요강 마련</td><td class="hi">소설 공모전 시작(매달 진행)</td><td>1월 공모, 부스에서 안내</td><td class="hi">매달 공모, ISBN 등록 안내</td><td>매달 공모, ISBN 출간</td></tr>
@@ -715,7 +734,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
       <li><b>2026. 7.~8.</b><p>관리자 대시보드와 기관관리자 화면, 아이 캐릭터, 약관, <u>1차 개발 완료(8. 21.)</u>, 선도교사단 모집</p></li>
       <li><b>2026. 9.</b><p>소개 페이지 공개, 창원·석산초 설명회, 독후활동과 인물 대화를 중심에 둠, 명작 300권 초안, 작가진 합류</p></li>
       <li><b>2026. 10.</b><p>5·6학년 작가본과 작가진 검수, 홍보 영상, 교육 철학 정리(책으로 자라는 교실), 고민 책방 체험판과 책 속 인물 대화, 시범 운영 의견 정리</p></li>
-      <li><b>2026. 11.</b><p>시범 활용 기록 공개, 부기 요금제 마련</p></li>
+      <li><b>2026. 11.</b><p>시범 활용 기록 공개, 부기 요금제 마련, 시범 운영 성과 정리(11. 18. 기준 18개 학교, 614명, 11,359권 완독), 독서교육 위탁운영 제안서와 2분 소개 영상, 사업 대상에 중학교 확장 중, 학교 독서교육 의견 조사지 마련</p></li>
     </ol>
   </details>
 
