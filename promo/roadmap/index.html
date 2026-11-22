@@ -35,6 +35,9 @@ a { color: inherit; }
 button { font: inherit; color: inherit; }
 .wrap { max-width: 1240px; margin: 0 auto; padding-left: max(clamp(16px, 3.6vw, 40px), env(safe-area-inset-left, 0px)); padding-right: max(clamp(16px, 3.6vw, 40px), env(safe-area-inset-right, 0px)); }
 h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+/* 마지막 줄에 낱말 하나만 남지 않게(11.22. 외톨이 줄 지침) */
+p, li, dd, figcaption, td, blockquote, .desc, .line { text-wrap: pretty; }
+h4, .cap { text-wrap: balance; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 /* 머리 */
@@ -507,6 +510,10 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
 }
 @media (prefers-reduced-motion: reduce) { .pl-photo, .pl-photo:nth-child(n) { transform: none; transition: none; } }
 
+/* 11.22. 외톨이 줄 지침 */
+.pl p, .pl li, .pl blockquote, .pl figcaption { text-wrap: pretty; }
+.pl h4 { text-wrap: balance; }
+
 /* 로드맵 탭. 자료실 index.html과 roadmap/index.html에 같이 들어감. 모든 규칙은 .rm 안에서만 */
 .rm { --rm-c: var(--t-road, #4A4F9C); --rm-key: #B9572A; --rm-keysoft: #FBEADF; --rm-tint: #ECEDF8; --rm-done: var(--shade); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rm { --rm-key: #EE9466; --rm-keysoft: #3A2A20; --rm-tint: #23263F; } }
@@ -601,10 +608,14 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
 .rm-next b { display: block; font-size: 16.5px; font-weight: 900; color: var(--rm-c); margin-bottom: 4px; text-wrap: balance; }
 .rm-next span { display: block; font-size: 14.5px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
 
+/* 11.22. 외톨이 줄 지침 */
+.rm p, .rm li, .rm td { text-wrap: pretty; }
+.rm-strip .d, .rm-pin { text-wrap: balance; }
+
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="../" style="text-decoration:none"><img class="logo-light" src="../img/wordmark.png" alt="부기" width="227" height="150"><img class="logo-dark" src="../img/logo-light.png" alt="부기" width="233" height="204"><h1>로드맵<small>부기 개발 로드맵, 2026. 11. 5. 기준</small></h1></a><img class="kids" src="../img/kids.webp" alt="" width="260" height="256"></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="../" style="text-decoration:none"><img class="logo-light" src="../img/wordmark.png" alt="부기" width="227" height="150"><img class="logo-dark" src="../img/logo-light.png" alt="부기" width="233" height="204"><h1>로드맵<small>부기 개발 로드맵, 2026. 11. 22. 기준</small></h1></a><img class="kids" src="../img/kids.webp" alt="" width="260" height="256"></div></header>
 <main class="wrap"><div class="rm">
 
   <div class="rm-lead">
@@ -642,12 +653,12 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
       <div>
         <p class="rm-pin">12. 19. 경남 부기 선도교사단 구축</p>
         <ul>
-          <li>경남 선생님들이 학급에서 부기를 쓴 사례를 나눕니다</li>
+          <li>경남 선생님들의 학급 활용 사례를 공유합니다</li>
           <li>지역 선도교사 역할을 정하고 1월 전국 모집을 준비합니다</li>
         </ul>
         <p class="rm-pin">교사 자작 소설 공모전 시작, 매달 진행</p>
         <ul>
-          <li>선생님이 쓴 소설을 12월부터 달마다 받습니다</li>
+          <li>선생님이 쓴 소설을 12월부터 매달 접수합니다</li>
           <li>주제(안): 학급 경영, 사회정서교육, AI 시대의 변화, 다문화</li>
         </ul>
         <ul class="rm-etc">
@@ -679,7 +690,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
           <li><i>홍보</i><b>새학년맞이 세미나</b>: 교사단 선생님이 수업 사례 발표</li>
           <li><i>공모전</i>소설 공모전 매달 진행</li>
           <li><i>출판</i><b>ISBN 등록 안내</b>: 수상작은 (주)엠에스이씨엠이 ISBN을 등록해 선생님 이름으로 전자책과 종이책을 냅니다</li>
-          <li><i>도입</i>4월부터 쓸 학교 모집</li>
+          <li><i>도입</i>4월 도입 학교 모집</li>
         </ul>
       </div>
     </section>
@@ -689,10 +700,10 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
       <div>
         <p class="rm-pin">전국 학교에서 정식 운영 시작</p>
         <ul>
-          <li>학급은 누구나 비용 없이 씁니다. 학교 요금은 <a href="../#bm" class="rm-link">요금제 탭</a>에서 볼 수 있습니다</li>
+          <li>1개 학급은 누구나 무료로 사용합니다. 학교 요금은 <a href="../#bm" class="rm-link">요금제 탭</a>에서 볼 수 있습니다</li>
           <li><i>연수</i>찾아가는 교사 연수(가까운 학교는 선도교사단, 먼 지역은 지역 선도교사)</li>
-          <li><i>운영</i>학교별 완독, 어휘력 변화, 운영 학급을 매달 보고</li>
-          <li><i>출판</i>소설 공모전 매달 진행, 수상작은 책으로 내고 부기 서재에 올림</li>
+          <li><i>운영</i>학교별 완독 수, 어휘력 변화, 운영 학급 수 매월 보고</li>
+          <li><i>출판</i>소설 공모전 매달 진행, 수상작은 출간 후 부기 서재에 탑재</li>
           <li><i>앱</i>수준별 어휘 지원, 고쳐 쓰기, 창작 도구</li>
         </ul>
       </div>
@@ -706,7 +717,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
     <li><b>전자도서관 연계와 추천</b><span>도서관과 전자도서관의 다음 책을 추천</span></li>
     <li><b>함께 읽기</b><span>같은 책을 읽은 친구와 생각을 나누고 이야기를 이어 쓰기</span></li>
     <li><b>학생 작가</b><span>읽고 쓴 글을 학급 문집과 책으로 펴내기</span></li>
-    <li><b>중학교 창작 수업</b><span>읽은 이야기를 다시 쓰고 새로 짓는 수업(중학교 확장 중)</span></li>
+    <li><b>중학교 창작 수업</b><span>읽은 이야기를 다시 쓰고 새로 짓는 수업(중학교&nbsp;확장&nbsp;중)</span></li>
   </ul>
 
   <h3 class="rm-h">영역별 일정</h3>
@@ -714,7 +725,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
     <table class="rm-tbl">
       <thead><tr><th>영역</th><th>2026. 11.</th><th>2026. 12.</th><th>2027. 1.</th><th>2027. 2.~3.</th><th>2027. 4.~</th></tr></thead>
       <tbody>
-        <tr><th>책</th><td>300권 정비, 작가진 검수</td><td>원작 판본 밝히기</td><td>부스 체험용 책</td><td>학교 운영 도서 확정</td><td>공모전 수상작 올림</td></tr>
+        <tr><th>책</th><td>300권 정비, 작가진 검수</td><td>원작 판본 명시</td><td>부스 체험 도서 선정</td><td>학교 운영 도서 확정</td><td>공모전 수상작 탑재</td></tr>
         <tr><th>앱</th><td>현장 의견 반영</td><td>앱 출시 준비</td><td>부스 체험판(인물·작가와의 대화)</td><td>학교 계정 준비</td><td>어휘 지원, 고쳐 쓰기</td></tr>
         <tr><th>교사단</th><td>시범 운영 의견 정리</td><td class="hi">경남 부기 선도교사단 구축(12. 19.)</td><td class="hi">전국 부기 선도교사단 구축(1. 25.~27.)</td><td>사례 발표, 연수 강사</td><td>찾아가는 연수</td></tr>
         <tr><th>홍보</th><td>홍보 자료실, 영상</td><td>경남 사례 정리</td><td>에듀플러스위크 부스</td><td class="hi">인디스쿨, 온라인 연수, 새학년맞이 세미나</td><td>운영 보고, 보도자료</td></tr>
@@ -732,7 +743,7 @@ details:not([open]) > summary .pl-fold::after { transform: translateY(-2px) rota
       <li><b>2026. 3.~5.</b><p>목업 제작, 시제품과 기획서, 본사 시연</p></li>
       <li><b>2026. 6.</b><p>bookie.io.kr 개설, 교사·학생 계정 시연 공개, 교사 개발팀 구성</p></li>
       <li><b>2026. 7.~8.</b><p>관리자 대시보드와 기관관리자 화면, 아이 캐릭터, 약관, <u>1차 개발 완료(8. 21.)</u>, 선도교사단 모집</p></li>
-      <li><b>2026. 9.</b><p>소개 페이지 공개, 창원·석산초 설명회, 독후활동과 인물 대화를 중심에 둠, 명작 300권 초안, 작가진 합류</p></li>
+      <li><b>2026. 9.</b><p>소개 페이지 공개, 창원·석산초 설명회, 독후활동과 인물 대화 중심으로 개편, 명작 300권 초안, 작가진 합류</p></li>
       <li><b>2026. 10.</b><p>5·6학년 작가본과 작가진 검수, 홍보 영상, 교육 철학 정리(책으로 자라는 교실), 고민 책방 체험판과 책 속 인물 대화, 시범 운영 의견 정리</p></li>
       <li><b>2026. 11.</b><p>시범 활용 기록 공개, 부기 요금제 마련, 시범 운영 성과 정리(11. 18. 기준 18개 학교, 614명, 11,359권 완독), 독서교육 위탁운영 제안서와 2분 소개 영상, 사업 대상에 중학교 확장 중, 학교 독서교육 의견 조사지 마련</p></li>
     </ol>
