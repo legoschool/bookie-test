@@ -309,7 +309,7 @@
   var skipRoute = false;
   function chrome(r) {
     document.querySelectorAll('[data-nav]').forEach(function (a){ a.classList.toggle('on', a.dataset.nav === r); });
-    document.title = r === '/' ? '부기 · 교실을 위한 어린이 명작 도서관'
+    document.title = r === '/' ? '부기 독서수업 플랫폼(BOOKIE)'
       : ((BOOK[bookAt(r)] || {t:'부기'}).t + ' · 부기');
   }
   function route() {
